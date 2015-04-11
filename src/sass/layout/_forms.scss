@@ -1,0 +1,21 @@
+input {
+	height: 40px;
+	width: 220px;
+	border: 1px $dark-side solid;
+	padding: 12px;
+	display: inline-block;
+	vertical-align:middle;
+}
+input[type="email"] {
+	@include opacity(0.6);
+}
+
+.email {
+	margin-right: -1px;
+	text-align: left;
+}
+
+::-webkit-input-placeholder{
+	font-style: italic;
+	//font-size: 1.2em;
+}

@@ -5,7 +5,7 @@
 
 @font-face {
 	font-family: 'Open Sans';
-	src: url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,600,300');
+	src: url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:300italic,400,600,300');
 }
 
 body {
@@ -33,4 +33,9 @@ a:hover {
 	font-family: 'Open Sans';
 	text-transform: uppercase;
 	font-weight: 600;
+	letter-spacing: 0.09em;
+}
+
+input {
+	font-family: 'Open Sans';
 }
