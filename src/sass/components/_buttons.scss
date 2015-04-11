@@ -1,0 +1,15 @@
+.button {
+	width: 120px;
+	height: 40px;
+	border: 1px $dark-side solid;
+	text-align: center;
+	padding: 12px;
+	display: inline-block;
+}
+
+.button:hover {
+	cursor: pointer;
+	color: $snow-white;
+	background-color: $dark-side;
+	@include opacity(0.8); 
+}

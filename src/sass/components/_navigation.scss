@@ -3,9 +3,7 @@
 	height: 100px;
 	text-align: center;
 	background-color: $snow-white;
-	zoom: 1;
-	filter: alpha(opacity=50);
-	opacity: 0.8;
+	@include opacity(0.8); 
 	ul{	
 		padding-top: 25px;
 		display: inline-block;
@@ -18,9 +16,9 @@
 		}
 	}
 
-	a:hover {
-		text-decoration: underline;
-		cursor: pointer;
+	.menu-item:hover {
+		border-bottom: 1px dotted #999;
+  		text-decoration: none; 
 	}
 }
 

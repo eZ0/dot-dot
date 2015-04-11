@@ -57,9 +57,11 @@ table {
 
 @font-face {
   font-family: 'bebas_thin';
-  src: url('../fonts/BebasNeue_Light.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal; }
+  src: url('../fonts/BebasNeue_Light.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('https://www.google.com/fonts#UsePlace:use/Collection:Open+Sans:400,600,300'); }
 
 body {
   font-weight: 300;
@@ -70,14 +72,40 @@ ul {
   font-size: 1.2em;
   letter-spacing: 0.2em; }
 
+a {
+  text-decoration: none;
+  color: #000000; }
+
+a:hover {
+  cursor: pointer; }
+
+.button {
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-weight: 600; }
+
+.button {
+  width: 120px;
+  height: 40px;
+  border: 1px #000000 solid;
+  text-align: center;
+  padding: 12px;
+  display: inline-block; }
+
+.button:hover {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #000000;
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
+
 .nav {
   width: 100%;
   height: 100px;
   text-align: center;
   background-color: #ffffff;
-  zoom: 1;
-  filter: alpha(opacity=50);
-  opacity: 0.8; }
+  opacity: 0.8;
+  filter: alpha(opacity=80); }
   .nav ul {
     padding-top: 25px;
     display: inline-block; }
@@ -86,9 +114,9 @@ ul {
       margin: 20px 120px; }
     .nav ul li:after, .nav ul li:before {
       clear: both; }
-  .nav a:hover {
-    text-decoration: underline;
-    cursor: pointer; }
+  .nav .menu-item:hover {
+    border-bottom: 1px dotted #999;
+    text-decoration: none; }
 
 .logo {
   background: url('../images/logo.png');
@@ -103,4 +131,12 @@ ul {
   background-repeat: no-repeat;
   background-size: 75%;
   background-position: top; }
+
+.buttons {
+  height: 40px;
+  margin: 0 auto;
+  width: 500px;
+  padding-top: 150px; }
+  .buttons .button {
+    margin: 0px 60px; }
 
