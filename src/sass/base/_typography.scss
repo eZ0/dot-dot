@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'bebas_thin';
+    // src: url('fonts/BebasNeue_Thin.eot');
+    src: 
+    // url('fonts/BebasNeue_Thin.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BebasNeue_Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-weight: 300;
+	// font-size: 62.5%;
+	font-family: 'bebas_thin';
+}
+
+ul {
+	text-transform: uppercase;
+	font-size: 1.2em;
+	letter-spacing: 0.2em;
+}

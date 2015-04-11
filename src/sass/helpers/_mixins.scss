@@ -1,7 +1,39 @@
+// Clearfix
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " "; // 1
+		display: table; // 2
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Opacity
+
+@mixin opacity($opacity) {
+	opacity: $opacity;
+	// IE8 filter
+	$opacity-ie: ($opacity * 100);
+	filter: alpha(opacity=$opacity-ie);
+}
+
 @mixin rc($radius: 0.5em) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    border-radius: $radius;
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
 }
 
 @mixin transition($transition-time, $transition-property: all , $method: ease-in-out) {
@@ -13,42 +45,42 @@
 }
 
 @mixin placeholder($color: black, $text-transform : capitalize) {
-    ::-webkit-input-placeholder {
-        color: $color;
-        text-transform: $text-transform;
-    }
-    :-moz-placeholder {
-        color: $color;
-        text-transform: $text-transform;
-    }
-    ::-moz-placeholder {
-        color: $color;
-        text-transform: $text-transform;
-    }
-    :-ms-input-placeholder {
-        color: $color;
-        text-transform: $text-transform;
-    }
+	::-webkit-input-placeholder {
+		color: $color;
+		text-transform: $text-transform;
+	}
+	:-moz-placeholder {
+		color: $color;
+		text-transform: $text-transform;
+	}
+	::-moz-placeholder {
+		color: $color;
+		text-transform: $text-transform;
+	}
+	:-ms-input-placeholder {
+		color: $color;
+		text-transform: $text-transform;
+	}
 }
 
 $media: screen;
 $feature: min-width;
 @mixin mq($breakpoint) {
-    @if $breakpoint == mp { // mobile portrait
-        @media #{$media} and ($feature: 320px) {
-            @content;
-        }
-    } @else if $breakpoint == ml { // mobile landscape
-        @media #{$media} and ($feature: 480px) {
-            @content;
-        }
-    } @else if $breakpoint == n { // note
-        @media #{$media} and ($feature: 643px) {
-            @content;
-        }
-    } @else if $breakpoint == fb { // facebook duh!
-        @media #{$media} and ($feature: 800px) {
-            @content;
-        }
-    }
+@if $breakpoint == mp { // mobile portrait
+	@media #{$media} and ($feature: 320px) {
+		@content;
+	}
+} @else if $breakpoint == ml { // mobile landscape
+	@media #{$media} and ($feature: 480px) {
+		@content;
+	}
+} @else if $breakpoint == n { // note
+	@media #{$media} and ($feature: 643px) {
+		@content;
+	}
+} @else if $breakpoint == fb { // facebook duh!
+	@media #{$media} and ($feature: 800px) {
+		@content;
+	}
+}
 }
