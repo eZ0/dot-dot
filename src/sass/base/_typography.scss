@@ -36,6 +36,18 @@ a:hover {
 	letter-spacing: 0.09em;
 }
 
-input {
+input, .text {
 	font-family: 'Open Sans';
+}
+
+.text {
+	line-height: 1.8em;
+	p{
+		text-align: justify;
+		padding: 12px 0;
+	}
+	a {
+		color: #00aeef;
+		text-decoration: none;
+	}
 }
