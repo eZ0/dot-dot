@@ -90,7 +90,7 @@ input {
 
 input {
   height: 40px;
-  width: 220px;
+  width: 240px;
   border: 1px #000000 solid;
   padding: 12px;
   display: inline-block;
@@ -167,5 +167,15 @@ input[type="email"] {
 .email-form {
   height: 40px;
   margin: 0 auto;
-  width: 500px; }
+  width: 380px;
+  padding-top: 150px; }
+
+.social {
+  padding-top: 15px; }
+
+.pinterest {
+  background: url('../images/pinterest.png');
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px; }
 

@@ -83,7 +83,7 @@ gulp.task('scripts', function () {
 		])
 	.pipe(plumber())
 	.pipe(sourcemaps.init({loadMaps: true}))
-	.pipe(jshint('.jshintrc'))
+	// .pipe(jshint('.jshintrc'))
 	.pipe(jshint.reporter('default'))
 	.pipe(concat('main.js'))
 	.pipe(gulp.dest('dist/assets/javascript'))
