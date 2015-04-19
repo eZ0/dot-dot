@@ -36,6 +36,7 @@ void draw(){
 	line(50,50,X,Y);
 	ellipse( Y, X, radius, radius );
 	line(20, 200, Y,X);
+	line(20, 300, Y,X);
 }
 
 

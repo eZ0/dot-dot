@@ -4,6 +4,7 @@
  * http://www.sitepoint.com/architecture-sass-project/
  *
  */
+/******SCREEN_SIZES******/
 .border-box {
   box-sizing: border-box; }
 
@@ -97,6 +98,35 @@ input, .text {
     color: #00aeef;
     text-decoration: none; }
 
+.col {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  padding: 2.35765%; }
+  .col:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin: 0;
+      width: 50%; }
+      .col:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 960px) {
+    .col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      margin: 0;
+      width: 25%; }
+      .col:last-child {
+        margin-right: 0; } }
+
 input {
   height: 40px;
   width: 240px;
@@ -123,14 +153,16 @@ input[type="email"] {
   text-align: center;
   padding: 12px;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  transition: background-color .5s; }
 
 .button:hover {
   cursor: pointer;
   color: #ffffff;
   background-color: #000000;
   opacity: 0.8;
-  filter: alpha(opacity=80); }
+  filter: alpha(opacity=80);
+  transition: background-color .5s; }
 
 .nav {
   width: 100%;

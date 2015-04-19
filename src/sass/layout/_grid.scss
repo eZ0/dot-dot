@@ -1,0 +1,19 @@
+
+
+.col {
+	@include span-columns(12);
+	// @include reset-display;
+	@include pad();
+
+	@include media($sansa) {
+		@include span-columns(6);
+		margin: 0;
+		width: 50%;
+	}
+
+	@include media($robb) {
+		@include span-columns(3);
+		margin: 0;
+		width: 25%;
+	}
+}
