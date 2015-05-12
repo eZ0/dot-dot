@@ -1,0 +1,40 @@
+{ 
+	"gallery" : [
+			{ "name"  : "Ksenia",
+				"country" : "Belgium",
+				"image" : "assets/images/gallery/pic1.png"
+			},
+			{ "name"  : "Kotaro",
+				"country" : "Japan",
+				"image" : "assets/images/gallery/pic2.png"
+			},
+			{ "name"  : "Maria",
+				"country" : "Greece",
+				"image" : "assets/images/gallery/pic3.png"
+			},
+			{ "name"  : "Igor",
+				"country" : "Russia",
+				"image" : "assets/images/gallery/pic1.png"
+			},
+			{ "name"  : "Ksenia",
+				"country" : "Belgium",
+				"image" : "assets/images/gallery/pic1.png"
+			},
+			{ "name"  : "Kotaro",
+				"country" : "Japan",
+				"image" : "assets/images/gallery/pic2.png"
+			},
+			{ "name"  : "Maria",
+				"country" : "Greece",
+				"image" : "assets/images/gallery/pic3.png"
+			},
+			{ "name"  : "Igor",
+				"country" : "Russia",
+				"image" : "assets/images/gallery/pic1.png"
+			},
+			{ "name"  : "Björn",
+				"country" : "Norway",
+				"image" : "assets/images/gallery/pic4.png"
+			}
+	]
+}

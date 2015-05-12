@@ -30,9 +30,12 @@
 // Components and modules
 @import "components/buttons";
 @import "components/navigation";
+@import "components/modal";
  
 // Page-specific stylesheets
 @import "pages/home";
 @import "pages/about";
+@import "pages/gallery";
+
 // Themes 
 @import "themes/theme";

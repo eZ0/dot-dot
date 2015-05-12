@@ -33,23 +33,23 @@ gulp.task('styles', function () {
 	return gulp.src('src/sass/main.scss')
 	.pipe(plumber())
 	.pipe(sourcemaps.init({loadMaps: true}))
-//.pipe(sass({sourcemap: true}))
-.pipe(sass({
-    // includePaths: require('node-bourbon').with('other/path', 'another/path')
-    // - or -
-    sourcemap: true,
-    includePaths: ['styles'].concat(neat)
-}))
-.pipe(autoprefixer({
-	browsers: ['last 2 versions'],
-	cascade: false
-}))
-.pipe(gulp.dest('dist/assets/stylesheets'))
-.pipe(rename({suffix: '.min'}))
-.pipe(minifycss())
-.pipe(sourcemaps.write('./'))
-.pipe(gulp.dest('dist/assets/stylesheets'))
-.pipe(notify({message: 'Styles task complete', sound: false}));
+	//.pipe(sass({sourcemap: true}))
+	.pipe(sass({
+		// includePaths: require('node-bourbon').with('other/path', 'another/path')
+		// - or -
+		sourcemap: true,
+		includePaths: ['styles'].concat(neat)
+	}))
+	.pipe(autoprefixer({
+		browsers: ['last 2 versions'],
+		cascade: false
+	}))
+	.pipe(gulp.dest('dist/assets/stylesheets'))
+	.pipe(rename({suffix: '.min'}))
+	.pipe(minifycss())
+	.pipe(sourcemaps.write('./'))
+	.pipe(gulp.dest('dist/assets/stylesheets'))
+	.pipe(notify({message: 'Styles task complete', sound: false}));
 
 });
 
@@ -79,6 +79,7 @@ gulp.task('scripts', function () {
 	return gulp.src([
 		'src/javascript/vendors/**/*.js',
 		'src/javascript/partials/**/*.js',
+		'src/javascript/*.js',
 		'src/javascript/main.js'
 		])
 	.pipe(plumber())
@@ -116,6 +117,14 @@ gulp.task('clean', function (cb) {
 	del(['dist/assets/stylesheets', 'dist/assets/javascript', 'dist/assets/images'], cb)
 });
 
+gulp.task('json', function () {
+	return gulp.src([
+		'src/javascript/*.json'
+		])
+	.pipe(gulp.dest('dist/assets/javascript'))
+	.pipe(notify({ message: 'json task complete' , sound: false}));
+});
+
 /**
 * Watch for file changes
 * ----------------------------------------------------------------
@@ -126,6 +135,7 @@ gulp.task('clean', function (cb) {
 */
 gulp.task('watch', function () {
 	gulp.watch('src/javascript/**/*.js', ['scripts']);
+	gulp.watch('src/javascript/*.json', ['json']);
 	gulp.watch('src/sass/**/*.scss', ['styles']);
 	gulp.watch('src/documents/**/*.html', ['minify-html']);
 	gulp.watch('src/images/**/*', ['images']);

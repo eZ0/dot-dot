@@ -1,0 +1,61 @@
+// Scale up the modal
+@media (min-width: $arya) {
+	// Automatically set modal's width for larger viewports
+	.modal-dialog,  {
+		width: $sansa;
+		margin: 30px auto;
+	}
+
+	// Modal sizes
+	.modal-sm { width: $robb; }
+}
+
+@media (min-width: $catelyn) {
+	.modal-lg { width: $robb; }
+}
+
+@media (max-width: $sansa) {
+
+	.nav {
+		ul{
+			// margin: 0 20px;
+			li{
+				margin: 20px 60px !important;
+			}
+		}
+	}
+}
+
+@media (max-width: $robb) {
+	.nav {
+		ul{
+			// margin: 0 20px;
+			li{
+				margin: 20px 50px !important;
+			}
+		}
+	}
+}
+
+@media (max-width: $bran) {
+	.nav {
+		ul{
+			// margin: 0 20px;
+			li{
+				margin: 20px 40px !important;
+			}
+		}
+	}
+}
+
+@media (max-width: $rickon) {
+	.nav {
+		ul{
+			margin: 0 0px;
+			font-size: 1em !important;
+			li{
+				margin: 20px 0px !important;
+			}
+		}
+	}
+}
