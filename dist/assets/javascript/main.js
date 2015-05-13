@@ -13,14 +13,14 @@ $( document ).ready(function() {
 					</div>
 				</div>
 
-					<div class='col view view-add'>
-
-				<div class='mask add'>
-					<div class='text-wrap'>
-						<p class='text-add'>Want your picture</br> here too?</p>
-						<div class='button btn-add' data-toggle='modal' data-target='#myModal'>Send it</div>
+				<div class='col view view-add'>
+					<img src='assets/images/gallery/pic2.png'>
+					<div class='mask add'>
+						<div class='text-wrap'>
+							<p class='text-add'>Want your picture</br> here too?</p>
+							<div class='button btn-add' data-toggle='modal' data-target='#myModal'>Send it</div>
+						</div>
 					</div>
-				</div>
 				</div>");
 			}else{
 				$('div#gallery-container').append("<div class='col view'>

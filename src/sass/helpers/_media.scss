@@ -1,7 +1,7 @@
 // Scale up the modal
 @media (min-width: $arya) {
 	// Automatically set modal's width for larger viewports
-	.modal-dialog,  {
+	.modal-dialog {
 		width: $sansa;
 		margin: 30px auto;
 	}
@@ -16,46 +16,65 @@
 
 @media (max-width: $sansa) {
 
-	.nav {
-		ul{
-			// margin: 0 20px;
-			li{
-				margin: 20px 60px !important;
-			}
-		}
-	}
+	// .nav {
+	// 	ul{
+	// 		// margin: 0 20px;
+	// 		li{
+	// 			margin: 20px 60px;
+	// 		}
+	// 	}
+	// }
 }
 
-@media (max-width: $robb) {
-	.nav {
-		ul{
-			// margin: 0 20px;
-			li{
-				margin: 20px 50px !important;
-			}
-		}
-	}
+@media (min-width: $robb) {
+	// .nav {
+	// 	ul{
+	// 		li{
+	// 			margin: 20px 50px;
+	// 		}
+	// 	}
+	// }
+	// .view-add, .view {
+	// 	width: 330px;
+	// 	height: 330px;
+	// }
 }
 
 @media (max-width: $bran) {
-	.nav {
-		ul{
-			// margin: 0 20px;
-			li{
-				margin: 20px 40px !important;
-			}
-		}
-	}
+	// .nav {
+	// 	ul{
+	// 		li{
+	// 			margin: 20px 40px;
+	// 		}
+	// 	}
+	// }
+	
 }
 
-@media (max-width: $rickon) {
-	.nav {
-		ul{
-			margin: 0 0px;
-			font-size: 1em !important;
-			li{
-				margin: 20px 0px !important;
-			}
-		}
-	}
+@media (min-width: $rickon) {
+	// .nav {
+	// 	ul{
+	// 		li{
+	// 			margin: 20px 15px;
+	// 		}
+	// 	}
+	// }
+	// .view, .view-add {
+	// 	width: 100%;
+	// 	height: 100%;
+	// }
+	// .add{
+	// 	.text-wrap{
+	// 		padding-bottom: 30%;
+	// 	}
+	// }
+
+	// .logo {
+	// 	background: url('../images/logo-sm.png') ;
+	// 	width: 85px ;
+	// 	height: 23px;
+	// 	background-repeat: no-repeat;
+	// 	margin-top: -4px;
+	// }
+
 }

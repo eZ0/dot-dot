@@ -6,22 +6,31 @@
 	.col{
 		margin-right: 0%;
 		padding: 0%;
+		@include clearfix();
 	}
 }
 
 .view {
 	position: relative;
-	width: 360px;
-	height: 360px;
+	width: 100%;
+	height: auto;
 	@include clearfix();
+	@include media($sansa) {
+		width: 50%;
+	}
+	@include media($robb) {
+		width: 25%;
+	}
 }
 
 .mask:hover{
 	opacity: 1;
+	transition: .5s;
 }
 
 .mask {
 	opacity: 0;
+	transition: .5s;
 }
 
 .mask, .add {
@@ -40,7 +49,8 @@
 	display: block;
 	opacity: 1;
 	.text-wrap{
-		padding-top: 30%;
+		padding-top: 38%;
+		padding-bottom: 30%;
 	}
 	.button {
 		margin-left: -8px;
@@ -51,10 +61,13 @@
 .view-add{
 	display: block;
 	position: relative;
-	width: 360px;
-	height: 360px;
-	// background-image: url('../images/gallery/pic1.png');
 	transition: all 0.2s linear;
+	@include media($sansa) {
+		width: 50%;
+	}
+	@include media($robb) {
+		width: 25%;
+	}
 }
 
 //modal window

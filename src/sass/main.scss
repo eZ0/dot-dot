@@ -11,7 +11,6 @@
 @import "helpers/functions";
 @import "helpers/mixins";
 @import "helpers/helpers";
-@import "helpers/media";
 
 // Vendors and external stylesheets
 @import "bourbon";
@@ -39,3 +38,4 @@
 
 // Themes 
 @import "themes/theme";
+@import "helpers/media";

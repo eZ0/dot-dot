@@ -3,13 +3,19 @@
 	height: 100px;
 	text-align: center;
 	background-color: $snow-white;
-	// @include opacity(0.8); 
+
 	ul{	
 		padding-top: 25px;
 		display: inline-block;
 		li{
 			float: left;
-			margin: 20px 120px;
+			margin: 20px 15px;
+			@include media($sansa) {
+				margin: 20px 60px;
+			}
+			@include media($robb) {
+				margin: 20px 120px;
+			}
 		}
 		li:after, li:before {
 			clear:both;
@@ -23,10 +29,16 @@
 }
 
 .logo {
-	background: url('../images/logo.png');
+	background: url('../images/logo-sm.png');
+	width: 85px ;
+	height: 23px;
 	background-repeat: no-repeat;
-	height: 28px;
-	width: 107px;
+	margin-top: -4px;
 	display: block;
-	margin-top: -8px;
+	@include media($sansa) {
+		background: url('../images/logo.png');
+		height: 28px;
+		width: 107px;
+		margin-top: -8px;
+	}
 }

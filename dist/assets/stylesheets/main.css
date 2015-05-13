@@ -15,36 +15,6 @@
 .hidden {
   display: none; }
 
-@media (min-width: 480px) {
-  .modal-dialog {
-    width: 768px;
-    margin: 30px auto; }
-  .modal-sm {
-    width: 960px; } }
-
-@media (min-width: 1140px) {
-  .modal-lg {
-    width: 960px; } }
-
-@media (max-width: 768px) {
-  .nav ul li {
-    margin: 20px 60px !important; } }
-
-@media (max-width: 960px) {
-  .nav ul li {
-    margin: 20px 50px !important; } }
-
-@media (max-width: 580px) {
-  .nav ul li {
-    margin: 20px 40px !important; } }
-
-@media (max-width: 320px) {
-  .nav ul {
-    margin: 0 0px;
-    font-size: 1em !important; }
-    .nav ul li {
-      margin: 20px 0px !important; } }
-
 html {
   box-sizing: border-box; }
 
@@ -218,7 +188,13 @@ input[type="email"] {
     display: inline-block; }
     .nav ul li {
       float: left;
-      margin: 20px 120px; }
+      margin: 20px 15px; }
+      @media screen and (min-width: 768px) {
+        .nav ul li {
+          margin: 20px 60px; } }
+      @media screen and (min-width: 960px) {
+        .nav ul li {
+          margin: 20px 120px; } }
     .nav ul li:after, .nav ul li:before {
       clear: both; }
   .nav .menu-item:hover {
@@ -226,12 +202,18 @@ input[type="email"] {
     text-decoration: none; }
 
 .logo {
-  background: url('../images/logo.png');
+  background: url('../images/logo-sm.png');
+  width: 85px;
+  height: 23px;
   background-repeat: no-repeat;
-  height: 28px;
-  width: 107px;
-  display: block;
-  margin-top: -8px; }
+  margin-top: -4px;
+  display: block; }
+  @media screen and (min-width: 768px) {
+    .logo {
+      background: url('../images/logo.png');
+      height: 28px;
+      width: 107px;
+      margin-top: -8px; } }
 
 .modal-open {
   overflow: hidden; }
@@ -338,8 +320,14 @@ canvas {
   margin-top: 100px; }
 
 .text {
-  width: 500px;
-  margin: 0 auto; }
+  width: 280px;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: all 0.2s linear; }
+  @media screen and (min-width: 480px) {
+    .text {
+      width: 500px;
+      transition: all 0.2s linear; } }
 
 .wrap {
   width: 100%;
@@ -348,9 +336,9 @@ canvas {
 .video-wrapper {
   position: relative; }
   .video-wrapper video {
-    width: 100%;
     height: auto;
-    z-index: 1; }
+    z-index: 1;
+    width: 100%; }
   .video-wrapper video::cue {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2147483647; }
@@ -367,21 +355,23 @@ canvas {
     height: 100%;
     cursor: pointer;
     border-radius: 6px 0 0 6px; }
+  .control .icon-play, .control .icon-pause {
+    width: 16px;
+    height: 19px;
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 27%; }
+    @media screen and (min-width: 480px) {
+      .control .icon-play, .control .icon-pause {
+        width: 16px;
+        height: 19px;
+        display: block;
+        position: absolute;
+        top: 130px;
+        left: 48%; } }
   .control .icon-play {
-    background: url("../images/play-btn.png") no-repeat;
-    width: 16px;
-    height: 19px;
-    display: block;
-    position: absolute;
-    top: 130px;
-    left: 48%; }
-  .control .icon-pause {
-    width: 16px;
-    height: 19px;
-    display: block;
-    position: absolute;
-    top: 130px;
-    left: 48%; }
+    background: url("../images/play-btn.png") no-repeat; }
   .control .btnPlay:hover .icon-pause {
     background: url("../images/pause-btn.png") no-repeat; }
 
@@ -391,21 +381,33 @@ canvas {
 .gallery .col {
   margin-right: 0%;
   padding: 0%; }
-
-.view {
-  position: relative;
-  width: 360px;
-  height: 360px; }
-  .view::after {
+  .gallery .col::after {
     clear: both;
     content: "";
     display: table; }
 
+.view {
+  position: relative;
+  width: 100%;
+  height: auto; }
+  .view::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (min-width: 768px) {
+    .view {
+      width: 50%; } }
+  @media screen and (min-width: 960px) {
+    .view {
+      width: 25%; } }
+
 .mask:hover {
-  opacity: 1; }
+  opacity: 1;
+  transition: .5s; }
 
 .mask {
-  opacity: 0; }
+  opacity: 0;
+  transition: .5s; }
 
 .mask, .add {
   position: absolute;
@@ -421,7 +423,8 @@ canvas {
   display: block;
   opacity: 1; }
   .add .text-wrap {
-    padding-top: 30%; }
+    padding-top: 38%;
+    padding-bottom: 30%; }
   .add .button {
     margin-left: -8px;
     margin-top: 20px; }
@@ -429,7 +432,23 @@ canvas {
 .view-add {
   display: block;
   position: relative;
-  width: 360px;
-  height: 360px;
   transition: all 0.2s linear; }
+  @media screen and (min-width: 768px) {
+    .view-add {
+      width: 50%; } }
+  @media screen and (min-width: 960px) {
+    .view-add {
+      width: 25%; } }
+
+@media (min-width: 480px) {
+  .modal-dialog {
+    width: 768px;
+    margin: 30px auto; }
+  .modal-sm {
+    width: 960px; } }
+
+@media (min-width: 1140px) {
+  .modal-lg {
+    width: 960px; } }
+
 
