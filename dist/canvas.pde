@@ -50,6 +50,8 @@ boolean aligned = false;
 // boolean saveK = false;
 // boolean fuzzyK = false;
 
+int runonce = 0;
+
 int divPai=5;
 
 void setup() {
@@ -88,6 +90,7 @@ void setup() {
 			TWO_PI/divPai, 0.02, thFactor);
 		}
 	}
+
 }
 
 void draw() {
@@ -106,18 +109,26 @@ void draw() {
 	// }
 
 	// image(saveScr, 10, 20+ 3*(10+saveScr.height));
-
-	if (!halt) {
+	
+	
+	if(runonce <= 1280){ 
+		runonce = runonce+1;
 		for (int i=0; i < MANY; i++) {
 			manyCircles[i].drawit();
 			manyCircles[i].update();
 		}
+	}
+	else{
+		// println(runonce);
 	} 
-	// else {
-	// 	noStroke();
-	// 	rect(butWide/2, height/2, butWide, height);
-	// 	// image(contBut, 10, 20);
-	// }
+
+
+		// for (int i=0; i < MANY; i++) {
+		// 	manyCircles[i].drawit();
+		// 	manyCircles[i].update();
+			
+		// }
+
 
  	// image(newBut, 10, 20+10+newBut.height);
 	// if (newK) {

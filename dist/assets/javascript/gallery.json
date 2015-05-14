@@ -6,11 +6,11 @@
 			},
 			{ "name"  : "Kotaro",
 				"country" : "Japan",
-				"image" : "assets/images/gallery/pic2.png"
+				"image" : "assets/images/gallery/pic1.png"
 			},
 			{ "name"  : "Maria",
 				"country" : "Greece",
-				"image" : "assets/images/gallery/pic3.png"
+				"image" : "assets/images/gallery/pic1.png"
 			},
 			{ "name"  : "Igor",
 				"country" : "Russia",
@@ -22,11 +22,11 @@
 			},
 			{ "name"  : "Kotaro",
 				"country" : "Japan",
-				"image" : "assets/images/gallery/pic2.png"
+				"image" : "assets/images/gallery/pic1.png"
 			},
 			{ "name"  : "Maria",
 				"country" : "Greece",
-				"image" : "assets/images/gallery/pic3.png"
+				"image" : "assets/images/gallery/pic1.png"
 			},
 			{ "name"  : "Igor",
 				"country" : "Russia",
@@ -34,7 +34,7 @@
 			},
 			{ "name"  : "Björn",
 				"country" : "Norway",
-				"image" : "assets/images/gallery/pic4.png"
+				"image" : "assets/images/gallery/pic1.png"
 			}
 	]
 }

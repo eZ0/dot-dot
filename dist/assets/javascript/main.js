@@ -4,7 +4,8 @@ $( document ).ready(function() {
 		for (var i = data.gallery.length - 1; i >= 0; i--) {
 			
 			if (i%2 == 0) {
-				$('div#gallery-container').append("<div class='col view'>
+				$('div#gallery-container').append(
+				"<div class='col view'>
 					<img src='"+data.gallery[i].image+"'>
 					<div class='mask'>
 						<div class='text-wrap'>
@@ -13,8 +14,8 @@ $( document ).ready(function() {
 					</div>
 				</div>
 
-				<div class='col view view-add'>
-					<img src='assets/images/gallery/pic2.png'>
+				<div class='col view'>
+					<img src='assets/images/gallery/pic0.png'>
 					<div class='mask add'>
 						<div class='text-wrap'>
 							<p class='text-add'>Want your picture</br> here too?</p>
