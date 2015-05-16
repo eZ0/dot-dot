@@ -18,3 +18,11 @@
 
 	transition: background-color .5s;
 }
+
+.close {
+	float: right;
+	font-size: 1.2em;
+	font-weight: 300;
+	font-family: 'Open Sans';
+	cursor: pointer;
+}

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -27,18 +28,25 @@
 				
 			</div>
 			<div class="clear"> </div>
-			<!-- Creates the bootstrap modal where the image will appear -->
+			
 			<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<form>
+						<p class="close" data-dismiss="modal" aria-label="Close">X</p>
+						<form class='pic-form' id='pic-form'  method="POST" enctype="multipart/form-data">
 						<p>Send us your awesome picture with DOT:DOT tattoo!</p>
-							<input type="text" placeholder="What's your name?">
-							<input type="text" placeholder="Where do you live?">
-							<input type="text" placeholder="Picture to upload">
-							<button class="button">Send!</button>
+							<input type="text" id="name" name="name" placeholder="What's your name?">
+							<input type="text" id="country" name="country" placeholder="Where do you live?">
+							<!-- <input type="email" id="email" name="email" placeholder="What's your e-mail?"> -->
+							<input type="text" id="url" name="url" placeholder="Link to your picture">
+							<input class="button" type="submit" id="submit" name="submit" value="Send!">
 						</form>
+
+						<form id="thanks" class="pic-form">
+							<p>Thank you for using DOT:DOT! </br> We'll post your pic here asap!</p>
+						</form>
+						
 					</div>
 				</div>
 			</div>
