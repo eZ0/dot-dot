@@ -1,54 +1,15 @@
-// //// Global variables
-// println('Hello world');
-// float radius = 50.0;
-// int X, Y;
-// int nX, nY;
-// int delay = 10;
+// choose randomly which image pattern to paint
+int option = floor(random(1, 4));
 
-// // Setup the Processing Canvas
-// void setup(){
-// 	size( 400, 400 );
-// 	// antialiase the lines of an image
-// 	smooth();
-// 	strokeWeight( 2 );
-// 	X = width / 2;
-// 	Y = height / 2;
-// 	nX = X;
-// 	nY = Y;  
-// }
 
-// // Main draw loop
-// void draw(){
-// 	// Set fill-color to transparent
-// 	background(0, 0);
-	
-// 	// Set stroke-color black/currently blue
-// 	stroke(#0594cf); 
-
-// 	// Draw circle
-// 	ellipse( X, Y, radius, radius );
-// 	line(50,50,X,Y);
-// 	ellipse( Y, X, radius, radius );
-// 	line(20, 200, Y,X);
-// 	line(20, 300, Y,X);
-// 	noFill();
-// }
 PVector bigCircleC;
 float bigCircleR;
 circle [] manyCircles;
 int MANY=floor(random(4, 10));
 
-int butWide = 80;
-
-// PImage haltBut;
-// PImage contBut;
-// PImage newBut, clickBut, neatBut, fuzzyBut, scrShot, saveScr;
-
+// int butWide = 80;
 boolean halt = false;
 boolean aligned = false;
-// boolean newK = false;
-// boolean saveK = false;
-// boolean fuzzyK = false;
 
 int runonce = 0;
 
@@ -61,17 +22,10 @@ void setup() {
 	smooth();
 	strokeWeight( 5 );
 
-	// haltBut = loadImage("halt.png");
-	// contBut = loadImage("cont.png");
-	// newBut = loadImage("new.png");
-	// clickBut = loadImage("click.png");
-	// neatBut = loadImage("neat.png");
-	// fuzzyBut = loadImage("fuzzy.png");
-	// saveScr = loadImage("saveb.png");
 
-	scrShot = createImage(width - butWide, height, 1);
-	bigCircleC = new PVector ((width+butWide)/2, height/2);
-	bigCircleR = min((width-butWide), height);
+	scrShot = createImage(width, height, 1);
+	bigCircleC = new PVector ((width)/2, height/2);
+	bigCircleR = min((width), height);
 	background(0, 0);
 	divPai = floor(random(3, 9));
 	manyCircles = new circle[MANY];
@@ -94,115 +48,51 @@ void setup() {
 }
 
 void draw() {
-	// background(0, 0);
-	// stroke(#0594cf);
-	// fill(#0594cf); 
-	// noStroke();
-	// fill(25, 12, 3);
-	// rect(0, 0, butWide, height);
 	
-	// if (aligned) {
-	// 	image(neatBut, 10, 20+ 2*(10+neatBut.height));
-	// }
-	// else {
-	// 	image(fuzzyBut, 10, 20+ 2*(10+fuzzyBut.height));
-	// }
 
-	// image(saveScr, 10, 20+ 3*(10+saveScr.height));
-	
-	
-	if(runonce <= 1280){ 
-		runonce = runonce+1;
-		for (int i=0; i < MANY; i++) {
-			manyCircles[i].drawit();
-			manyCircles[i].update();
-		}
+	switch(option){
+		case 1:
+			drawRuby();
+			break;
+		case 2:
+			//drawFlower();
+			break;
+		case 3:
+			if(runonce <= 1280){ 
+				runonce = runonce+1;
+				for (int i=0; i < MANY; i++) {
+					manyCircles[i].drawit();
+					manyCircles[i].update();
+				}
+			}
+		break;
 	}
-	else{
-		// println(runonce);
-	} 
 
-
-		// for (int i=0; i < MANY; i++) {
-		// 	manyCircles[i].drawit();
-		// 	manyCircles[i].update();
-			
-		// }
-
-
- 	// image(newBut, 10, 20+10+newBut.height);
-	// if (newK) {
-	// 	image(clickBut, 10, 20+10+clickBut.height);
-	// 	newK=false;
-	// }
-	// if (fuzzyK) {
-	// 	image(clickBut, 10, 20+ 2*(10+neatBut.height));
-	// 	fuzzyK=false;
-	// }
-	// if (saveK) {
-	// 	image(clickBut, 10, 20+ 3*(10+saveScr.height));
-	// 	saveK=false;
-	// }
 }
 
-// void mouseClicked() {
-//   // new mandala flash a click
-//   if (mouseX >= 10 && mouseX <= 10 + newBut.width && 
-//     mouseY >= 20 + 10 + newBut.height && 
-//     mouseY <= 20 + 10 + 2*haltBut.height ) {
-//     newK = true;
-//   }
 
-//   // neat was clicked
-//   if (mouseX >= 10 && mouseX <= 10 + neatBut.width && 
-//     mouseY >= 20+ 2*(10+neatBut.height) && 
-//     mouseY <= 20+ 2*(10+neatBut.height) + neatBut.height ) {
-//     fuzzyK = true;
-//   }
+void drawRuby(){
+	int h = 40;
+	int w = 80;
+	strokeWeight(random(4));
+	rect(width/2, height/2, w, h);
+	stroke(#000000);
+	line(height/2, height/2, height/2-h, height/2+h);
+	line(height/2+w, height/2, height/2+w+h, height/2+h);
+	line(height/2-h, height/2+h, height/2+w+h, height/2+h);
+	line(height/2, height/2+h, height/2+w/2, height/2);
+	line(height/2+w, height/2+h, height/2+w/2, height/2);
 
-//   // save was clicked
-//   if (mouseX >= 10 && mouseX <= 10 + saveScr.width && 
-//     mouseY >= 20+ 3*(10+saveScr.height) && 
-//     mouseY <= 20+ 3*(10+saveScr.height) + neatBut.height ) {
-//     saveK = true;
-//   }
-// }
-// void mouseReleased() {
-//   if (mouseX >= 10 && mouseX <= 10 + haltBut.width && 
-//     mouseY >= 20 && mouseY <= 20 + haltBut.height && 
-//     !halt) {
-//     halt = true;
-//   }
-//   else if (mouseX >= 10 && mouseX <= 10 + haltBut.width && 
-//     mouseY >= 20 && mouseY <= 20 + haltBut.height && 
-//     halt) {
-//     halt = false;
-//   }
-//   // new mandala
-//   if (mouseX >= 10 && mouseX <= 10 + newBut.width && 
-//     mouseY >= 20 + 10 + newBut.height && 
-//     mouseY <= 20 + 10 + 2*haltBut.height ) {
-//     halt = false;
-//     setup();
-//   }
-//   // fuzzy or neat? choose and represh
-//   if (mouseX >= 10 && mouseX <= 10 + neatBut.width && 
-//     mouseY >= 20+ 2*(10+neatBut.height) && 
-//     mouseY <= 20+ 2*(10+neatBut.height) + neatBut.height ) {
-//     aligned = !aligned;
-//     halt = false;
-//     setup();
-//   }
+	line(height/2+w+h, height/2+h, height/2+w/2, height/2+h+90);
+	line(height/2-h, height/2+h, height/2+w/2, height/2+h+90);
 
-//   // save flower
-//   if (mouseX >= 10 && mouseX <= 10 + saveScr.width && 
-//     mouseY >= 20+ 3*(10+saveScr.height) && 
-//     mouseY <= 20+ 3*(10+saveScr.height) + neatBut.height ) {
-//     scrShot=get(butWide, 0, width - butWide, height);
-//     String fname="flower_" + frameCount + ".png";
-//     scrShot.save(fname);
-//   }
-// }
+	line(height/2+w, height/2+h, height/2+w/2, height/2+h+90);
+	line(height/2, height/2+h, height/2+w/2, height/2+h+90);
+
+	stroke(#0594cf);
+	point(height/2+w/2,height/2+h+100);
+	exit();
+}
 
 class circle {
 	PVector center;
@@ -212,7 +102,7 @@ class circle {
 	float bigR; // big circle radius
 	float theta;
 	float acc;
-	// color R, G, B;
+
 	int thFactor;
 
 	// each circle has it's own number of petals
@@ -224,9 +114,7 @@ class circle {
 		spot = new PVector(0.0, 0.0);
 		bigC = new PVector(bc.x, bc.y);
 		bigR = bigr;
-		// R = floor(random(0, 100));
-		// G = floor(random(0, 100));
-		// B = floor(random(0, 100));
+
 		thFactor = floor(random(6, 13));
 		update();
 	}
@@ -240,9 +128,7 @@ class circle {
 		spot = new PVector(0.0, 0.0);
 		bigC = new PVector(bc.x, bc.y);
 		bigR = bigr;
-		// R = floor(random(0, 100));
-		// G = floor(random(0, 100));
-		// B = floor(random(0, 100));
+
 		thFactor = tfactor;
 		update();
 	}
@@ -277,4 +163,63 @@ class circle {
 	}
 }
 
+// float dia = 40;
+//   angle += 0.01;
+//   translate(width/2, height/2);
+ 
+//   for (int i = 0; i < width; i = i+30 ) {
+//     rotate(angle);
+//     scale(0.95);
+//     noFill();
+//     stroke(10, 255, 120, 80);
+//     strokeWeight(random(7, 10));
+//     ellipse(i, i, dia/3, dia/3);
+//     ellipse(-i, -i, dia/3, dia/3);
+//     ellipse(i, i, dia/2, dia/2);
+//     ellipse(-i, -i, dia/2, dia/2);
+//     fill(30);
+//     strokeWeight(random(1,5));
+//     line(width, height, dia, dia);
+//     rectMode(CENTER);
+//     rect(0, 0, dia*6, dia*6);
+
+// int linha = 0;
+// int coluna = 0;
+ 
+// int tamanho = 20;
+ 
+// void setup () {
+//     size(500, 500);
+//     background(255);
+//     stroke(#FF0000);
+//     strokeWeight(5);
+// }
+ 
+// void draw() {
+//   int sorte = round(random(0,1));
+//   println(sorte);
+   
+//   frameRate(random(1,60));
+   
+//   if (sorte == 0) {
+//     line((linha * tamanho), coluna * tamanho, tamanho + (linha * tamanho), tamanho + (coluna * tamanho));
+//   }
+   
+//   if (sorte == 1) {
+//     line(linha * tamanho + tamanho, coluna * tamanho, linha * tamanho, tamanho + (coluna * tamanho));
+//   }
+//   linha++;
+   
+//   if (linha * tamanho > width) {
+//    coluna++;
+//    linha = 0;
+//     stroke(random(0,255), random(0,255), random(0,255));
+//   }
+ 
+//   if (coluna * tamanho > height) {
+//     coluna = 0;
+//     background(255);
+    
+//   }
+// }
 

@@ -67,6 +67,21 @@ gulp.task('minify-html', function() {
 
 });
 
+gulp.task('pde', function() {
+	var opts = {comments:false,spare:true};
+	gulp.src(['src/documents/**/*.pde',
+		'src/documents/**/*.php'])
+	.pipe(gulp.dest('./dist/'))
+	.pipe(notify({message: 'PDE task complete', sound: false}));
+
+});
+gulp.task('php', function() {
+	var opts = {comments:false,spare:true};
+	gulp.src('src/documents/data/**/*.php')
+	.pipe(gulp.dest('./dist/data'))
+	.pipe(notify({message: 'PHP task complete', sound: false}));
+});
+
 /**
 * Tasks for javascript files
 * ----------------------------------------------------------------
@@ -138,6 +153,8 @@ gulp.task('watch', function () {
 	gulp.watch('src/javascript/*.json', ['json']);
 	gulp.watch('src/sass/**/*.scss', ['styles']);
 	gulp.watch('src/documents/**/*.html', ['minify-html']);
+	gulp.watch('src/documents/**/*', ['pde']);
+	gulp.watch('src/documents/data/**/*', ['php']);
 	gulp.watch('src/images/**/*', ['images']);
 	livereload.listen();
 	gulp.watch(['dist/**']).on('change', livereload.changed);
