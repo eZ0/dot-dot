@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 	$('#_email').hide();
+	canvas.style.webkitFilter = "blur(5px)";
 
 	$('#_btnwant').click(function(){
 		$('#_email').delay( 1200 ).fadeIn('slow');

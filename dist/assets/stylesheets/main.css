@@ -275,6 +275,9 @@ input[type="email"] {
       background-color: #000000;
       color: #ffffff; }
 
+#thanks {
+  opacity: 0; }
+
 .modal-backdrop {
   position: fixed;
   top: 0;

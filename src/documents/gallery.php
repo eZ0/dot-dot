@@ -46,7 +46,6 @@
 						<form id="thanks" class="pic-form">
 							<p>Thank you for using DOT:DOT! </br> We'll post your pic here asap!</p>
 						</form>
-						
 					</div>
 				</div>
 			</div>

@@ -17,13 +17,13 @@ int divPai=5;
 
 void setup() {
 	size(400, 400);
-	rectMode(CORNER);
-	imageMode(CORNER);
+	// rectMode(CORNER);
+	// imageMode(CORNER);
 	smooth();
 	strokeWeight( 5 );
 
 
-	scrShot = createImage(width, height, 1);
+	// scrShot = createImage(width, height, 1);
 	bigCircleC = new PVector ((width)/2, height/2);
 	bigCircleR = min((width), height);
 	background(0, 0);
@@ -52,19 +52,21 @@ void draw() {
 
 	switch(option){
 		case 1:
-			drawRuby();
+			//drawRuby();
+			drawLines();
 			break;
 		case 2:
-			//drawFlower();
+			drawDots();
 			break;
 		case 3:
-			if(runonce <= 1280){ 
-				runonce = runonce+1;
-				for (int i=0; i < MANY; i++) {
-					manyCircles[i].drawit();
-					manyCircles[i].update();
-				}
-			}
+			drawDots();
+			// if(runonce <= 1280){ 
+			// 	runonce = runonce+1;
+			// 	for (int i=0; i < MANY; i++) {
+			// 		manyCircles[i].drawit();
+			// 		manyCircles[i].update();
+			// 	}
+			// }
 		break;
 	}
 
@@ -72,27 +74,53 @@ void draw() {
 
 
 void drawRuby(){
-	int h = 40;
-	int w = 80;
-	strokeWeight(random(4));
-	rect(width/2, height/2, w, h);
+	int h = 20;
+	int w = 40;
+	strokeWeight(2);
 	stroke(#000000);
+	noFill();
+	
+	beginShape();
+	rect(width/2, height/2, w, h);
 	line(height/2, height/2, height/2-h, height/2+h);
 	line(height/2+w, height/2, height/2+w+h, height/2+h);
 	line(height/2-h, height/2+h, height/2+w+h, height/2+h);
 	line(height/2, height/2+h, height/2+w/2, height/2);
 	line(height/2+w, height/2+h, height/2+w/2, height/2);
 
-	line(height/2+w+h, height/2+h, height/2+w/2, height/2+h+90);
-	line(height/2-h, height/2+h, height/2+w/2, height/2+h+90);
+	line(height/2+w+h, height/2+h, height/2+w/2, height/2+h*3);
+	line(height/2-h, height/2+h, height/2+w/2, height/2+h*3);
 
-	line(height/2+w, height/2+h, height/2+w/2, height/2+h+90);
-	line(height/2, height/2+h, height/2+w/2, height/2+h+90);
+	line(height/2+w, height/2+h, height/2+w/2, height/2+h*3);
+	line(height/2, height/2+h, height/2+w/2, height/2+h*3);
+	endShape();
 
 	stroke(#0594cf);
 	point(height/2+w/2,height/2+h+100);
+
 	exit();
 }
+
+void drawDots(){
+	int rNumber = floor(random(100, 200));
+	int rI = floor(random(1, 20));
+	int rDist = floor(random(10, 50));
+	int rStrokeWeight;
+	for (int i=0; i < rI; i++ ) {
+		rStrokeWeight = floor(random(3, 20));
+		strokeWeight( rStrokeWeight );
+		point(width/2, 150+rDist*i);
+	}
+	exit();
+}
+
+void drawLines(){
+	int startPoint = floor(random(100, 200));
+	int endPoint = floor(random(100, 200));
+	line(startPoint ,endPoint, startPoint+50, endPoint);
+	exit();
+}
+
 
 class circle {
 	PVector center;
@@ -116,7 +144,7 @@ class circle {
 		bigR = bigr;
 
 		thFactor = floor(random(6, 13));
-		update();
+		// update();
 	}
 
 	// all circle have the same number of petals
@@ -130,7 +158,7 @@ class circle {
 		bigR = bigr;
 
 		thFactor = tfactor;
-		update();
+		// update();
 	}
 
 	void update() {

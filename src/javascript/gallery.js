@@ -42,16 +42,20 @@ $( document ).ready(function() {
 
 			}
 		}
+	}).done(function() {
+		console.log("success");
+		if ( ($("element").data('bs.modal') || {}).isShown){
+			console.log("Modal!");
+			$('#gallery-container.view').css("filter", "blur(5px)");
+		}else{
+			console.log("I cant see Modal!");
+		}
 	});
-	
-	$('.btn-add').click(function(){
-		console.log('got it!');
-	});
-
 
 	initButtons();
 
 });
+
 
 
 function initButtons() {
@@ -84,8 +88,8 @@ function saveRegistration() {
 function onRegistrationSaved(data) {
 	if(data_entered) {
 		$('#pic-form').fadeOut(500, function() {
-			$('#thanks').fadeIn(800, function() {
-				
+			$('#thanks').css({
+				opacity: '1'
 			});
 		});
 	} else {
