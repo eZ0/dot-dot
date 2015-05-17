@@ -102,7 +102,7 @@ void drawRuby(){
 }
 
 void drawDots(){
-	int rNumber = floor(random(100, 200));
+	//int rNumber = floor(random(10, 200));
 	int rI = floor(random(1, 20));
 	int rDist = floor(random(10, 50));
 	int rStrokeWeight;
@@ -111,13 +111,88 @@ void drawDots(){
 		strokeWeight( rStrokeWeight );
 		point(width/2, 150+rDist*i);
 	}
-	exit();
+	exit();//function stops here, otherwise draw will call it every sec
 }
 
 void drawLines(){
-	int startPoint = floor(random(100, 200));
+	strokeWeight(2);
+	int optionArrow = floor(random(1, 5));
+	int rI = floor(random(3, 7));
+	int rsI = floor(random(3, 5));
+	int optionEnd = floor(random(1, 7));
+	int length = floor(random(100, 150));
 	int endPoint = floor(random(100, 200));
-	line(startPoint ,endPoint, startPoint+50, endPoint);
+
+	line(width/2 ,endPoint, width/2, endPoint+length);
+	switch(optionArrow){
+		case 1:
+			//black triangle
+			fill(#000000);
+			triangle(width/2, endPoint-8, width/2-6,endPoint, width/2+6,endPoint );
+			break;
+		case 2:
+			//no-fill triangle
+			noFill();
+			stroke(#000000);
+			triangle(width/2, endPoint-8, width/2-6,endPoint, width/2+6,endPoint );
+			break;
+		case 3:
+			// /\ 
+			line(width/2 ,endPoint, width/2+5, endPoint+5);
+			line(width/2 ,endPoint, width/2-5, endPoint+5);
+			break;
+		case 4:
+			// black triangle with the line under
+			fill(#000000);
+			triangle(width/2, endPoint-8, width/2-6,endPoint, width/2+6,endPoint );
+			line(width/2+5, endPoint+6, width/2-6, endPoint+6);
+			break;
+	}
+	switch(optionEnd){
+		case 1:
+			//tree
+			for (int i=0; i < rI; i++  ) {
+				int teller = 5*i;
+				line(width/2 ,endPoint+length+teller, width/2+5, endPoint+length+teller+5);
+				line(width/2 ,endPoint+length+teller, width/2-5, endPoint+length+teller+5);
+			}
+			break;
+		case 2:
+			//cross
+			int dist = 5;
+			line(width/2+dist ,endPoint+length-2, width/2-dist, endPoint+length+dist+2);
+			line(width/2-dist ,endPoint+length-2, width/2+dist, endPoint+length+dist+2);
+			break;
+		case 3:
+			//dark triangles
+			int dist = 6;
+			fill(#000000);
+			for (int i=1; i < rsI; i++  ) {
+				int teller = 8*i;
+				triangle(width/2, endPoint+length-dist+2, width/2-dist, endPoint+length+teller, width/2+dist, endPoint+length+teller );
+			}
+			break;
+		case 4:
+			//dots
+			int rDist = floor(random(1, 10));
+			int rStrokeWeight;
+			for (int i=0; i < rsI; i++ ) {
+				rStrokeWeight = floor(random(3, 7));
+				strokeWeight( rStrokeWeight );
+				point(width/2, endPoint+length+6+rDist*i);
+			}
+			break;
+		case 5:
+			//circle
+			int rr = floor(random(5, 10));
+			noFill();
+			ellipse(width/2, endPoint+length+rr/2+1, rr, rr);
+			break;
+		case 6:
+			//quadrangle
+			quad(width/2 ,endPoint+length, width/2+5, endPoint+length+5, width/2 ,endPoint+length+10,width/2-5, endPoint+length+5);
+			break;
+	}
 	exit();
 }
 
