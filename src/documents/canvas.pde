@@ -1,5 +1,5 @@
 // choose randomly which image pattern to paint
-int option = floor(random(1, 4));
+int option = floor(random(1, 5));
 
 
 PVector bigCircleC;
@@ -56,7 +56,7 @@ void draw() {
 			drawLines();
 			break;
 		case 2:
-			drawDots();
+			drawTriangles();
 			break;
 		case 3:
 			drawDots();
@@ -67,7 +67,10 @@ void draw() {
 			// 		manyCircles[i].update();
 			// 	}
 			// }
-		break;
+			break;
+		case 4:
+			drawCircles();
+			break;
 	}
 
 }
@@ -196,6 +199,53 @@ void drawLines(){
 	exit();
 }
 
+void drawTriangles(){
+	int optionTriangle = floor(random(1, 4));
+
+	int top = floor(random(50, 100));
+	int bottom = top+floor(random(50, 100));
+	int trWidth = (bottom-top)/2;
+
+	int rsI = floor(random(1, 4));
+	noFill();
+
+	for (int i=0; i < rsI; i++ ) {
+		bottom = bottom+rsI*10;
+		top = top+rsI*10;
+		noFill();
+		if (i%2) {
+			switch(optionTriangle){
+				case 1:
+					pushMatrix();
+					translate(width, top*3.1);
+					rotate(3.14);
+					triangle(width/2, top, width/2-trWidth, bottom, width/2+trWidth, bottom );
+				 	popMatrix();
+					break;
+				case 2:
+					triangle(width/2, top, width/2-trWidth, bottom, width/2+trWidth, bottom );
+			 		break;
+			 	case 3:
+			 		fill(#000000);
+					triangle(width/2, top, width/2-trWidth, bottom, width/2+trWidth, bottom );
+			 		break;
+			}
+		}
+		triangle(width/2, top, width/2-trWidth, bottom, width/2+trWidth, bottom );
+	}
+	exit();
+}
+
+void drawCircles(){
+	int dia = floor(random(50, 100));
+	strokeWeight(floor(random(5, 10)));
+	noFill();
+	int rsI = floor(random(1, 4));
+	for (int i=0; i < rsI; i++ ) {
+		ellipse(width/2, height/2-rsI*10, dia/2, dia/2);
+	}
+	exit();
+}
 
 class circle {
 	PVector center;
@@ -266,63 +316,6 @@ class circle {
 	}
 }
 
-// float dia = 40;
-//   angle += 0.01;
-//   translate(width/2, height/2);
  
-//   for (int i = 0; i < width; i = i+30 ) {
-//     rotate(angle);
-//     scale(0.95);
-//     noFill();
-//     stroke(10, 255, 120, 80);
-//     strokeWeight(random(7, 10));
-//     ellipse(i, i, dia/3, dia/3);
-//     ellipse(-i, -i, dia/3, dia/3);
-//     ellipse(i, i, dia/2, dia/2);
-//     ellipse(-i, -i, dia/2, dia/2);
-//     fill(30);
-//     strokeWeight(random(1,5));
-//     line(width, height, dia, dia);
-//     rectMode(CENTER);
-//     rect(0, 0, dia*6, dia*6);
 
-// int linha = 0;
-// int coluna = 0;
- 
-// int tamanho = 20;
- 
-// void setup () {
-//     size(500, 500);
-//     background(255);
-//     stroke(#FF0000);
-//     strokeWeight(5);
-// }
- 
-// void draw() {
-//   int sorte = round(random(0,1));
-//   println(sorte);
-   
-//   frameRate(random(1,60));
-   
-//   if (sorte == 0) {
-//     line((linha * tamanho), coluna * tamanho, tamanho + (linha * tamanho), tamanho + (coluna * tamanho));
-//   }
-   
-//   if (sorte == 1) {
-//     line(linha * tamanho + tamanho, coluna * tamanho, linha * tamanho, tamanho + (coluna * tamanho));
-//   }
-//   linha++;
-   
-//   if (linha * tamanho > width) {
-//    coluna++;
-//    linha = 0;
-//     stroke(random(0,255), random(0,255), random(0,255));
-//   }
- 
-//   if (coluna * tamanho > height) {
-//     coluna = 0;
-//     background(255);
-    
-//   }
-// }
 
