@@ -9,6 +9,16 @@
 		<!-- Place favicon.ico in the root directory -->
 		<link rel="stylesheet" href="assets/stylesheets/main.min.css">
 		<script src="assets/javascript/processing.min.js"></script>
+		<script>
+			function changeColor(id) {
+				var canvas = document.getElementById(id);
+				var context = canvas.getContext('2d');
+
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				var pjs = Processing.getInstanceById(id);
+				pjs.setColor();
+			}
+		</script>
 	</head>
 	<body class="main">
 		<!--[if lt IE 8]>
@@ -23,8 +33,8 @@
 			</ul>
 		</nav>
 		<div class="buttons" id="_buttons">
-			<div class="button" id="_btnwant">Want it</div>
-			<div class="button">Hate it</div>
+			<div class="button" id="_btnwant" onclick="changeColor('_tattoo')">Want it</div>
+			<div class="button" onclick="changeColor('_tattoo')">Hate it</div>
 		</div>
 		<div class="email-form" id="_email">
 			<input id="email" name="email" class="email"type="email" placeholder="your@email.com"/>
@@ -34,12 +44,21 @@
 			</div>
 		</div>
 		
-		<canvas id="_tattoo" data-processing-sources="canvas.pde"></canvas>
+		<canvas id="_tattoo" data-processing-sources="canvas1.pde"></canvas>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
 		<script src="assets/javascript/main.min.js"></script>
-
+		<script type="text/javascript">
+			var canvas = document.getElementById("_tattoo");
+			var processingInstance = new Processing(canvas);
+			
+			// function startSketch() {
+			// 	var pjs = Processing.getInstanceById("_tattoo");
+			// 	console.log("test " + processingInstance);
+			// 	pjs.drawRuby();
+			// }
+		</script>
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

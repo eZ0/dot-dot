@@ -101,7 +101,7 @@ function onRegistrationSaved(data) {
 
 $( document ).ready(function() {
 	$('#_email').hide();
-	canvas.style.webkitFilter = "blur(5px)";
+	canvas.style.webkitFilter = "blur(1px)";
 
 	$('#_btnwant').click(function(){
 		$('#_email').delay( 1200 ).fadeIn('slow');

@@ -1,3 +1,5 @@
+
+
 // choose randomly which image pattern to paint
 int option = floor(random(1, 5));
 
@@ -59,14 +61,14 @@ void draw() {
 			drawTriangles();
 			break;
 		case 3:
-			drawDots();
-			// if(runonce <= 1280){ 
-			// 	runonce = runonce+1;
-			// 	for (int i=0; i < MANY; i++) {
-			// 		manyCircles[i].drawit();
-			// 		manyCircles[i].update();
-			// 	}
-			// }
+			//drawDots();
+			if(runonce <= 1280){ 
+				runonce = runonce+1;
+				for (int i=0; i < MANY; i++) {
+					manyCircles[i].drawit();
+					manyCircles[i].update();
+				}
+			}
 			break;
 		case 4:
 			drawCircles();
