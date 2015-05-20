@@ -205,8 +205,8 @@ void drawTriangles(){
 	int trWidth = (bottom-top)/2;
 
 	int rsI = floor(random(1, 4));
-	noFill();
-
+	noFill(rsI);
+	strokeWeight(floor(random(2, 6)));
 	for (int i=0; i < rsI; i++ ) {
 		bottom = bottom+rsI*10;
 		top = top+rsI*10;

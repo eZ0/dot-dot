@@ -1,11 +1,14 @@
 $( document ).ready(function() {
-	$('#_email').hide();
+	// $('#_email').hide();
 	canvas.style.webkitFilter = "blur(1px)";
 
-	$('#_btnwant').click(function(){
-		$('#_email').delay( 1200 ).fadeIn('slow');
-		$('#_buttons').fadeOut('slow');
-	});
+	// $('#_btnwant').click(function(){
+	// 	$('#_email').delay( 1200 ).fadeIn('slow');
+	// 	$('#_buttons').fadeOut('slow');
+	// });
+	var cnvs = document.getElementById('_tattoo');
+	var cs = new CanvasSaver('assets/data/saveimage.php');
+	cs.generateButton('save an image!', cnvs, 'myimage');
 
 	//video
 	var video = $('#video');
