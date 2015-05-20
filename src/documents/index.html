@@ -10,13 +10,19 @@
 		<link rel="stylesheet" href="assets/stylesheets/main.min.css">
 		<script src="assets/javascript/processing.min.js"></script>
 		<script>
-			function changeColor(id) {
+			function setOption(id) {
 				var canvas = document.getElementById(id);
 				var context = canvas.getContext('2d');
 
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				var pjs = Processing.getInstanceById(id);
-				pjs.setColor();
+				pjs.setOption();
+			}
+
+			function saveImage(id){
+				var canvas = document.getElementById(id);
+				var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+				window.location.href=image; // it will save locally
 			}
 		</script>
 	</head>
@@ -33,8 +39,8 @@
 			</ul>
 		</nav>
 		<div class="buttons" id="_buttons">
-			<div class="button" id="_btnwant" onclick="changeColor('_tattoo')">Want it</div>
-			<div class="button" onclick="changeColor('_tattoo')">Hate it</div>
+			<div class="button" id="_btnwant" onclick="saveImage('_tattoo')">Want it</div>
+			<div class="button" onclick="setOption('_tattoo')">Hate it</div>
 		</div>
 		<div class="email-form" id="_email">
 			<input id="email" name="email" class="email"type="email" placeholder="your@email.com"/>

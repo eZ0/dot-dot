@@ -1,13 +1,19 @@
 <!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>DOT:DOT</title><meta name=description content="Unique minimal tattoo generator"><meta name=viewport content="width=device-width, initial-scale=1"><link rel=stylesheet href=assets/stylesheets/main.min.css><script src=assets/javascript/processing.min.js></script><script>
-			function changeColor(id) {
+			function setOption(id) {
 				var canvas = document.getElementById(id);
 				var context = canvas.getContext('2d');
 
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				var pjs = Processing.getInstanceById(id);
-				pjs.setColor();
+				pjs.setOption();
 			}
-		</script></head><body class=main><nav class=nav><ul><li class=menu-item><a href=about.html>About</a></li><li><a href=index.html><span class=logo></span></a></li><li class=menu-item><a href=gallery.html>Gallery</a></li></ul></nav><div class=buttons id=_buttons><div class=button id=_btnwant onclick="changeColor('_tattoo')">Want it</div><div class=button onclick="changeColor('_tattoo')">Hate it</div></div><div class=email-form id=_email><input id=email name=email class=email type=email placeholder=your@email.com><div class=button>Send it</div><div class=social><div class=pinterest></div></div></div><canvas id=_tattoo data-processing-sources=canvas1.pde></canvas><script src=//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script><script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script><script src=assets/javascript/main.min.js></script><script type=text/javascript>
+
+			function saveImage(id){
+				var canvas = document.getElementById(id);
+				var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+				window.location.href=image; // it will save locally
+			}
+		</script></head><body class=main><nav class=nav><ul><li class=menu-item><a href=about.html>About</a></li><li><a href=index.html><span class=logo></span></a></li><li class=menu-item><a href=gallery.html>Gallery</a></li></ul></nav><div class=buttons id=_buttons><div class=button id=_btnwant onclick="saveImage('_tattoo')">Want it</div><div class=button onclick="setOption('_tattoo')">Hate it</div></div><div class=email-form id=_email><input id=email name=email class=email type=email placeholder=your@email.com><div class=button>Send it</div><div class=social><div class=pinterest></div></div></div><canvas id=_tattoo data-processing-sources=canvas1.pde></canvas><script src=//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js></script><script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script><script src=assets/javascript/main.min.js></script><script type=text/javascript>
 			var canvas = document.getElementById("_tattoo");
 			var processingInstance = new Processing(canvas);
 			
