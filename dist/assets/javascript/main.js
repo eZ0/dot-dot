@@ -100,20 +100,17 @@ function onRegistrationSaved(data) {
 
 
 $( document ).ready(function() {
-	// $('#_email').hide();
+
 	canvas.style.webkitFilter = "blur(1px)";
 
-	// $('#_btnwant').click(function(){
-	// 	$('#_email').delay( 1200 ).fadeIn('slow');
-	// 	$('#_buttons').fadeOut('slow');
-	// });
-	var cnvs = document.getElementById('_tattoo');
-	var cs = new CanvasSaver('assets/data/saveimage.php');
-	cs.generateButton('save an image!', cnvs, 'myimage');
+	$('#_btnwant').click(function(){
+		var cnvs = document.getElementById('_tattoo');
+		var cs = new CanvasSaver('assets/data/saveimage.php');
+		cs.savePNG( cnvs, 'dotdot');
+	});
 
 	//video
 	var video = $('#video');
-
 	
 	video[0].removeAttribute("controls");
 	$('.control').fadeIn(500);
@@ -434,18 +431,26 @@ Plugin.call($target, option, this)
 
 }(jQuery);
 
+/*
+class for saving canvas as png and renaming it
+communicates with saveimage.php which sets headers
+*/
 function CanvasSaver(url) {
 
 	this.url = url;
 
 	this.savePNG = function(cnvs, fname) {
+		//if no canvas or url to .php - do nothing
 		if(!cnvs || !url) return;
-		fname = fname || 'picture';
-		console.log("test");
 
+		//name file 'picture.png' if there is no file name given
+		fname = fname || 'picture';
+
+		//saving canvas element
 		var data = cnvs.toDataURL("image/png");
 		data = data.substr(data.indexOf(',') + 1).toString();
 
+		//creating hidden form for sending our data for image to php and back
 		var dataInput = document.createElement("input") ;
 		dataInput.setAttribute("name", 'imgdata') ;
 		dataInput.setAttribute("value", data);
@@ -461,19 +466,9 @@ function CanvasSaver(url) {
 		myForm.appendChild(dataInput);
 		myForm.appendChild(nameInput);
 
-		document.body.appendChild(myForm) ;
+		//communicating with php via submiting form
+		document.body.appendChild(myForm);
 		myForm.submit() ;
-		document.body.removeChild(myForm) ;
-	};
-
-	this.generateButton = function (label, cnvs, fname) {
-		var btn = document.createElement('button'), scope = this;
-		btn.innerHTML = label;
-		btn.style['class'] = 'canvassaver';
-		btn.addEventListener('click', function(){scope.savePNG(cnvs, fname);}, false);
-
-		document.body.appendChild(btn);
-
-		return btn;
+		document.body.removeChild(myForm);
 	};
 }

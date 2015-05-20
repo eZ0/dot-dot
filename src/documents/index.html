@@ -18,12 +18,6 @@
 				var pjs = Processing.getInstanceById(id);
 				pjs.setOption();
 			}
-
-			function saveImage(id){
-				var canvas = document.getElementById(id);
-				var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-				window.location.href=image; // it will save locally
-			}
 		</script>
 	</head>
 	<body class="main">
@@ -39,15 +33,13 @@
 			</ul>
 		</nav>
 		<div class="buttons" id="_buttons">
-			<div class="button" id="_btnwant" onclick="saveImage('_tattoo')">Want it</div>
+			<div class="button" id="_btnwant">Want it</div>
 			<div class="button" onclick="setOption('_tattoo')">Hate it</div>
 		</div>
-		<!--<div class="email-form" id="_email">
-			<input id="email" name="email" class="email"type="email" placeholder="your@email.com"/>
-			<div class="button">Send it</div>
-		</div> -->
-		<!-- <div class="social">
-				<div class="pinterest"></div>
+<!-- 		<div class="email-form" id="_email">
+			<div class="social">
+					<div class="pinterest"></div>
+			</div>
 		</div> -->
 		<canvas id="_tattoo" data-processing-sources="canvas1.pde"></canvas>
 
