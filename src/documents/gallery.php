@@ -1,4 +1,4 @@
-
+<?php include 'assets/data/config.php'; ?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -25,7 +25,24 @@
 		<!-- Add your site or application content here -->
 		<section class="gallery-wrap">
 			<div class="gallery" id="gallery-container">
-				
+				<?php if ($result = $mysqli->query("SELECT name, country, url FROM user_pics LIMIT 10")) {
+
+   		
+		while ($row = $result->fetch_assoc()) {
+			
+			printf( "<div class='col view'>
+					<img src='{$row["url"]}'>
+					<div class='mask'>
+						<div class='text-wrap'>
+							<p class='person'>{$row["name"]}, {$row["country"]}</p>
+						</div>
+					</div>
+				</div>");
+		}
+
+		/* free result set */
+		$result->close();
+	}?>
 			</div>
 			<div class="clear"> </div>
 			
