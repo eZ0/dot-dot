@@ -121,6 +121,7 @@ Modal.prototype.hide = function (e) {
 	.one('bsTransitionEnd', $.proxy(this.hideModal, this))
 	.emulateTransitionEnd(300) :
 	this.hideModal()
+	$('.view').removeClass('isBlured');
 }
 
 Modal.prototype.enforceFocus = function () {

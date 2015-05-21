@@ -397,6 +397,10 @@ canvas {
     content: "";
     display: table; }
 
+.isBlured {
+  -webkit-filter: blur(5px);
+  filter: blur(5px); }
+
 .view {
   position: relative;
   width: 100%;
