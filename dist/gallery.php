@@ -1,4 +1,5 @@
 <?php include 'assets/data/config.php'; ?>
+
 <!doctype html>
 <html lang="en">
 	<head>
