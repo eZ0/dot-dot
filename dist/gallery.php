@@ -26,7 +26,7 @@
 		<section class="gallery-wrap">
 			<div class="gallery" id="gallery-container">
 				<?php 
-				if ($result = $mysqli->query("SELECT id, name, country, url FROM user_pics")) {
+				if ($result = $mysqli->query("SELECT id, name, country, url FROM user_pics WHERE isPublished = 1")) {
 			   		
 					while ($row = $result->fetch_assoc()) {
 						if ($row["id"]%2 == 0) {
