@@ -70,7 +70,7 @@ $( document ).ready(function() {
 	$('#_btnwant').click(function(){
 		var cnvs = document.getElementById('_tattoo');
 		var cs = new CanvasSaver('assets/data/saveimage.php');
-		cs.savePNG( cnvs, 'dotdot');
+		cs.savePNG( cnvs, 'dotdot', 122);
 	});
 
 	//video
@@ -404,7 +404,7 @@ function CanvasSaver(url) {
 
 	this.url = url;
 
-	this.savePNG = function(cnvs, fname) {
+	this.savePNG = function(cnvs, fname, coord) {
 		//if no canvas or url to .php - do nothing
 		if(!cnvs || !url) return;
 
@@ -414,6 +414,9 @@ function CanvasSaver(url) {
 		//saving canvas element
 		var data = cnvs.toDataURL("image/png");
 		data = data.substr(data.indexOf(',') + 1).toString();
+
+		//unique coordinates
+		coord = coord || 0;
 
 		//creating hidden form for sending our data for image to php and back
 		var dataInput = document.createElement("input") ;
@@ -425,11 +428,18 @@ function CanvasSaver(url) {
 		nameInput.setAttribute("name", 'name') ;
 		nameInput.setAttribute("value", fname + '.png');
 
+		//sending unique coordinate of saved image
+		var coordInput = document.createElement("input") ;
+		coordInput.setAttribute("name", 'coord') ;
+		coordInput.setAttribute("value", coord);
+		coordInput.setAttribute("type", "hidden");
+
 		var myForm = document.createElement("form");
 		myForm.method = 'post';
 		myForm.action = url;
 		myForm.appendChild(dataInput);
 		myForm.appendChild(nameInput);
+		myForm.appendChild(coordInput);
 
 		//communicating with php via submiting form
 		document.body.appendChild(myForm);

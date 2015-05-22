@@ -10,6 +10,8 @@ boolean aligned = false;
 int runonce = 0;
 
 int divPai=5;
+
+int coordinate = 178;
  
 void setup(){
 	size(400, 400);

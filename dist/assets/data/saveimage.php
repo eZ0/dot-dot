@@ -1,4 +1,5 @@
 <?php 
+	include 'config.php';
 
 	//file is a PNG image
 	header('Content-type: image/png');
@@ -11,11 +12,19 @@
 	$encoded = str_replace(' ', '+', $encoded);
 	$decoded = base64_decode($encoded);
 
-
 	// write file to disk
-	$path = realpath(__DIR__ . '/../images/generated/') . '/naam.png';
+	$name = '/'.uniqid().'.png';
+	$path = realpath(__DIR__ . '/../images/generated/') . $name;
 	file_put_contents($path, $decoded);
 
 	//write decoded data
 	echo $decoded;
 	
+	$coord = $_POST['coord'];
+	$time = date("F j Y, g:i a");
+
+	$stmt = $mysqli->prepare("INSERT INTO uniq_coord (coord, time) VALUES (?,?)");
+	$stmt->bind_param('is', $coord, $time);
+	$stmt->execute();
+
+	$stmt->close();
