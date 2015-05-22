@@ -307,10 +307,12 @@ input[type="email"] {
     margin: 0px 60px; }
   .buttons .body-option {
     width: 30px;
-    height: 40px;
     margin: 0px 20px;
     text-align: center;
     display: inline-block; }
+  .buttons .body-option:hover {
+    cursor: pointer;
+    border-bottom: 1px dotted #999; }
 
 .email-form {
   height: 40px;

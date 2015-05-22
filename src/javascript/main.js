@@ -8,6 +8,14 @@ $( document ).ready(function() {
 		cs.savePNG( cnvs, 'dotdot', coord);
 	});
 
+	$('#_arm').click(function() {
+		$('.main').css('background-image', "url('assets/images/bg-2.png')");
+	});
+
+	$('#_back').click(function() {
+		$('.main').css('background-image', "url('assets/images/bg.png')");
+	});
+
 	//video
 	var video = $('#video');
 	
