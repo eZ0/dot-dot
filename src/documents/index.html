@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="assets/stylesheets/main.min.css">
 		<script src="assets/javascript/processing.min.js"></script>
 		<script>
+			var coord;
 			function setOption(id) {
 				var canvas = document.getElementById(id);
 				var context = canvas.getContext('2d');
@@ -17,6 +18,8 @@
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				var pjs = Processing.getInstanceById(id);
 				pjs.setOption();
+				coord = pjs.getCoord();
+				console.log(coord);
 			}
 		</script>
 	</head>
@@ -34,7 +37,7 @@
 		</nav>
 		<div class="buttons" id="_buttons">
 			<div class="button" id="_btnwant">Want it</div>
-			<div class="button" onclick="setOption('_tattoo')">Hate it</div>
+			<div class="button" onclick="setOption('_tattoo')" data-coord="">Hate it</div>
 		</div>
 <!-- 		<div class="email-form" id="_email">
 			<div class="social">

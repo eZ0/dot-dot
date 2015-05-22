@@ -70,7 +70,7 @@ $( document ).ready(function() {
 	$('#_btnwant').click(function(){
 		var cnvs = document.getElementById('_tattoo');
 		var cs = new CanvasSaver('assets/data/saveimage.php');
-		cs.savePNG( cnvs, 'dotdot', 122);
+		cs.savePNG( cnvs, 'dotdot', coord);
 	});
 
 	//video

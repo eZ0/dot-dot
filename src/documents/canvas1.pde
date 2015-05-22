@@ -11,7 +11,10 @@ int runonce = 0;
 
 int divPai=5;
 
-int coordinate = 178;
+int coordinate = 1998;
+
+// function for returning coordinate to js
+int getCoord() { return coordinate; }
  
 void setup(){
 	size(400, 400);
