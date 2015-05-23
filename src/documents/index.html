@@ -35,12 +35,10 @@
 				<li class="menu-item"><a href="gallery.html">Gallery</a></li>
 			</ul>
 		</nav>
+		<div class="social">
+			<a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a>
+		</div>
 
-<!-- 		<div class="email-form" id="_email">
-			<div class="social">
-					<div class="pinterest"></div>
-			</div>
-		</div> -->
 		<canvas id="_tattoo" data-processing-sources="canvas1.pde"></canvas>
 		<div class="buttons" id="_buttons">
 			<div class="button" id="_btnwant">Want it</div>
@@ -55,6 +53,8 @@
 			var canvas = document.getElementById("_tattoo");
 			var processingInstance = new Processing(canvas);
 		</script>
+		<!-- pinit.js for pinterest api -->
+		<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
