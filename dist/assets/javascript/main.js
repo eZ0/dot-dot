@@ -67,24 +67,20 @@ $( document ).ready(function() {
 
 	canvas.style.webkitFilter = "blur(1px)";
 
+	var cnvs = document.getElementById('_tattoo');
+	var cs = new CanvasSaver('assets/data/saveimage.php');
+
 	$('#_btnwant').click(function(){
-		var cnvs = document.getElementById('_tattoo');
-		var cs = new CanvasSaver('assets/data/saveimage.php');
-		cs.savePNG( cnvs, 'dotdot', coord);
-
-
-		$.ajax({
-			console.log("test"),
-			url : '../data/saveimage.php',
-			type : 'POST',
-			dataType : 'json',
-			data: {'path':path},
-			success : function (data) {
-				console.log('path')
-			},
-			error : function () {
-				alert("error");
-			}
+		cs.savePNG( cnvs, 'dotdot', coord, true);
+	});
+	
+	$('#_pinBtn').click(function(event) {
+		$.getJSON('../dist/assets/data/saveimage.php', function(data) {
+			cs.savePNG( cnvs, 'dotdot', coord, false);
+			console.log("URL is "+data.toString());
+			//get an url of this element
+			//get the part from &media=
+			//replace with new url
 		});
 	});
 
@@ -427,7 +423,7 @@ function CanvasSaver(url) {
 
 	this.url = url;
 
-	this.savePNG = function(cnvs, fname, coord) {
+	this.savePNG = function(cnvs, fname, coord, download) {
 		//if no canvas or url to .php - do nothing
 		if(!cnvs || !url) return;
 
@@ -457,12 +453,18 @@ function CanvasSaver(url) {
 		coordInput.setAttribute("value", coord);
 		coordInput.setAttribute("type", "hidden");
 
+		var downloadInput = document.createElement("input") ;
+		downloadInput.setAttribute("name", 'download') ;
+		downloadInput.setAttribute("value", download);
+		downloadInput.setAttribute("type", "hidden");
+
 		var myForm = document.createElement("form");
 		myForm.method = 'post';
 		myForm.action = url;
 		myForm.appendChild(dataInput);
 		myForm.appendChild(nameInput);
 		myForm.appendChild(coordInput);
+		myForm.appendChild(downloadInput);
 
 		//communicating with php via submiting form
 		document.body.appendChild(myForm);

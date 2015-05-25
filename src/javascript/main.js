@@ -2,24 +2,20 @@ $( document ).ready(function() {
 
 	canvas.style.webkitFilter = "blur(1px)";
 
+	var cnvs = document.getElementById('_tattoo');
+	var cs = new CanvasSaver('assets/data/saveimage.php');
+
 	$('#_btnwant').click(function(){
-		var cnvs = document.getElementById('_tattoo');
-		var cs = new CanvasSaver('assets/data/saveimage.php');
-		cs.savePNG( cnvs, 'dotdot', coord);
-
-
-		$.ajax({
-			console.log("test"),
-			url : '../data/saveimage.php',
-			type : 'POST',
-			dataType : 'json',
-			data: {'path':path},
-			success : function (data) {
-				console.log('path')
-			},
-			error : function () {
-				alert("error");
-			}
+		cs.savePNG( cnvs, 'dotdot', coord, true);
+	});
+	
+	$('#_pinBtn').click(function(event) {
+		$.getJSON('../dist/assets/data/saveimage.php', function(data) {
+			cs.savePNG( cnvs, 'dotdot', coord, false);
+			console.log("URL is "+data.toString());
+			//get an url of this element
+			//get the part from &media=
+			//replace with new url
 		});
 	});
 

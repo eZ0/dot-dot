@@ -1,5 +1,6 @@
 <?php 
 	include 'config.php';
+	
 
 	//file is a PNG image
 	header('Content-type: image/png');
@@ -17,8 +18,13 @@
 	$path = realpath(__DIR__ . '/../images/generated/') . $name;
 	file_put_contents($path, $decoded);
 
-	//write decoded data
-	echo $decoded;
+	// TODO: if $_POST['download'] == 'true' ...
+	if ($_POST['download'] == 'true'){
+		//write decoded data
+		echo $decoded;
+	}else{
+		echo json_encode($path);
+	}
 	
 	$coord = $_POST['coord'];
 	$time = date("F j Y, g:i a");
@@ -28,5 +34,3 @@
 	$stmt->execute();
 
 	$stmt->close();
-
-	echo json_encode($path);
