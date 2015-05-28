@@ -4,7 +4,7 @@
 		$mysqli = new mysqli("localhost", "root", "root", "dotdot");
 	}
 	else{
-		// $mysqli = new mysqli("localhost", "deb54514_aupvac", "auping", "deb54514_aupvac");
+		$mysqli = new mysqli("localhost", "deb74595_dot", "dotdot", "deb74595_dot");
 	}	
 
 	/* check connection */

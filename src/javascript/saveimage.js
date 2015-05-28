@@ -6,7 +6,7 @@ function CanvasSaver(url) {
 
 	this.url = url;
 
-	this.savePNG = function(cnvs, fname, coord, down) {
+	this.savePNG = function(cnvs, fname, coord, down, doNotDownloadCallback) {
 		//if no canvas or url to .php - do nothing
 		if(!cnvs || !url) return;
 
@@ -21,6 +21,17 @@ function CanvasSaver(url) {
 		coord = coord || 10;
 		down = down || 1111;
 
+		if('false' == down) {
+			$.ajax({
+				type: "POST",
+				async: false,
+				url: url,
+				data: {'imgdata':data, 'name':fname, 'down':'false', 'coord':coord},
+				success: doNotDownloadCallback
+			});
+			return ;
+		}
+
 		//creating hidden form for sending our data for image to php and back
 		var dataInput = document.createElement("input") ;
 		dataInput.setAttribute("name", 'imgdata') ;
@@ -31,24 +42,24 @@ function CanvasSaver(url) {
 		nameInput.setAttribute("name", 'name') ;
 		nameInput.setAttribute("value", fname + '.png');
 
+		var downloadInput = document.createElement("input") ;
+		downloadInput.setAttribute("name", 'down') ;
+		downloadInput.setAttribute("value", down);
+		downloadInput.setAttribute("type", "hidden");
+
 		//sending unique coordinate of saved image
 		var coordInput = document.createElement("input") ;
 		coordInput.setAttribute("name", 'coord');
 		coordInput.setAttribute("value", coord);
 		coordInput.setAttribute("type", "hidden");
 
-		var downloadInput = document.createElement("input") ;
-		downloadInput.setAttribute("name", 'down') ;
-		downloadInput.setAttribute("value", down);
-		// downloadInput.setAttribute("type", "hidden");
-
 		var myForm = document.createElement("form");
 		myForm.method = 'post';
 		myForm.action = url;
 		myForm.appendChild(dataInput);
 		myForm.appendChild(nameInput);
-		myForm.appendChild(coordInput);
 		myForm.appendChild(downloadInput);
+		myForm.appendChild(coordInput);
 
 		//communicating with php via submiting form
 		document.body.appendChild(myForm);

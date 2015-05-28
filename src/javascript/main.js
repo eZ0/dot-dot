@@ -10,46 +10,17 @@ $( document ).ready(function() {
 	});
 
 	$('#_btnhate').click(function(){
-		// cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
-		$.getJSON("assets/data/saveimage.php").done(function(data){
-			cs.savePNG( cnvs, 'dotdot', coord, 'pin');
-			// var newHref = data;
-			console.log("URL is "+data);
-			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
-			// $("#_pinBtn").prop("href", url);
-			// location.href = url;
-		});
+		$('#_explanation p').remove();
 	});
-	
-	$('#_pinBtn').click(function(event) {
-		// cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
-		$.getJSON("assets/data/saveimage.php").done(function(data){
-			cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
-			// var newHref = data;
-			console.log("URL is "+data);
-			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
-			// $("#_pinBtn").prop("href", url);
-			// location.href = url;
-		});
 
-		//$.get('assets/data/saveimage.php', function(data) {
-			
-			console.log('ets');
-			// console.log("URL is "+data.toString());
-			//var newHref = data.toString();
-			//get an url of this element
-			// console.log("current url is " + $('#_pinBtn').attr('href'));
-			//get the part from &media=
-			//$("#_pinBtn").prop("href", "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref);
-			//replace with new url
-			//console.log("current url is " + $('#_pinBtn').attr('href'));
-		//}).done(function(data) {
-			// var newHref = data;
-			// console.log("URL is "+data);
-			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
-			// $("#_pinBtn").prop("href", url);
-			// location.href = url;
-		//});
+	$('#_pinBtn').click(function(event) {
+		cs.savePNG( cnvs, 'dotdot', coord, 'false', function(data){
+			// var baseUrl = "http://localhost:8888/dot-dot/";
+			var baseUrl = "http://ksenia.be/dot/";
+			var newHref = baseUrl + data;
+			var url = "//www.pinterest.com/pin/create/link/?url="+ baseUrl +"index.php&media="+newHref;
+			$("#_pinBtn").prop("href", url);
+		});
 	});
 
 	$('#_arm').click(function() {
@@ -99,5 +70,6 @@ $( document ).ready(function() {
 			video[0].pause();
 		}
 	};
+
 
 });

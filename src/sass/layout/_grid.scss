@@ -1,6 +1,6 @@
 .col {
 	@include span-columns(12);
-	// @include reset-display;
+	
 	@include pad();
 
 	@include media($sansa) {

@@ -17,7 +17,7 @@
 .view {
 	position: relative;
 	width: 100%;
-	height: auto;
+	
 	@include clearfix();
 	@include media($sansa) {
 		width: 50%;
@@ -54,7 +54,7 @@
 	opacity: 1;
 	.text-wrap{
 		padding-top: 38%;
-		padding-bottom: 30%;
+		//padding-bottom: 30%;
 	}
 	.button {
 		margin-left: -8px;

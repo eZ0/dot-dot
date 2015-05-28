@@ -8,9 +8,20 @@ var url;
 $( document ).ready(function() {
 
 	initButtons();
+	calcHeight();
+	
 	
 });
 
+function calcHeight(){
+	//gallery height
+
+	var vH = $('.view').height();
+	var iH = $('.view img').height();
+	var diff = vH - iH;
+
+	$('.view').height(vH - diff);
+}
 
 
 function initButtons() {
