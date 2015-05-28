@@ -71,17 +71,50 @@ $( document ).ready(function() {
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
 	$('#_btnwant').click(function(){
-		cs.savePNG( cnvs, 'dotdot', coord, true);
+		cs.savePNG( cnvs, 'dotdot', coord, 'true');
+	});
+
+	$('#_btnhate').click(function(){
+		// cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
+		$.getJSON("assets/data/saveimage.php").done(function(data){
+			cs.savePNG( cnvs, 'dotdot', coord, 'pin');
+			// var newHref = data;
+			console.log("URL is "+data);
+			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
+			// $("#_pinBtn").prop("href", url);
+			// location.href = url;
+		});
 	});
 	
 	$('#_pinBtn').click(function(event) {
-		$.getJSON('../dist/assets/data/saveimage.php', function(data) {
-			cs.savePNG( cnvs, 'dotdot', coord, false);
-			console.log("URL is "+data.toString());
-			//get an url of this element
-			//get the part from &media=
-			//replace with new url
+		// cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
+		$.getJSON("assets/data/saveimage.php").done(function(data){
+			cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
+			// var newHref = data;
+			console.log("URL is "+data);
+			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
+			// $("#_pinBtn").prop("href", url);
+			// location.href = url;
 		});
+
+		//$.get('assets/data/saveimage.php', function(data) {
+			
+			console.log('ets');
+			// console.log("URL is "+data.toString());
+			//var newHref = data.toString();
+			//get an url of this element
+			// console.log("current url is " + $('#_pinBtn').attr('href'));
+			//get the part from &media=
+			//$("#_pinBtn").prop("href", "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref);
+			//replace with new url
+			//console.log("current url is " + $('#_pinBtn').attr('href'));
+		//}).done(function(data) {
+			// var newHref = data;
+			// console.log("URL is "+data);
+			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
+			// $("#_pinBtn").prop("href", url);
+			// location.href = url;
+		//});
 	});
 
 	$('#_arm').click(function() {
@@ -423,7 +456,7 @@ function CanvasSaver(url) {
 
 	this.url = url;
 
-	this.savePNG = function(cnvs, fname, coord, download) {
+	this.savePNG = function(cnvs, fname, coord, down) {
 		//if no canvas or url to .php - do nothing
 		if(!cnvs || !url) return;
 
@@ -435,7 +468,8 @@ function CanvasSaver(url) {
 		data = data.substr(data.indexOf(',') + 1).toString();
 
 		//unique coordinates
-		coord = coord || 0;
+		coord = coord || 10;
+		down = down || 1111;
 
 		//creating hidden form for sending our data for image to php and back
 		var dataInput = document.createElement("input") ;
@@ -449,14 +483,14 @@ function CanvasSaver(url) {
 
 		//sending unique coordinate of saved image
 		var coordInput = document.createElement("input") ;
-		coordInput.setAttribute("name", 'coord') ;
+		coordInput.setAttribute("name", 'coord');
 		coordInput.setAttribute("value", coord);
 		coordInput.setAttribute("type", "hidden");
 
 		var downloadInput = document.createElement("input") ;
-		downloadInput.setAttribute("name", 'download') ;
-		downloadInput.setAttribute("value", download);
-		downloadInput.setAttribute("type", "hidden");
+		downloadInput.setAttribute("name", 'down') ;
+		downloadInput.setAttribute("value", down);
+		// downloadInput.setAttribute("type", "hidden");
 
 		var myForm = document.createElement("form");
 		myForm.method = 'post';

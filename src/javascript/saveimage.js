@@ -6,7 +6,7 @@ function CanvasSaver(url) {
 
 	this.url = url;
 
-	this.savePNG = function(cnvs, fname, coord, download) {
+	this.savePNG = function(cnvs, fname, coord, down) {
 		//if no canvas or url to .php - do nothing
 		if(!cnvs || !url) return;
 
@@ -18,7 +18,8 @@ function CanvasSaver(url) {
 		data = data.substr(data.indexOf(',') + 1).toString();
 
 		//unique coordinates
-		coord = coord || 0;
+		coord = coord || 10;
+		down = down || 1111;
 
 		//creating hidden form for sending our data for image to php and back
 		var dataInput = document.createElement("input") ;
@@ -32,14 +33,14 @@ function CanvasSaver(url) {
 
 		//sending unique coordinate of saved image
 		var coordInput = document.createElement("input") ;
-		coordInput.setAttribute("name", 'coord') ;
+		coordInput.setAttribute("name", 'coord');
 		coordInput.setAttribute("value", coord);
 		coordInput.setAttribute("type", "hidden");
 
 		var downloadInput = document.createElement("input") ;
-		downloadInput.setAttribute("name", 'download') ;
-		downloadInput.setAttribute("value", download);
-		downloadInput.setAttribute("type", "hidden");
+		downloadInput.setAttribute("name", 'down') ;
+		downloadInput.setAttribute("value", down);
+		// downloadInput.setAttribute("type", "hidden");
 
 		var myForm = document.createElement("form");
 		myForm.method = 'post';

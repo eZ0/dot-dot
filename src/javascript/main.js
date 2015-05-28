@@ -6,17 +6,50 @@ $( document ).ready(function() {
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
 	$('#_btnwant').click(function(){
-		cs.savePNG( cnvs, 'dotdot', coord, true);
+		cs.savePNG( cnvs, 'dotdot', coord, 'true');
+	});
+
+	$('#_btnhate').click(function(){
+		// cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
+		$.getJSON("assets/data/saveimage.php").done(function(data){
+			cs.savePNG( cnvs, 'dotdot', coord, 'pin');
+			// var newHref = data;
+			console.log("URL is "+data);
+			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
+			// $("#_pinBtn").prop("href", url);
+			// location.href = url;
+		});
 	});
 	
 	$('#_pinBtn').click(function(event) {
-		$.getJSON('../dist/assets/data/saveimage.php', function(data) {
-			cs.savePNG( cnvs, 'dotdot', coord, false);
-			console.log("URL is "+data.toString());
-			//get an url of this element
-			//get the part from &media=
-			//replace with new url
+		// cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
+		$.getJSON("assets/data/saveimage.php").done(function(data){
+			cs.savePNG( cnvs, 'dotdot', coord, 'pin1');
+			// var newHref = data;
+			console.log("URL is "+data);
+			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
+			// $("#_pinBtn").prop("href", url);
+			// location.href = url;
 		});
+
+		//$.get('assets/data/saveimage.php', function(data) {
+			
+			console.log('ets');
+			// console.log("URL is "+data.toString());
+			//var newHref = data.toString();
+			//get an url of this element
+			// console.log("current url is " + $('#_pinBtn').attr('href'));
+			//get the part from &media=
+			//$("#_pinBtn").prop("href", "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref);
+			//replace with new url
+			//console.log("current url is " + $('#_pinBtn').attr('href'));
+		//}).done(function(data) {
+			// var newHref = data;
+			// console.log("URL is "+data);
+			// var url =  "//www.pinterest.com/pin/create/link/?url=http://ksenia.be/dot/index.html&media="+newHref;
+			// $("#_pinBtn").prop("href", url);
+			// location.href = url;
+		//});
 	});
 
 	$('#_arm').click(function() {
