@@ -10,7 +10,6 @@ $( document ).ready(function() {
 	initButtons();
 	calcHeight();
 	
-	
 });
 
 function calcHeight(){

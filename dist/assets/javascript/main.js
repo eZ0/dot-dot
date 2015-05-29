@@ -10,7 +10,6 @@ $( document ).ready(function() {
 	initButtons();
 	calcHeight();
 	
-	
 });
 
 function calcHeight(){
@@ -86,7 +85,8 @@ $( document ).ready(function() {
 	});
 
 	$('#_btnhate').click(function(){
-		$('#_explanation p').remove();
+		$('#_explanation p').fadeOut();
+		// $('#_explanation p').remove();
 	});
 
 	$('#_pinBtn').click(function(event) {
