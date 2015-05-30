@@ -63,7 +63,7 @@
 	// Remove focus outline from opened modal
 	outline: 0;
 	text-align: center;
-	
+	width: 500px;
 	form{
 		margin: 260px auto;
 		width: 380px;
@@ -83,6 +83,9 @@
 			background-color: $dark-side;
 			color: $snow-white;
 		}
+	}
+	@include media($sansa) {
+		width: 100%;
 	}
 }
 #thanks{

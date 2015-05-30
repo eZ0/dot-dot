@@ -9,7 +9,7 @@ $( document ).ready(function() {
 
 	initButtons();
 	calcHeight();
-	
+	$('.main').bind('touchstart', function() {});
 });
 
 function calcHeight(){

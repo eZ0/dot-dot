@@ -41,7 +41,7 @@
 							</div>
 							<div class='col view'>
 								<img src='assets/images/gallery/pic0.png'>
-								<div class='mask add'>
+								<div class='add'>
 									<div class='text-wrap'>
 										<p class='text-add'>Want your picture</br> here too?</p>
 										<div class='button btn-add' data-toggle='modal' data-target='#myModal'>Send it</div>

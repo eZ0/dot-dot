@@ -257,7 +257,8 @@ input[type="email"] {
   position: relative;
   background-clip: padding-box;
   outline: 0;
-  text-align: center; }
+  text-align: center;
+  width: 500px; }
   .modal-content form {
     margin: 260px auto;
     width: 380px; }
@@ -274,6 +275,9 @@ input[type="email"] {
       width: 240px;
       background-color: #000000;
       color: #ffffff; }
+  @media screen and (min-width: 768px) {
+    .modal-content {
+      width: 100%; } }
 
 #thanks {
   opacity: 0; }
@@ -294,38 +298,53 @@ input[type="email"] {
     filter: alpha(opacity=50); }
 
 .main {
+  background-size: 100%;
   background: url('../images/bg-2.png');
-  background-repeat: no-repeat;
-  background-size: 75%;
-  background-position: top; }
+  background-position: bottom;
+  background-repeat: no-repeat; }
+  @media screen and (min-width: 960px) {
+    .main {
+      background-size: 75%;
+      background-position: top; } }
 
 .buttons {
+  width: 400px;
   height: 40px;
-  margin: 0 auto;
-  width: 630px; }
+  margin: 0 auto; }
   .buttons .button {
-    margin: 0px 60px; }
+    margin: 0px 0px; }
   .buttons .body-option {
-    width: 30px;
-    margin: 0px 20px;
+    width: auto;
+    margin: 0px 24px;
     text-align: center;
     display: inline-block; }
-  .buttons .body-option:hover {
-    cursor: pointer;
-    border-bottom: 1px dotted #999; }
-
-.email-form {
-  height: 40px;
-  margin: 0 auto;
-  width: 380px;
-  padding-top: 150px; }
+  @media screen and (min-width: 960px) {
+    .buttons {
+      width: 630px; }
+      .buttons .button {
+        margin: 0px 60px; }
+      .buttons .body-option {
+        width: 30px;
+        margin: 0px 20px; }
+      .buttons .body-option:hover {
+        cursor: pointer;
+        border-bottom: 1px dotted #999; } }
 
 .social {
   position: relative; }
   .social a {
     position: absolute;
     top: 40px;
-    left: 930px; }
+    left: 80%;
+    transition: all 0.2s linear; }
+  @media screen and (min-width: 768px) {
+    .social a {
+      left: 85%;
+      transition: all 0.2s linear; } }
+  @media screen and (min-width: 960px) {
+    .social a {
+      left: 930px;
+      transition: all 0.2s linear; } }
 
 .pinterest {
   background: url('../images/pinterest.png');
@@ -347,7 +366,8 @@ canvas {
   text-align: center;
   line-height: 1.8em;
   margin-top: 60px;
-  height: 80px; }
+  height: 80px;
+  transition: all 0.2s linear; }
 
 .text {
   width: 280px;
