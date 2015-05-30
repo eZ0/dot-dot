@@ -4,21 +4,26 @@
 	$name = filter_var($_GET["name"], FILTER_SANITIZE_STRING);
 	$country = filter_var($_GET["country"], FILTER_SANITIZE_STRING);
 	// $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-	$url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
+	// $url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
 	$isPublished = 0;
 
-	$message = 'There is a new picture submited!'."\r\n". 
-
-	'Name: '. $name . ' ' . $last_name."\r\n".
-	// 'email: '. $email ."\r\n".
-	'Country: '. $country ."\r\n". 
-	'URL: '. $url ."\r\n";
-
-	$header = 'From: DOT:DOT';
-	$to = 'kusksu@gmail.com';
-	$subject = 'New picture submited!';
-	mail($to, $subject, $message, $header);
-
+	if(is_uploaded_file($_FILES['file']['tmp_name'])){
+		// Storing source path of the file in a variable
+		$sourcePath = $_FILES['file']['tmp_name'];
+		//changing name of the uploaded file
+		$filename  = basename($_FILES['file']['name']);
+		$extension = pathinfo($filename, PATHINFO_EXTENSION);
+		$fName = md5($filename).'.'.$extension;
+		// Target path where file is to be stored
+		$targetPath = realpath(__DIR__ . '/../images/uploads/').'/'.$fName; 
+		// Moving Uploaded file
+		move_uploaded_file($sourcePath, $targetPath);
+		$url = $targetPath;
+	}else{
+		$url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
+	}
+	
+	
 	$stmt = $mysqli->prepare("INSERT INTO user_pics (name, country, url, isPublished) VALUES (?,?,?,?)");
 	$stmt->bind_param('sssi', $name, $country, $url, $isPublished);
 	$stmt->execute();

@@ -15,6 +15,9 @@
 .hidden {
   display: none; }
 
+.visible {
+  display: inline-block; }
+
 html {
   box-sizing: border-box; }
 
@@ -491,6 +494,13 @@ canvas {
   @media screen and (min-width: 960px) {
     .view-add {
       width: 25%; } }
+
+.linked {
+  font-weight: 500; }
+
+.linked:hover {
+  text-decoration: underline;
+  cursor: pointer; }
 
 @media (min-width: 480px) {
   .modal-dialog {

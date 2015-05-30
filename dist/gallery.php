@@ -1,4 +1,6 @@
-<?php include 'assets/data/config.php'; ?>
+<?php 
+	include 'assets/data/config.php'; 
+?>
 
 <!doctype html>
 <html lang="en">
@@ -41,7 +43,7 @@
 							</div>
 							<div class='col view'>
 								<img src='assets/images/gallery/pic0.png'>
-								<div class='mask add'>
+								<div class='add'>
 									<div class='text-wrap'>
 										<p class='text-add'>Want your picture</br> here too?</p>
 										<div class='button btn-add' data-toggle='modal' data-target='#myModal'>Send it</div>
@@ -71,12 +73,16 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<p class="close" data-dismiss="modal" aria-label="Close">X</p>
-						<form class='pic-form' id='pic-form'  method="POST" enctype="multipart/form-data">
+						<form class='pic-form' id='pic-form' name='pic-form'  method="POST" enctype="multipart/form-data">
 						<p>Send us your awesome picture with DOT:DOT tattoo!</p>
 							<input type="text" id="name" name="name" placeholder="What's your name?">
 							<input type="text" id="country" name="country" placeholder="Where do you live?">
 							<!-- <input type="email" id="email" name="email" placeholder="What's your e-mail?"> -->
-							<input type="text" id="url" name="url" placeholder="Link to your picture">
+							<!-- <input type="text" id="url" name="url" placeholder="Link to your picture"> -->
+							<br>
+							<p><span id="_file" class="linked">Upload</span> or <span id="_url" class="linked">link</span> your picture!</p>
+							<input id="url" type="text" name="url" placeholder="Link to your picture">
+							<input id="file" type="file" name="file">
 							<input class="button" type="submit" id="submit" name="submit" value="Send!">
 						</form>
 
