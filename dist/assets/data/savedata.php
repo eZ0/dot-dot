@@ -3,8 +3,6 @@
 
 	$name = filter_var($_GET["name"], FILTER_SANITIZE_STRING);
 	$country = filter_var($_GET["country"], FILTER_SANITIZE_STRING);
-	// $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-	// $url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
 	$isPublished = 0;
 
 	if(is_uploaded_file($_FILES['file']['tmp_name'])){

@@ -11,7 +11,7 @@ int runonce = 0;
 
 int divPai=5;
 
-int coordinate = 1998;
+char coordinate = 1998;
 
 // function for returning coordinate to js
 int getCoord() { return coordinate; }
@@ -109,7 +109,6 @@ void drawRuby(){
 }
 
 void drawDots(){
-	//int rNumber = floor(random(10, 200));
 	int rI = floor(random(1, 20));
 	int rDist = floor(random(10, 50));
 	int rStrokeWeight;
@@ -118,7 +117,11 @@ void drawDots(){
 		strokeWeight( rStrokeWeight );
 		point(width/2, 150+rDist*i);
 	}
-	// exit();//function stops here, otherwise draw will call it every sec
+	
+	char c = char(rI);
+	char a = char(rDist);
+	char b = char(rStrokeWeight);
+	coordinate = 'D-' + c + a + b;
 }
 
 void drawLines(){
@@ -129,6 +132,14 @@ void drawLines(){
 	int optionEnd = floor(random(1, 7));
 	int length = floor(random(100, 150));
 	int endPoint = floor(random(100, 200));
+
+	char a = char(optionArrow);
+	char b = char(rI);
+	char c = char(rsI);
+	char d = char(optionEnd);
+	char e = char(length);
+	char f = char(endPoint);
+	coordinate = 'L-' + a + b + c + d + e + f;
 
 	line(width/2 ,endPoint, width/2, endPoint+length);
 	switch(optionArrow){
@@ -213,6 +224,14 @@ void drawTriangles(){
 	int rsI = floor(random(1, 4));
 	noFill(rsI);
 	strokeWeight(floor(random(2, 6)));
+
+	char a = char(optionTriangle);
+	char b = char(top);
+	char c = char(rsI);
+	char d = char(bottom);
+	char e = char(trWidth);
+	coordinate = 'T-' + a + b + c + d + e ;
+
 	for (int i=0; i < rsI; i++ ) {
 		bottom = bottom+rsI*10;
 		top = top+rsI*10;
@@ -237,18 +256,22 @@ void drawTriangles(){
 		}
 		triangle(width/2, top, width/2-trWidth, bottom, width/2+trWidth, bottom );
 	}
-	// exit();
 }
 
 void drawCircles(){
 	int dia = floor(random(50, 100));
-	strokeWeight(floor(random(5, 10)));
+	int strWeight = floor(random(5, 10));
+	strokeWeight(strWeight);
 	noFill();
 	int rsI = floor(random(1, 4));
 	for (int i=0; i < rsI; i++ ) {
 		ellipse(width/2, height/2-rsI*10, dia/2, dia/2);
 	}
-	// exit();
+	
+	char a = char(dia);
+	char b = char(strWeight);
+	char c = char(rsI);
+	coordinate = 'C-' + a + b + c;
 }
 
 // class circle {

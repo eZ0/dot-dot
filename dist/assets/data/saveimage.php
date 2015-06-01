@@ -37,7 +37,7 @@
 	}
 
 	$stmt = $mysqli->prepare("INSERT INTO uniq_coord (coord, time) VALUES (?,?)");
-	$stmt->bind_param('is', $coord, $time);
+	$stmt->bind_param('ss', $coord, $time);
 	$stmt->execute();
 
 	$stmt->close();
