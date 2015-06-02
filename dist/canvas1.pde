@@ -27,7 +27,7 @@ void setup(){
 void draw(){}
 
 void setOption(){
-	int option = floor(random(1, 5));
+	int option = floor(random(6, 8));
 	switch(option){
 		case 1:
 			//drawRuby();
@@ -38,49 +38,23 @@ void setOption(){
 			break;
 		case 3:
 			drawDots();
-			// if(runonce <= 1280){ 
-			// 	runonce = runonce+1;
-			// 	for (int i=0; i < MANY; i++) {
-			// 		manyCircles[i].drawit();
-			// 		manyCircles[i].update();
-			// 	}
-			// }
 			break;
 		case 4:
 			drawCircles();
 			break;
+		case 5:
+		//back
+			drawBigCircles();
+			break;
+		case 6:
+		//back
+			drawZigzag();
+			break;
+		case 7:
+			drawMandala();
+			break;
 	}
 }
-
-
-
-// void setup() {
-
-// 	// scrShot = createImage(width, height, 1);
-// 	bigCircleC = new PVector ((width)/2, height/2);
-// 	bigCircleR = min((width), height);
-// 	divPai = floor(random(3, 9));
-// 	manyCircles = new circle[MANY];
-
-// 	// if not aligned every circle has different numbers of petals
-// 	if (!aligned) {
-// 		for (int i=0; i < MANY; i++) {
-// 			manyCircles[i] = new circle(random(20, bigCircleR/2.5), bigCircleC, random(bigCircleR*(2/3), bigCircleR), 
-// 			TWO_PI/divPai, 0.02);
-// 		}
-// 	}else{
-// 		int thFactor = floor(random(6, 13));
-// 		for (int i=0; i < MANY; i++) {
-// 			manyCircles[i] = new circle(random(20, bigCircleR/2.5), 
-// 			bigCircleC, random(bigCircleR*(2/3), bigCircleR), 
-// 			TWO_PI/divPai, 0.02, thFactor);
-// 		}
-// 	}
-
-// }
-
-
-
 
 void drawRuby(){
 	int h = 20;
@@ -211,7 +185,6 @@ void drawLines(){
 			quad(width/2 ,endPoint+length, width/2+5, endPoint+length+5, width/2 ,endPoint+length+10,width/2-5, endPoint+length+5);
 			break;
 	}
-	// exit();
 }
 
 void drawTriangles(){
@@ -259,13 +232,15 @@ void drawTriangles(){
 }
 
 void drawCircles(){
-	int dia = floor(random(50, 100));
-	int strWeight = floor(random(5, 10));
-	strokeWeight(strWeight);
+	int dia;
+	int strWeight;
 	noFill();
-	int rsI = floor(random(1, 4));
+	int rsI = floor(random(1, 8));
 	for (int i=0; i < rsI; i++ ) {
-		ellipse(width/2, height/2-rsI*10, dia/2, dia/2);
+		int dia = floor(random(50, 100));
+		strWeight = floor(random(2, 9));
+		strokeWeight(strWeight);
+		ellipse(width/2, height/2+rsI*10, dia/2, dia/2);
 	}
 	
 	char a = char(dia);
@@ -274,75 +249,52 @@ void drawCircles(){
 	coordinate = 'C-' + a + b + c;
 }
 
-// class circle {
-// 	PVector center;
-// 	float radius;
-// 	PVector spot; // the brush tip
-// 	PVector bigC; // center of big circle
-// 	float bigR; // big circle radius
-// 	float theta;
-// 	float acc;
+void drawBigCircles(){
+	int nCircle = floor(random(3, 10));
+	int strWeight;
+	noFill();
+	for (int i=0; i < nCircle; i++ ) {
+		int dia = floor(random(20, 400));
+		strWeight = floor(random(2, 18));
+		strokeWeight(strWeight);
+		ellipse(width/2, height/2+nCircle*10, dia/2, dia/2);
+	}
+}
 
-// 	int thFactor;
+void drawZigzag(){
+	float x =0;
+	int nC = floor(random(50, 400));
+	int strWeight;
+	strWeight = floor(random(2, 5));
+	strokeWeight(strWeight);
+	while(x<width){
+		point(x, height/2 + nC*noise(x/100));
+		x=x+0.001;
+	}
+}
 
-// 	// each circle has it's own number of petals
-// 	circle(float r, PVector bc, float bigr, float th, float ac) {
-// 		theta = th;
-// 		acc = ac;
-// 		center = new PVector(0.0, 0.0);
-// 		radius = r;
-// 		spot = new PVector(0.0, 0.0);
-// 		bigC = new PVector(bc.x, bc.y);
-// 		bigR = bigr;
+void drawMandala(){
+	//rose curve
+	float k = floor(random(0.0, 10.0))/random(-1.0, 8.0); //constant
+	int strWeight;
+	strWeight = floor(random(2, 5));
+	strokeWeight(strWeight);
+	noFill();
+	float i = 0;
+	while(i<100){
 
-// 		thFactor = floor(random(6, 13));
-// 		// update();
-// 	}
+		float t = i;
+		float x = map(cos(k*t)*sin(t), -1,1,0,400);
+		float y = map(cos(k*t)*cos(t), -1,1,0,400);
+		i = i + 0.01;
+		point(x,y);
+	}
+}
 
-// 	// all circle have the same number of petals
-// 	circle(float r, PVector bc, float bigr, float th, float ac, int tfactor) {
-// 		theta = th;
-// 		acc = ac;
-// 		center = new PVector(0.0, 0.0);
-// 		radius = r;
-// 		spot = new PVector(0.0, 0.0);
-// 		bigC = new PVector(bc.x, bc.y);
-// 		bigR = bigr;
 
-// 		thFactor = tfactor;
-// 		// update();
-// 	}
 
-// 	void update() {
-// 		theta+=acc;
-// 		PVector moveto = new PVector(cos(theta), sin(theta), 0);
-// 		//moveto.normalize();
-// 		//sets the arc
-// 		moveto.mult((bigR-radius)/2);
-// 		//changes the center
-// 		center= PVector.add(bigC, moveto);
-// 		//actually paints
-// 		moveto.set(cos(theta*thFactor), sin(theta*thFactor));
-		
-// 		//moveto.normalize();
-// 		moveto.mult(-(radius/2));
-// 		spot = PVector.add(center, moveto);
-// 	}
 
-// 	void drawit() {
-// 		pushStyle();
 
-// 		noFill();
-// 		strokeWeight(1);
-// 		// stroke(R, G, B, 50);
-// 		// stroke(#0594cf);
-// 		//line(center.x, center.y, spot.x, spot.y);
-// 		//ellipse(spot.x, spot.y, 1, 1);
-// 		point(spot.x, spot.y);
-// 		popStyle();
-// 	}
-// }
 
- 
 
 
