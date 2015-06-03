@@ -99,10 +99,15 @@ $( document ).ready(function() {
 	canvas.style.webkitFilter = "blur(1px)";
 
 	var cnvs = document.getElementById('_tattoo');
+	var context = cnvs.getContext('2d');
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
 	$('#_btnwant').click(function(){
 		cs.savePNG( cnvs, 'dotdot', coord, 'true');
+		context.clearRect(0, 0, cnvs.width, cnvs.height);
+		context.fillText("Thank you for using Dot:Dot! <3", 100, 120);
+		context.fillText("Set & enjoy your tattoo", 120, 140);
+		context.fillText("And don't forget to upload your pic to our gallery!", 60, 160);
 	});
 
 	$('#_btnhate').click(function(){
@@ -167,8 +172,6 @@ $( document ).ready(function() {
 			video[0].pause();
 		}
 	};
-
-
 });
 /* ========================================================================
 * Bootstrap: modal.js v3.2.0
