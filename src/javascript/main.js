@@ -9,14 +9,15 @@ $( document ).ready(function() {
 	$('#_btnwant').click(function(){
 		cs.savePNG( cnvs, 'dotdot', coord, 'true');
 		context.clearRect(0, 0, cnvs.width, cnvs.height);
+		canvas.style.webkitFilter = "blur(0px)";
 		context.fillText("Thank you for using Dot:Dot! <3", 100, 120);
-		context.fillText("Set & enjoy your tattoo", 120, 140);
-		context.fillText("And don't forget to upload your pic to our gallery!", 60, 160);
+		context.fillText("Enjoy & stay awesome!", 120, 140);
+		context.fillText("PS Don't forget to upload your spectacular pic to our gallery!", 20, 160);
 	});
 
 	$('#_btnhate').click(function(){
+		canvas.style.webkitFilter = "blur(1px)";
 		$('#_explanation p').fadeOut();
-		// $('#_explanation p').remove();
 	});
 
 	$('#_pinBtn').click(function(event) {
