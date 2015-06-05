@@ -21,13 +21,13 @@ void setup(){
 	smooth();
 	strokeWeight( 5 );
 	background(0, 0);
-	setOption();
+	setOptionArm();
 }
  
 void draw(){}
 
-void setOption(){
-	int option = floor(random(0, 9));
+void setOptionArm(){
+	int option = floor(random(0, 5));
 	switch(option){
 		case 1:
 			//drawRuby();
@@ -42,55 +42,56 @@ void setOption(){
 		case 4:
 			drawCircles();
 			break;
-		case 5:
-		//back
-			drawBigCircles();
-			break;
-		case 6:
-		//back
-			drawZigzag();
-			break;
-		case 7:
-		//back
-			drawRoseCurve();
-			break;
-		case 8:
-		//back
-			drawLisCurve();
-			break;
-		case 9:
-		//back
-			drawRotLines();
-			break;
+		// case 5:
+		// //back
+		// 	drawBigCircles();
+		// 	break;
+		// case 6:
+		// //back
+		// 	drawZigzag();
+		// 	break;
+		// case 7:
+		// //back
+		// 	drawRoseCurve();
+		// 	break;
+		// case 8:
+		// //back
+		// 	drawLisCurve();
+		// 	break;
+		// case 9:
+		// //back
+		// 	drawRotLines();
+		// 	break;
 
 	}
 }
 
-void drawRuby(){
-	int h = 20;
-	int w = 40;
-	strokeWeight(2);
-	stroke(#000000);
-	noFill();
-	
-	beginShape();
-	rect(width/2, height/2, w, h);
-	line(height/2, height/2, height/2-h, height/2+h);
-	line(height/2+w, height/2, height/2+w+h, height/2+h);
-	line(height/2-h, height/2+h, height/2+w+h, height/2+h);
-	line(height/2, height/2+h, height/2+w/2, height/2);
-	line(height/2+w, height/2+h, height/2+w/2, height/2);
-
-	line(height/2+w+h, height/2+h, height/2+w/2, height/2+h*3);
-	line(height/2-h, height/2+h, height/2+w/2, height/2+h*3);
-
-	line(height/2+w, height/2+h, height/2+w/2, height/2+h*3);
-	line(height/2, height/2+h, height/2+w/2, height/2+h*3);
-	endShape();
-
-	stroke(#0594cf);
-	point(height/2+w/2,height/2+h+100);
+void setOptionBack(){
+	int option = floor(random(0, 6));
+	switch(option){
+		case 1:
+		//back
+			drawBigCircles();
+			break;
+		case 2:
+		//back
+			drawZigzag();
+			break;
+		case 3:
+		//back
+			drawRoseCurve();
+			break;
+		case 4:
+		//back
+			drawLisCurve();
+			break;
+		case 5:
+		//back
+			drawRotLines();
+			break;
+	}
 }
+
 
 void drawDots(){
 	int rI = floor(random(1, 20));

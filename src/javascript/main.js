@@ -35,10 +35,12 @@ $( document ).ready(function() {
 	});
 
 	$('#_arm').click(function() {
+		arm = true;
 		$('.main').css('background-image', "url('assets/images/bg-2.png')");
 	});
 
 	$('#_back').click(function() {
+		arm = false;
 		$('.main').css('background-image', "url('assets/images/bg.png')");
 	});
 
