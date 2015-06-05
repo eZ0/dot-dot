@@ -37,8 +37,8 @@
 		</nav>
 		<div class="explanation" id="_explanation">
 			<p>DOT:DOT is a random, yet unique tattoo generator.</p>
-			<p>Click on "Hate It" to generate new tattoo and if you like it</p>
-			<p>pin it to a Pinterest or save locally with "Love It" button.</p>
+			<p>Click on "Love it" to save the tattoo</p>
+			<p>If you "Hate it" - a new one will be generated!</p>
 		</div>
 		<div class="social">
 			<a href="" data-pin-do="buttonBookmark"  data-pin-shape="round" data-pin-height="32" id="_pinBtn" target="_blank"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a>

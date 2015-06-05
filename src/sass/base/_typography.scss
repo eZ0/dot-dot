@@ -46,10 +46,15 @@ input, .text {
 		text-align: justify;
 		padding: 12px 0;
 	}
-	a {
-		color: #00aeef;
-		text-decoration: none;
-	}
+}
+
+.link {
+	color: $baby-blue;
+	text-decoration: none;
+}
+.link:hover {
+	border-bottom: 1px dotted $baby-blue;
+	cursor: pointer;
 }
 
 .leading{

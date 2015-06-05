@@ -98,9 +98,14 @@ input, .text {
   .text p {
     text-align: justify;
     padding: 12px 0; }
-  .text a {
-    color: #00aeef;
-    text-decoration: none; }
+
+.link {
+  color: #00aeef;
+  text-decoration: none; }
+
+.link:hover {
+  border-bottom: 1px dotted #00aeef;
+  cursor: pointer; }
 
 .leading {
   font-size: 1.2em;
@@ -512,5 +517,4 @@ canvas {
 @media (min-width: 1140px) {
   .modal-lg {
     width: 960px; } }
-
 

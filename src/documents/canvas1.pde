@@ -27,7 +27,7 @@ void setup(){
 void draw(){}
 
 void setOption(){
-	int option = floor(random(8, 9));
+	int option = floor(random(0, 9));
 	switch(option){
 		case 1:
 			//drawRuby();

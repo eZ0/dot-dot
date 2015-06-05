@@ -103,12 +103,16 @@ $( document ).ready(function() {
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
 	$('#_btnwant').click(function(){
+		//saving image from canvas 
 		cs.savePNG( cnvs, 'dotdot', coord, 'true');
+		//clearing canvas
 		context.clearRect(0, 0, cnvs.width, cnvs.height);
 		canvas.style.webkitFilter = "blur(0px)";
+		//setting thankyou-text on canvas
 		context.fillText("Thank you for using Dot:Dot! <3", 100, 120);
-		context.fillText("Enjoy & stay awesome!", 120, 140);
-		context.fillText("PS Don't forget to upload your spectacular pic to our gallery!", 20, 160);
+		context.fillText("Enjoy & stay awesome!", 120, 160);
+		context.fillText("PS Don't forget to upload your spectacular pic to our gallery!", 20, 180);
+		context.fillText("Generate new tattoo's by clicking 'Hate it'!", 80, 200);
 	});
 
 	$('#_btnhate').click(function(){

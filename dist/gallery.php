@@ -80,7 +80,7 @@
 							<!-- <input type="email" id="email" name="email" placeholder="What's your e-mail?"> -->
 							<!-- <input type="text" id="url" name="url" placeholder="Link to your picture"> -->
 							<br>
-							<p><span id="_file" class="linked">Upload</span> or <span id="_url" class="linked">link</span> your picture!</p>
+							<p><span id="_file" class="link">Upload</span> or <span id="_url" class="link">link</span> your picture!</p>
 							<input id="url" type="text" name="url" placeholder="Link to your picture">
 							<input id="file" type="file" name="file">
 							<input class="button" type="submit" id="submit" name="submit" value="Send!">
