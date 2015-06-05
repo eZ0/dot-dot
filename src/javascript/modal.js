@@ -45,12 +45,13 @@ Modal.prototype.toggle = function (_relatedTarget) {
 Modal.prototype.show = function (_relatedTarget) {
 	var that = this
 	var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
-
+	$('.btn-close').removeClass('open')
 	this.$element.trigger(e)
 
 	if (this.isShown || e.isDefaultPrevented()) return
 
 		this.isShown = true
+
 
 	this.checkScrollbar()
 	this.$body.addClass('modal-open')
@@ -63,7 +64,7 @@ Modal.prototype.show = function (_relatedTarget) {
 	this.backdrop(function () {
 		var transition = $.support.transition && that.$element.hasClass('fade')
 
-		if (!that.$element.parent().length) {
+	if (!that.$element.parent().length) {
 that.$element.appendTo(that.$body) // don't move modals dom position
 }
 
@@ -120,7 +121,7 @@ Modal.prototype.hide = function (e) {
 	this.$element
 	.one('bsTransitionEnd', $.proxy(this.hideModal, this))
 	.emulateTransitionEnd(300) :
-	this.hideModal()
+	this.hideModal();
 	$('.view').removeClass('isBlured');
 }
 
@@ -146,7 +147,9 @@ Modal.prototype.escape = function () {
 
 Modal.prototype.hideModal = function () {
 	var that = this
-	this.$element.hide()
+	this.$element.fadeOut('400', function() {
+		
+	});
 	this.backdrop(function () {
 		that.$element.trigger('hidden.bs.modal')
 	})

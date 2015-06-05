@@ -41,8 +41,12 @@
 	&.fade .modal-dialog {
 		@include translate3d(0, -25%, 0);
 		@include transition-transform(0.3s ease-out);
+		transition: 0.3s all ease-in;
 	}
-	&.in .modal-dialog { @include translate3d(0, 0, 0) }
+	&.in .modal-dialog { 
+		@include translate3d(0, 0, 0);
+		transition: 0.3s all ease-in; 
+	}
 }
 .modal-open .modal {
 	overflow-x: hidden;

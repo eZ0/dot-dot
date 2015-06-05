@@ -25,6 +25,9 @@ $( document ).ready(function() {
 		$('#url').hide();
 	});
 
+	$('.btn-close').click( function() {
+		$(this).toggleClass('open');
+	});
 });
 
 function calcHeight(){

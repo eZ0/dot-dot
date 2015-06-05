@@ -19,10 +19,46 @@
 	transition: background-color .5s;
 }
 
-.close {
+
+.btn-close {
+	height: 40px; 
+	width: 40px; 
+	position: relative;
 	float: right;
-	font-size: 1.2em;
-	font-weight: 300;
-	font-family: 'Open Sans';
 	cursor: pointer;
+
+	.line {
+		width: 3px; 
+		height: 30px; 
+		background: lighten($dark-side, 5%);
+		border-radius: 3px; 
+		display: block;
+		position: absolute; 
+		top: 20;
+		&.left{
+			-webkit-transform: rotateZ(-45deg);
+			left: 20px;
+		}
+
+		&.right{
+			-webkit-transform: rotateZ(45deg);
+			left: 20px;
+		}
+		transition: all 0.3s cubic-bezier(.87,.39,.74,1.31);
+	}
+	&.open{
+		div.line.left{
+			-webkit-transform: rotateZ(-90deg);
+		}
+
+		div.line.right{
+			-webkit-transform: rotateZ(90deg);
+		}
+	}
+}
+
+.btn-close:hover{
+	.line{
+		background: lighten($dark-side, 25%);
+	}
 }

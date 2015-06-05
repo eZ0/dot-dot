@@ -70,7 +70,8 @@ table {
 
 body {
   font-weight: 300;
-  font-family: 'bebas_thin'; }
+  font-family: 'bebas_thin';
+  transition: 0.3s all ease-in; }
 
 ul {
   text-transform: uppercase;
@@ -186,12 +187,34 @@ input[type="email"] {
   filter: alpha(opacity=80);
   transition: background-color .5s; }
 
-.close {
+.btn-close {
+  height: 40px;
+  width: 40px;
+  position: relative;
   float: right;
-  font-size: 1.2em;
-  font-weight: 300;
-  font-family: 'Open Sans';
   cursor: pointer; }
+  .btn-close .line {
+    width: 3px;
+    height: 30px;
+    background: #0d0d0d;
+    border-radius: 3px;
+    display: block;
+    position: absolute;
+    top: 20;
+    transition: all 0.3s cubic-bezier(.87, .39, .74, 1.31); }
+    .btn-close .line.left {
+      -webkit-transform: rotateZ(-45deg);
+      left: 20px; }
+    .btn-close .line.right {
+      -webkit-transform: rotateZ(45deg);
+      left: 20px; }
+  .btn-close.open div.line.left {
+    -webkit-transform: rotateZ(-90deg); }
+  .btn-close.open div.line.right {
+    -webkit-transform: rotateZ(90deg); }
+
+.btn-close:hover .line {
+  background: #404040; }
 
 .nav {
   width: 100%;
@@ -247,10 +270,12 @@ input[type="email"] {
   .modal.fade .modal-dialog {
     -webkit-transform: translate3d(0, -25%, 0);
     transform: translate3d(0, -25%, 0);
-    transition: 0.3s ease-out; }
+    transition: 0.3s ease-out;
+    transition: 0.3s all ease-in; }
   .modal.in .modal-dialog {
     -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0); }
+    transform: translate3d(0, 0, 0);
+    transition: 0.3s all ease-in; }
 
 .modal-open .modal {
   overflow-x: hidden;

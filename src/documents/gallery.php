@@ -72,14 +72,14 @@
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<p class="close" data-dismiss="modal" aria-label="Close">X</p>
+						<div class="btn-close" data-dismiss="modal" aria-label="Close">
+							<div class="line left"></div>
+							<div class="line right"></div>
+						</div>
 						<form class='pic-form' id='pic-form' name='pic-form'  method="POST" enctype="multipart/form-data">
 						<p>Send us your awesome picture with DOT:DOT tattoo!</p>
 							<input type="text" id="name" name="name" placeholder="What's your name?">
 							<input type="text" id="country" name="country" placeholder="Where do you live?">
-							<!-- <input type="email" id="email" name="email" placeholder="What's your e-mail?"> -->
-							<!-- <input type="text" id="url" name="url" placeholder="Link to your picture"> -->
-							<br>
 							<p><span id="_file" class="link">Upload</span> or <span id="_url" class="link">link</span> your picture!</p>
 							<input id="url" type="text" name="url" placeholder="Link to your picture">
 							<input id="file" type="file" name="file">
