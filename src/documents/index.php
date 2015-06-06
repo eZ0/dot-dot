@@ -12,21 +12,25 @@
 		<script src="assets/javascript/processing.min.js"></script>
 		<script>
 			var coord;
-			var arm;
+			var isArm;
+			var isExist;
 			function setOption(id) {
 				var canvas = document.getElementById(id);
 				var context = canvas.getContext('2d');
 
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				var pjs = Processing.getInstanceById(id);
-				if(arm == true){
-					console.log('Arm is ' + arm);
+
+				if(isArm === true){
+					console.log('Arm is arm ' + isArm);
 					pjs.setOptionArm();
 					coord = pjs.getCoord();
 				}else{
-					console.log('Arm is ' + arm);
+					console.log('Arm is back ' + isArm);
 					pjs.setOptionBack();
+					coord = pjs.getCoord();
 				}
+				console.log('isExist is ' + isExist);
 			}
 		</script>
 	</head>

@@ -6,6 +6,8 @@ $( document ).ready(function() {
 	var context = cnvs.getContext('2d');
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
+	var cc = new CoordinatesChecker('assets/data/checkcoord.php');
+
 	$('#_btnwant').click(function(){
 		//saving image from canvas 
 		cs.savePNG( cnvs, 'dotdot', coord, 'true');
@@ -22,6 +24,10 @@ $( document ).ready(function() {
 	$('#_btnhate').click(function(){
 		canvas.style.webkitFilter = "blur(1px)";
 		$('#_explanation p').fadeOut();
+		console.log('coord on btn is ' + coord);
+		cc.checkCoord(coord, function(data){
+			isExist = data;
+		});
 	});
 
 	$('#_pinBtn').click(function(event) {
@@ -35,12 +41,12 @@ $( document ).ready(function() {
 	});
 
 	$('#_arm').click(function() {
-		arm = true;
+		isArm = true;
 		$('.main').css('background-image', "url('assets/images/bg-2.png')");
 	});
 
 	$('#_back').click(function() {
-		arm = false;
+		isArm = false;
 		$('.main').css('background-image', "url('assets/images/bg.png')");
 	});
 

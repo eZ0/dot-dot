@@ -1,3 +1,43 @@
+/*
+class for checking if a generated coordinates
+already exist in a db
+*/
+
+function CoordinatesChecker(url){
+	this.url = url;
+
+	this.checkCoord = function(coord, doCallback){
+		if(!url) return;
+		coord = coord || 17;
+
+
+		$.ajax({
+			type: "POST",
+			async: false,
+			url: url,
+			data: {'coord': coord},
+			success: doCallback
+		});
+		return ;
+
+
+		//sending unique coordinate of generated image
+		var coordInput = document.createElement("input") ;
+		coordInput.setAttribute("name", 'coord');
+		coordInput.setAttribute("value", coord);
+		coordInput.setAttribute("type", "hidden");
+
+		var myForm = document.createElement("form");
+		myForm.method = 'post';
+		myForm.action = url;
+		myForm.appendChild(coordInput);
+
+		//communicating with php via submiting form
+		document.body.appendChild(myForm);
+		myForm.submit() ;
+		document.body.removeChild(myForm);
+	};
+}
 var data_entered = false;
 
 var name;
@@ -105,6 +145,8 @@ $( document ).ready(function() {
 	var context = cnvs.getContext('2d');
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
+	var cc = new CoordinatesChecker('assets/data/checkcoord.php');
+
 	$('#_btnwant').click(function(){
 		//saving image from canvas 
 		cs.savePNG( cnvs, 'dotdot', coord, 'true');
@@ -121,6 +163,10 @@ $( document ).ready(function() {
 	$('#_btnhate').click(function(){
 		canvas.style.webkitFilter = "blur(1px)";
 		$('#_explanation p').fadeOut();
+		console.log('coord on btn is ' + coord);
+		cc.checkCoord(coord, function(data){
+			isExist = data;
+		});
 	});
 
 	$('#_pinBtn').click(function(event) {
@@ -134,12 +180,12 @@ $( document ).ready(function() {
 	});
 
 	$('#_arm').click(function() {
-		arm = true;
+		isArm = true;
 		$('.main').css('background-image', "url('assets/images/bg-2.png')");
 	});
 
 	$('#_back').click(function() {
-		arm = false;
+		isArm = false;
 		$('.main').css('background-image', "url('assets/images/bg.png')");
 	});
 

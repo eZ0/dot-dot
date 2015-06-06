@@ -24,8 +24,7 @@
 
 		//write decoded data
 		echo $decoded;
-	}
-	else {	
+	}else {	
 		// write file to disk
 		$name = uniqid().'.png';
 		$path = realpath(__DIR__ . '/../images/generated/') . '/'. $name;
