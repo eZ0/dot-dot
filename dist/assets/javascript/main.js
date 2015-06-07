@@ -10,7 +10,6 @@ function CoordinatesChecker(url){
 		if(!url) return;
 		coord = coord || 17;
 
-
 		$.ajax({
 			type: "POST",
 			async: false,
@@ -18,24 +17,6 @@ function CoordinatesChecker(url){
 			data: {'coord': coord},
 			success: doCallback
 		});
-		return ;
-
-
-		//sending unique coordinate of generated image
-		var coordInput = document.createElement("input") ;
-		coordInput.setAttribute("name", 'coord');
-		coordInput.setAttribute("value", coord);
-		coordInput.setAttribute("type", "hidden");
-
-		var myForm = document.createElement("form");
-		myForm.method = 'post';
-		myForm.action = url;
-		myForm.appendChild(coordInput);
-
-		//communicating with php via submiting form
-		document.body.appendChild(myForm);
-		myForm.submit() ;
-		document.body.removeChild(myForm);
 	};
 }
 var data_entered = false;
@@ -145,7 +126,7 @@ $( document ).ready(function() {
 	var context = cnvs.getContext('2d');
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
-	var cc = new CoordinatesChecker('assets/data/checkcoord.php');
+	//var cc = new CoordinatesChecker('assets/data/checkcoord.php');
 
 	$('#_btnwant').click(function(){
 		//saving image from canvas 
@@ -163,10 +144,6 @@ $( document ).ready(function() {
 	$('#_btnhate').click(function(){
 		canvas.style.webkitFilter = "blur(1px)";
 		$('#_explanation p').fadeOut();
-		console.log('coord on btn is ' + coord);
-		cc.checkCoord(coord, function(data){
-			isExist = data;
-		});
 	});
 
 	$('#_pinBtn').click(function(event) {

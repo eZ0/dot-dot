@@ -10,7 +10,6 @@ function CoordinatesChecker(url){
 		if(!url) return;
 		coord = coord || 17;
 
-
 		$.ajax({
 			type: "POST",
 			async: false,
@@ -18,23 +17,5 @@ function CoordinatesChecker(url){
 			data: {'coord': coord},
 			success: doCallback
 		});
-		return ;
-
-
-		//sending unique coordinate of generated image
-		var coordInput = document.createElement("input") ;
-		coordInput.setAttribute("name", 'coord');
-		coordInput.setAttribute("value", coord);
-		coordInput.setAttribute("type", "hidden");
-
-		var myForm = document.createElement("form");
-		myForm.method = 'post';
-		myForm.action = url;
-		myForm.appendChild(coordInput);
-
-		//communicating with php via submiting form
-		document.body.appendChild(myForm);
-		myForm.submit() ;
-		document.body.removeChild(myForm);
 	};
 }

@@ -6,7 +6,7 @@ $( document ).ready(function() {
 	var context = cnvs.getContext('2d');
 	var cs = new CanvasSaver('assets/data/saveimage.php');
 
-	var cc = new CoordinatesChecker('assets/data/checkcoord.php');
+	//var cc = new CoordinatesChecker('assets/data/checkcoord.php');
 
 	$('#_btnwant').click(function(){
 		//saving image from canvas 
@@ -24,10 +24,6 @@ $( document ).ready(function() {
 	$('#_btnhate').click(function(){
 		canvas.style.webkitFilter = "blur(1px)";
 		$('#_explanation p').fadeOut();
-		console.log('coord on btn is ' + coord);
-		cc.checkCoord(coord, function(data){
-			isExist = data;
-		});
 	});
 
 	$('#_pinBtn').click(function(event) {

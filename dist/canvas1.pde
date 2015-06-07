@@ -1,9 +1,4 @@
 
-PVector bigCircleC;
-float bigCircleR;
-circle [] manyCircles;
-int MANY=floor(random(4, 10));
-
 boolean halt = false;
 boolean aligned = false;
 
@@ -11,17 +6,32 @@ int runonce = 0;
 
 int divPai=5;
 
-char coordinate = 1998;
+char coordinate;
 
 // function for returning coordinate to js
 int getCoord() { return coordinate; }
- 
+
+
+
+// passing js var to processing
+interface JavaScript {
+	int showCoord(char coordinate);
+}
+
+void bindJavascript(JavaScript js){
+	javascript = js;
+}
+
+JavaScript javascript;
+
+
+
+
 void setup(){
 	size(400, 400);
 	smooth();
 	strokeWeight( 5 );
 	background(0, 0);
-	setOptionArm();
 }
  
 void draw(){}
@@ -64,6 +74,9 @@ void setOptionArm(){
 		// 	break;
 
 	}
+	while(javascript.showCoord(coordinate)) {
+		setOptionArm();
+	}
 }
 
 void setOptionBack(){
@@ -89,6 +102,10 @@ void setOptionBack(){
 		//back
 			drawRotLines();
 			break;
+	}
+
+	while(javascript.showCoord(coordinate)) {
+		setOptionBack();
 	}
 }
 

@@ -12,25 +12,43 @@
 		<script src="assets/javascript/processing.min.js"></script>
 		<script>
 			var coord;
-			var isArm;
-			var isExist;
+			var isArm = true;
+			var isExist = false;
+			var bound = false;
+			function bindJavascript(){
+				var pjs = Processing.getInstanceById('_tattoo');
+				if(pjs!=null){
+					pjs.bindJavascript(this);
+					bound = true;
+				} 
+				if(!bound) setTimeout(bindJavascript, 250);
+			}
+			bindJavascript();
 			function setOption(id) {
 				var canvas = document.getElementById(id);
 				var context = canvas.getContext('2d');
 
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				var pjs = Processing.getInstanceById(id);
+				coord = pjs.getCoord();
 
 				if(isArm === true){
 					console.log('Arm is arm ' + isArm);
 					pjs.setOptionArm();
-					coord = pjs.getCoord();
+					
 				}else{
 					console.log('Arm is back ' + isArm);
 					pjs.setOptionBack();
-					coord = pjs.getCoord();
+					
 				}
-				console.log('isExist is ' + isExist);
+			}
+
+			function showCoord(coord){
+				var cc = new CoordinatesChecker('assets/data/checkcoord.php');
+				cc.checkCoord(coord, function(data){
+					isExist = data;
+				});
+				return isExist == 'true' ? 1 : 0;
 			}
 		</script>
 	</head>
