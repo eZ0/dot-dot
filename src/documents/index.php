@@ -73,7 +73,7 @@
 
 		<nav class="nav">
 			<ul>
-				<li class="menu-item"><a href="about.html">About</a></li>
+				<li class="menu-item"><a href="about.php">About</a></li>
 				<li><a href="index.php"><span class="logo"></span></a></li>
 				<li class="menu-item"><a href="gallery.php">Gallery</a></li>
 			</ul>

@@ -1,12 +1,11 @@
 $( document ).ready(function() {
 
-	canvas.style.webkitFilter = "blur(1px)";
-
-	var cnvs = document.getElementById('_tattoo');
-	var context = cnvs.getContext('2d');
-	var cs = new CanvasSaver('assets/data/saveimage.php');
-
-	//var cc = new CoordinatesChecker('assets/data/checkcoord.php');
+	if ($('#_tattoo').length){
+		canvas.style.webkitFilter = "blur(1px)";
+		var cnvs = document.getElementById('_tattoo');
+		var context = cnvs.getContext('2d');
+		var cs = new CanvasSaver('assets/data/saveimage.php');
+	}
 
 	$('#_btnwant').click(function(){
 		//saving image from canvas 
@@ -47,7 +46,7 @@ $( document ).ready(function() {
 		$('.main').css('background-image', "url('assets/images/bg.png')");
 	});
 
-	//video
+	// //video
 	var video = $('#video');
 	
 	video[0].removeAttribute("controls");
@@ -56,11 +55,8 @@ $( document ).ready(function() {
 	$('.video-wrapper').hover(function() {
 		$('.control').stop().fadeIn();
 		}, function() {
-			if(!timeDrag){
-				$('.control').stop().fadeOut();
-			}
-		})
-		.on('click', function() {
+			$('.control').stop().fadeOut();
+		}).on('click', function() {
 			$('.btnPlay').find('.icon-play').addClass('icon-pause').removeClass('icon-play');
 			$(this).unbind('click');
 			video[0].play();
@@ -70,7 +66,7 @@ $( document ).ready(function() {
 		playpause(); 
 	});
 
-	$('.btnPlay').on('click', function() {
+	$('#_btnPlay').on('click', function() {
 		playpause(); 
 	});
 
