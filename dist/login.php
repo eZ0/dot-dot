@@ -22,8 +22,8 @@
 		<![endif]-->
 		<section class='wrap-login'>
 			<form class='pic-form' id='login-form' name='login-form'  method="POST" enctype="multipart/form-data">
-				<input type="text" id="name" name="name" placeholder="Your username">
-				<input type="text" id="country" name="country" placeholder="Your password">
+				<input type="text" id="username" name="username" placeholder="Your username">
+				<input type="password" id="password" name="password" placeholder="Your password">
 
 				<input class="button" type="submit" id="login" name="login" value="Login">
 			</form>
