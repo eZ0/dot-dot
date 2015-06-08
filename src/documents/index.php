@@ -95,7 +95,7 @@
 			<div class="button" onclick="setOption('_tattoo')" data-coord="" id="_btnhate">Hate it</div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+		<script>window.jQuery || document.write('<script src="assets/javascript/jquery.min.js"><\/script>')</script>
 		<script src="assets/javascript/main.min.js"></script>
 		<script type="text/javascript">
 			var canvas = document.getElementById("_tattoo");

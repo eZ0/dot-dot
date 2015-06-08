@@ -180,6 +180,23 @@ input[type="email"] {
 ::-webkit-input-placeholder {
   font-style: italic; }
 
+.wrap-login {
+  width: 240px;
+  margin: 0 auto; }
+  .wrap-login input {
+    margin-top: 20px; }
+  .wrap-login .button {
+    width: 240px;
+    background-color: #ffffff;
+    transition: background-color .5s; }
+  .wrap-login .button:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #000000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    transition: background-color .5s; }
+
 .button {
   width: 120px;
   height: 40px;

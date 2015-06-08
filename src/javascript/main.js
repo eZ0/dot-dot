@@ -27,6 +27,7 @@ $( document ).ready(function() {
 	});
 
 	$('#_pinBtn').click(function(event) {
+		//to do img bg
 		cs.savePNG( cnvs, 'dotdot', coord, 'false', function(data){
 			// var baseUrl = "http://localhost:8888/dot-dot/";
 			var baseUrl = "http://ksenia.be/dot/";

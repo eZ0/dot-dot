@@ -19,3 +19,25 @@ input[type="email"] {
 	font-style: italic;
 	//font-size: 1.2em;
 }
+
+.wrap-login{
+	width: 240px;
+	margin: 0 auto;
+	input {
+		margin-top: 20px;
+	}
+	.button{
+		width: 240px;
+		background-color: $snow-white;
+		transition: background-color .5s;
+	}
+	.button:hover {
+		cursor: pointer;
+		color: $snow-white;
+		background-color: $dark-side;
+		@include opacity(0.8);
+
+		transition: background-color .5s;
+	}
+
+}
