@@ -33,13 +33,9 @@
 				coord = pjs.getCoord();
 
 				if(isArm === true){
-					console.log('Arm is arm ' + isArm);
 					pjs.setOptionArm();
-					
 				}else{
-					console.log('Arm is back ' + isArm);
-					pjs.setOptionBack();
-					
+					pjs.setOptionBack();		
 				}
 			}
 
@@ -76,8 +72,8 @@
 		<canvas id="_tattoo" data-processing-sources="canvas1.pde"></canvas>
 		<div class="buttons" id="_buttons">
 			<div class="button" id="_btnwant">Love it</div>
-			<div class="body-option" id="_arm">ARM</div>
-			<div class="body-option" id="_back">BACK</div>
+			<div class="body-option" id="_arm"  >ARM</div>
+			<div class="body-option" id="_back" >BACK</div>
 			<div class="button" onclick="setOption('_tattoo')" data-coord="" id="_btnhate">Hate it</div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

@@ -8,7 +8,7 @@ var url;
 $( document ).ready(function() {
 
 	initButtons();
-	calcHeight();
+	// calcHeight();
 	$('.main').bind('touchstart', function() {});
 
 

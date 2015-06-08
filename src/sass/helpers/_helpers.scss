@@ -15,3 +15,17 @@
 .visible {
 	display: inline-block;
 }
+
+.clearfix::before, .clearfix::after {
+	display:table;
+	line-height:0;
+	content:"";
+}
+
+.clearfix::after {
+	clear: both;
+}
+
+.img_block {
+	display: block;
+}

@@ -27,14 +27,14 @@
 
 		<!-- Add your site or application content here -->
 		<section class="gallery-wrap">
-			<div class="gallery" id="gallery-container">
+			<div class="gallery clearfix" id="gallery-container">
 				<?php 
 				if ($result = $mysqli->query("SELECT id, name, country, url FROM user_pics WHERE isPublished = 1")) {
 			   		
 					while ($row = $result->fetch_assoc()) {
 						if ($row["id"]%2 == 0) {
 						printf( "<div class='col view'>
-								<img src='{$row["url"]}'>
+								<img src='{$row["url"]}' class='img_block'>
 								<div class='mask'>
 									<div class='text-wrap'>
 										<p class='person'>{$row["name"]}, {$row["country"]}</p>
@@ -42,17 +42,17 @@
 								</div>
 							</div>
 							<div class='col view'>
-								<img src='assets/images/gallery/pic0.png'>
+								<img src='assets/images/gallery/pic0.png' class='img_block'>
 								<div class='add'>
 									<div class='text-wrap'>
-										<p class='text-add'>Want your picture</br> here too?</p>
-										<div class='button btn-add' data-toggle='modal' data-target='#myModal'>Send it</div>
+										<p class='text-add'>Share your picture</br> here too!</p>
+										<div class='button btn-add' data-toggle='modal' data-target='#myModal'>Upload</div>
 									</div>
 								</div>
 							</div>");
 						}else{
 							printf( "<div class='col view'>
-								<img src='{$row["url"]}'>
+								<img src='{$row["url"]}' class='img_block'>
 								<div class='mask'>
 									<div class='text-wrap'>
 										<p class='person'>{$row["name"]}, {$row["country"]}</p>

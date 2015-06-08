@@ -4,7 +4,7 @@
 	background-position: bottom;
 	background-repeat: no-repeat;
 	@include media($robb) {
-		background-size: 75%;
+		background-size: 100%;
 		background-position: top;
 	}
 }

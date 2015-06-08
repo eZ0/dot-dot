@@ -18,6 +18,17 @@
 .visible {
   display: inline-block; }
 
+.clearfix::before, .clearfix::after {
+  display: table;
+  line-height: 0;
+  content: ""; }
+
+.clearfix::after {
+  clear: both; }
+
+.img_block {
+  display: block; }
+
 html {
   box-sizing: border-box; }
 
@@ -337,7 +348,7 @@ input[type="email"] {
   background-repeat: no-repeat; }
   @media screen and (min-width: 960px) {
     .main {
-      background-size: 75%;
+      background-size: 100%;
       background-position: top; } }
 
 .buttons {
