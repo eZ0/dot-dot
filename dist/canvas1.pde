@@ -90,7 +90,7 @@ void setOptionBack(){
 			break;
 		case 2:
 		//back
-			drawZigzag();
+			drawLisCurve();
 			break;
 		case 3:
 		//back

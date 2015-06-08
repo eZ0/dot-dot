@@ -46,6 +46,24 @@
 				});
 				return isExist == 'true' ? 1 : 0;
 			}
+
+			function showArmTattoo(id){
+				var canvas = document.getElementById(id);
+				var context = canvas.getContext('2d');
+
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				var pjs = Processing.getInstanceById(id);
+				pjs.setOptionArm();
+			}
+
+			function showBackTattoo(id){
+				var canvas = document.getElementById(id);
+				var context = canvas.getContext('2d');
+
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				var pjs = Processing.getInstanceById(id);
+				pjs.setOptionBack();
+			}
 		</script>
 	</head>
 	<body class="main">
@@ -72,8 +90,8 @@
 		<canvas id="_tattoo" data-processing-sources="canvas1.pde"></canvas>
 		<div class="buttons" id="_buttons">
 			<div class="button" id="_btnwant">Love it</div>
-			<div class="body-option" id="_arm"  >ARM</div>
-			<div class="body-option" id="_back" >BACK</div>
+			<div class="body-option" id="_arm" onclick="showArmTattoo('_tattoo')" >ARM</div>
+			<div class="body-option" id="_back" onclick="showBackTattoo('_tattoo')">BACK</div>
 			<div class="button" onclick="setOption('_tattoo')" data-coord="" id="_btnhate">Hate it</div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
