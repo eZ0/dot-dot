@@ -572,6 +572,9 @@ canvas {
   @media screen and (min-width: 768px) {
     .admin {
       padding: 50px; } }
+  .admin input {
+    width: auto;
+    height: auto; }
 
 th {
   text-align: left;

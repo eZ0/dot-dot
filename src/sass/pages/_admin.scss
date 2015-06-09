@@ -12,6 +12,11 @@
 	@include media($sansa) {
 		padding: 50px;
 	}
+
+	input {
+		width: auto;
+		height: auto;
+	}
 }
 
 

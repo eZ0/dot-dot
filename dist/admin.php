@@ -19,7 +19,7 @@
 					<th>#</th>
 					<th>Name</th>
 					<th>Country</th>
-					<th>Published? - publish/unpublish</th>
+					<th>Showed</th>
 					<th>URL - upload/download</th>
 				</thead>
 				<tbody>
@@ -32,11 +32,18 @@
 									<td>{$i}</td>
 									<td>{$row["name"]}</td>
 									<td>{$row["country"]}</td>
-									<td>{$row["isPublished"]}</td>
+									<td>");
+									if($row["isPublished"] == 0){
+										printf("<input type='checkbox'>");
+									}else{
+										printf("<input type='checkbox' checked>");
+									}printf("</td>
 									<td>{$row["url"]}</td>
 								</tr>");
 						}
 					}
+					/* free result set */
+					$result->close();
 					?>
 				</tbody>
 
