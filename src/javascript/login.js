@@ -34,7 +34,7 @@ function checkIfRegistered() {
 		url: "assets/data/login.php",
 		data: {'username': username, 'password': password}
 	}).done(function(data) {
-		console.log("succes");
+		console.log("succes " + data);
 	});
 }
 

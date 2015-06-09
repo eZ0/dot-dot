@@ -22,12 +22,12 @@
 		<![endif]-->
 		<section class='wrap-login'>
 			<form class='pic-form' id='login-form' name='login-form'  method="POST" enctype="multipart/form-data">
-				<input type="text" id="username" name="username" placeholder="Your username">
-				<input type="password" id="password" name="password" placeholder="Your password">
+				<input type="text" id="username" name="username" placeholder="Your username" >
+				<input type="password" id="password" name="password" placeholder="Your password" >
 
 				<input class="button" type="submit" id="login" name="login" value="Login">
 			</form>
-
+			
 		</section>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
