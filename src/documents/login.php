@@ -26,6 +26,7 @@
 				<input type="password" id="password" name="password" placeholder="Your password" >
 
 				<input class="button" type="submit" id="login" name="login" value="Login">
+				<p id="_notification" class="notification"></p>
 			</form>
 			
 		</section>

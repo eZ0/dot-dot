@@ -1,0 +1,89 @@
+.notification{
+	font-family: 'Open Sans';
+	font-size: 0.9em;
+	padding-top: 30px;
+	text-align: center;
+	color: red;
+}
+
+.admin {
+
+	font-family: 'Open Sans';
+	@include media($sansa) {
+		padding: 50px;
+	}
+}
+
+
+th {
+	text-align: left;
+	font-weight: 600;
+}
+
+
+.table {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px;
+	// Cells
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				padding: $table-cell-padding;
+				line-height: 20px;
+				vertical-align: top;
+				border-top: 1px solid $table-border-color;
+			}
+		}
+	}
+}
+
+// Add borders all around the table and between all the columns.
+.table-bordered {
+	border: 1px solid $table-border-color;
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				border: 1px solid $table-border-color;
+			}
+		}
+	}
+	> thead > tr {
+		> th,
+		> td {
+			border-bottom-width: 2px;
+		}
+	}
+}
+
+
+// Hover effect
+.table-hover {
+	> tbody > tr:hover {
+		background-color: $table-bg-hover;
+	}
+}
+
+
+// Table cell sizing for different browsers
+table col[class*="col-"] {
+	position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+	float: none;
+	display: table-column;
+}
+table {
+	td,
+	th {
+		&[class*="col-"] {
+			position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+			float: none;
+			display: table-cell;
+		}
+	}
+}

@@ -146,6 +146,11 @@ function checkIfRegistered() {
 		data: {'username': username, 'password': password}
 	}).done(function(data) {
 		console.log("succes " + data);
+		if(data === 'login'){
+			document.location.href = 'admin.php';
+		}else{
+			$('#_notification').append("No such a username or combination");
+		}
 	});
 }
 

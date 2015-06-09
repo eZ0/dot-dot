@@ -560,6 +560,53 @@ canvas {
   text-decoration: underline;
   cursor: pointer; }
 
+.notification {
+  font-family: 'Open Sans';
+  font-size: 0.9em;
+  padding-top: 30px;
+  text-align: center;
+  color: red; }
+
+.admin {
+  font-family: 'Open Sans'; }
+  @media screen and (min-width: 768px) {
+    .admin {
+      padding: 50px; } }
+
+th {
+  text-align: left;
+  font-weight: 600; }
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px; }
+  .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 20px;
+    vertical-align: top;
+    border-top: 1px solid #ddd; }
+
+.table-bordered {
+  border: 1px solid #ddd; }
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+    border: 1px solid #ddd; }
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border-bottom-width: 2px; }
+
+.table-hover > tbody > tr:hover {
+  background-color: #f5f5f5; }
+
+table col[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-column; }
+
+table td[class*="col-"], table th[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-cell; }
+
 @media (min-width: 480px) {
   .modal-dialog {
     width: 768px;

@@ -3,33 +3,43 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>: login</title>
+		<title>: administration</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Place favicon.ico in the root directory -->
 		<link rel="stylesheet" href="assets/stylesheets/main.min.css">
 	</head>
 	<body>
-		<nav class="nav">
-			<ul>
-				<li class="menu-item"><a href="about.php">About</a></li>
-				<li><a href="index.php"><span class="logo"></span></a></li>
-				<li class="menu-item"><a href="gallery.php">Gallery</a></li>
-			</ul>
-		</nav>
-		<!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-		<section class='wrap-login'>
-			<form class='pic-form' id='login-form' name='login-form'  method="POST" enctype="multipart/form-data">
-				<input type="text" id="username" name="username" placeholder="Your username" >
-				<input type="password" id="password" name="password" placeholder="Your password" >
+		<section class="admin">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<th>#</th>
+					<th>Name</th>
+					<th>Country</th>
+					<th>Published? - publish/unpublish</th>
+					<th>URL - upload/download</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>0</td>
+						<td>Ksenia</td>
+						<td>England</td>
+						<td>No</td>
+						<td>ksenia.be</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Ksenia</td>
+						<td>England</td>
+						<td>No</td>
+						<td>ksenia.be</td>
+					</tr>
+				</tbody>
 
-				<input class="button" type="submit" id="login" name="login" value="Login">
-				<p id="_notification" class="notification"></p>
-			</form>
-			
+			</table>
 		</section>
+
+
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
 		<script src="assets/javascript/main.min.js"></script>
@@ -42,7 +52,5 @@
 		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 		ga('create','UA-XXXXX-X','auto');ga('send','pageview');
 		</script>
-
-
 	</body>
 </html>

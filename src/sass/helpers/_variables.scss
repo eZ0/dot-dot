@@ -18,3 +18,11 @@ $zindex-modal:             1050 !default;
 
 //** Modal backdrop opacity
 $modal-backdrop-opacity:      .5 !default;
+
+
+//** Border color for table and cell borders.
+$table-border-color:            #ddd !default;
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            8px !default;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #f5f5f5 !default;
