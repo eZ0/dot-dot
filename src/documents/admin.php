@@ -1,3 +1,6 @@
+<?php 
+	include 'assets/data/config.php'; 
+?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -20,20 +23,21 @@
 					<th>URL - upload/download</th>
 				</thead>
 				<tbody>
-					<tr>
-						<td>0</td>
-						<td>Ksenia</td>
-						<td>England</td>
-						<td>No</td>
-						<td>ksenia.be</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Ksenia</td>
-						<td>England</td>
-						<td>No</td>
-						<td>ksenia.be</td>
-					</tr>
+					<?php 
+					if ($result = $mysqli->query("SELECT * FROM user_pics ")) {
+						$i = 0;
+						while ($row = $result->fetch_assoc()) {
+							$i++;
+							printf("<tr> 
+									<td>{$i}</td>
+									<td>{$row["name"]}</td>
+									<td>{$row["country"]}</td>
+									<td>{$row["isPublished"]}</td>
+									<td>{$row["url"]}</td>
+								</tr>");
+						}
+					}
+					?>
 				</tbody>
 
 			</table>
