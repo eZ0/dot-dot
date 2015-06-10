@@ -1,4 +1,9 @@
 var checkid;
+var updatename;
+var updatecountry;
+
+//TODO: checkbox/ Upload-download picture
+
 $( document ).ready(function() {
 	initAdminButtons();
 });

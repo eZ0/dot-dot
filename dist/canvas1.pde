@@ -38,10 +38,9 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(0, 5));
+	int option = floor(random(1, 5));
 	switch(option){
 		case 1:
-			//drawRuby();
 			drawLines();
 			break;
 		case 2:
@@ -82,7 +81,7 @@ void setOptionArm(){
 }
 
 void setOptionBack(){
-	int option = floor(random(0, 6));
+	int option = floor(random(1, 6));
 	switch(option){
 		case 1:
 		//back
@@ -146,6 +145,7 @@ void drawLines(){
 	coordinate = 'L-' + a + b + c + d + e + f;
 
 	line(width/2 ,endPoint, width/2, endPoint+length);
+
 	switch(optionArrow){
 		case 1:
 			//black triangle
@@ -321,13 +321,18 @@ void drawRoseCurve(){
 	}
 }
 
-void drawLisCurve(){
+void drawRotLines(){
 	int frames=120;
 	int num=floor(random(200,1200));
 	int sz=2;
 	int c=floor(random(2,12));
 	float theta, r;
 	float i = 0;
+
+	int strWeight;
+	strWeight = floor(random(2, 4));
+	strokeWeight(strWeight);
+
 	while(i<100){
 		for (int j=0; j<c; j++) {
 			r=TWO_PI/c*j;
@@ -348,8 +353,44 @@ void drawLisCurve(){
 	}
 }
 
-void drawRotLines(){
+void drawLisCurve(){
+	float xpos,ypos;
+	float px,py;
+	float ax = 1;
+	float ay = 1;
+
+	 
+	float a = random(0, 20);
+	float b = random(0, 20);
+	 
+	float dx = PI/2;
+	float offSet = 1;
+	int counter = 0;
 	
+	float i = 0;
+	
+	int strWeight;
+	strWeight = floor(random(2, 4));
+	strokeWeight(strWeight);
+
+	while(i<100){
+
+		xpos = width/4 * ax * (sin(radians(counter * a)) + dx) + width/8 ;
+		ypos = width/4 * ax * (sin(radians(counter * b)) + offSet) + height/8;
+
+		if( counter > 0 ){
+			line(px  , py , xpos, ypos);
+			// ellipse(px , py , 2, 2);
+		}
+
+		px = xpos;
+		py = ypos;
+
+		counter++;
+		i = i + 0.1;
+	}
+
+
 }
 
 
