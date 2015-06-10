@@ -13,9 +13,20 @@
 		padding: 50px;
 	}
 
-	input {
+	input[type="button"],input[type="checkbox"]  {
 		width: auto;
 		height: auto;
+		border: none;
+		padding: 0;
+		background-color: transparent;
+		cursor: pointer;
+		color: $baby-blue;
+		transition: color .5s;
+		font-size: 1em;
+	}
+	input[type="button"] :hover{
+		color: darken($baby-blue, 15%);
+		transition: color .5s;
 	}
 }
 

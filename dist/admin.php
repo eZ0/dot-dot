@@ -21,6 +21,7 @@
 					<th>Country</th>
 					<th>Showed</th>
 					<th>URL - upload/download</th>
+					<th>Actions</th>
 				</thead>
 				<tbody>
 					<?php 
@@ -28,17 +29,20 @@
 						$i = 0;
 						while ($row = $result->fetch_assoc()) {
 							$i++;
+							$sid='s' . $row['id'];
 							printf("<tr> 
 									<td>{$i}</td>
-									<td>{$row["name"]}</td>
-									<td>{$row["country"]}</td>
-									<td>");
+									<td id={$row['id']}-name>{$row["name"]}</td>
+									<td id={$row['id']}-country>{$row["country"]}</td>
+									<td id={$row['id']}-isPublished>");
 									if($row["isPublished"] == 0){
 										printf("<input type='checkbox'>");
 									}else{
 										printf("<input type='checkbox' checked>");
 									}printf("</td>
-									<td>{$row["url"]}</td>
+									<td id={$row['id']}-url>{$row["url"]}</td>
+									<td><input type='button' id='_btnedit'  value='Edit' data-id={$row['id']}>
+									<input type='button' id='_btnupdate'  value='Update' data-id={$row['id']}></td>
 								</tr>");
 						}
 					}
@@ -54,6 +58,8 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
 		<script src="assets/javascript/main.min.js"></script>
+
+
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
 		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

@@ -572,9 +572,19 @@ canvas {
   @media screen and (min-width: 768px) {
     .admin {
       padding: 50px; } }
-  .admin input {
+  .admin input[type="button"], .admin input[type="checkbox"] {
     width: auto;
-    height: auto; }
+    height: auto;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: #00aeef;
+    transition: color .5s;
+    font-size: 1em; }
+  .admin input[type="button"] :hover {
+    color: #0076a3;
+    transition: color .5s; }
 
 th {
   text-align: left;
