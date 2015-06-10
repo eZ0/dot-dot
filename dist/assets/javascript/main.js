@@ -4,17 +4,18 @@ $( document ).ready(function() {
 });
 
 function initAdminButtons() {
-	$('#_btnedit').click( function() {
+	$('.btnedit').click( function() {
 		var id = $(this).data('id');
 		var name = $('#'+id+'-name').text();
-		// var country = $('#'+id+'-country').text();
+		var country = $('#'+id+'-country').text();
 		// var url = $('#'+id+'-url').text();
 		
 		//change all fields to input with value
 		$('#'+id+'-name').html('<input type=text id=' + id + ' value='+ name + ' name="name">'); 
+		$('#'+id+'-country').html('<input type=text id=' + id + ' value='+ country + ' name="country">'); 
 	});
 
-	$('#_btnupdate').click( function(e) {
+	$('.btnupdate').click( function(e) {
 		e.preventDefault();
 
 		checkid = $(this).data('id');
@@ -22,9 +23,10 @@ function initAdminButtons() {
 	});
 }
 function prepareData(id) {
-		console.log('just checking');
+		
 		updatename = encodeURIComponent($('#'+id+'-name input[name="name"]').val());
-		console.log('check '+id + ' ' +updatename);
+		updatecountry = encodeURIComponent($('#'+id+'-country input[name="country"]').val());
+		
 		updateRow(id);
 }
 
@@ -34,9 +36,12 @@ function updateRow(id){
 		type: "POST",
 		async: false,
 		url: "assets/data/updatedata.php",
-		data: {'updatename': updatename, 'updateid':id }
+		data: {'updatename': updatename, 'updatecountry':updatecountry, 'updateid':id }
 	}).done(function(data) {
 		console.log("succes " + data);
+		//change all fields back to normal
+		$('#'+id+'-name').html(updatename); 
+		$('#'+id+'-country').html(updatecountry);
 	});
 }
 /*

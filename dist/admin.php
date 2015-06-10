@@ -41,8 +41,8 @@
 										printf("<input type='checkbox' checked>");
 									}printf("</td>
 									<td id={$row['id']}-url>{$row["url"]}</td>
-									<td><input type='button' id='_btnedit'  value='Edit' data-id={$row['id']}>
-									<input type='button' id='_btnupdate'  value='Update' data-id={$row['id']}></td>
+									<td><input type='button' class='btnedit'  value='Edit' data-id={$row['id']}>
+									<input type='button' class='btnupdate'  value='Update' data-id={$row['id']}></td>
 								</tr>");
 						}
 					}
