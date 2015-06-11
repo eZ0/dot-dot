@@ -30,7 +30,7 @@ JavaScript javascript;
 void setup(){
 	size(400, 420);
 	smooth();
-	strokeWeight( 5 );
+	strokeWeight( 2 );
 	background(0, 0);
 	setOptionArm();
 }
@@ -38,7 +38,7 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(1, 5));
+	int option = floor(random(6, 7));
 	switch(option){
 		case 1:
 			drawLines();
@@ -52,14 +52,12 @@ void setOptionArm(){
 		case 4:
 			drawCircles();
 			break;
-		// case 5:
-		// //back
-		// 	drawBigCircles();
-		// 	break;
-		// case 6:
-		// //back
-		// 	drawZigzag();
-		// 	break;
+		case 5:
+			drawCross();
+			break;
+		case 6:
+			drawWired();
+			break;
 		// case 7:
 		// //back
 		// 	drawRoseCurve();
@@ -81,7 +79,7 @@ void setOptionArm(){
 }
 
 void setOptionBack(){
-	int option = floor(random(6, 7));
+	int option = floor(random(1, 7));
 	switch(option){
 		case 1:
 		//back
@@ -282,6 +280,32 @@ void drawCircles(){
 	coordinate = 'C-' + a + b + c;
 }
 
+void drawCross(){
+	int x, xx;
+	int y, yy;
+
+	int dist;
+	strokeWeight( 3 );
+	int rsI = floor(random(1, 50));
+	for (int i=0; i < rsI; i++ ) {
+		dist = floor(random(1, 20));
+		x = floor(random(1, 100)) + width/3 + 20;
+		y = floor(random(1, 100)) + height/2 ;
+		
+		xx = x + dist;
+		yy = y + dist;
+		
+		line(x, y , xx, yy);
+		line(x, yy , xx, y);
+	}
+}
+
+void drawWired(){
+
+}
+
+// ALGORITHMES FOR BACK
+
 void drawBigCircles(){
 	int nCircle = floor(random(3, 10));
 	int strWeight;
@@ -395,32 +419,35 @@ void drawLisCurve(){
 
 void drawStrangeAttractor(){
 	// DeJong configuration
-	float A = 1.4, B = 1.5, C = 2.4, D = -2.1;
-
-	float x, y, dejongX, dejongY, d, sx,sy;
+	float A = random(-1, 9); 
+	float B = 1.5; 
+	float C = random(-1, 9); 
+	float D = -2.1;
 
 	float i = 0;
 	while(i < 100){
-		x = random(-3, 3);
-		y = random(-3, 3);
-		for (int b = 0; b < 1000; b++) {
-		// Computes next X & Y coordinate of attractor
-			dejongX = sin(A * y) - cos(B * x);
-			dejongY = sin(C * x) - cos(D * y);
-		// calculate distance from center/origin
-			d = 1 + sqrt( dejongX * dejongX + dejongY* dejongY);
-		// scale dist exponentially
-			d = pow(d, 2);
-		// map xx & yy to screen coordinates
-			sx = dejongX * width * 0.24 + width/2;
-			sy = dejongY * height * 0.24 + height/2;
-		// modulate size based on distance (Depth of Field effect)
-			ellipse(sx, sy, d, d);
-		// propagate results to next iteration
-			x = xx;
-			y = yy;
-		}
-		i = i + 0.1;
+		float x = random(-3, 3);
+		float y = random(-3, 3);
+		
+			// first compute X & Y for next iteration
+			float xx = sin(A * y) - cos(B * x);
+			float yy = sin(C * x) - cos(D * y);
+			// calculate distance from center/origin
+			//float d = 1 + sqrt(xx * yy + yy * xx);
+			// scale dist exponentially
+			//d = pow(d, 2);
+			// map xx & yy to screen coordinates
+			float sx = xx * width * 0.24 + width/2 ;
+			float sy = yy * height * 0.24 + height/2 ;
+			// draw dot with alpha/transparency
+			// modulate size based on distance (Depth of Field effect)
+			point(sx, sy);
+			// propagate results to next iteration
+			// x = xx;
+			// y = yy;
+
+		i = i + 0.001;
+		
 	}
 }
 
