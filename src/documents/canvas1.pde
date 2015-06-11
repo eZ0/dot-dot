@@ -38,7 +38,7 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(6, 7));
+	int option = floor(random(7, 8));
 	switch(option){
 		case 1:
 			drawLines();
@@ -58,10 +58,9 @@ void setOptionArm(){
 		case 6:
 			drawWired();
 			break;
-		// case 7:
-		// //back
-		// 	drawRoseCurve();
-		// 	break;
+		case 7:
+			drawRombs();
+			break;
 		// case 8:
 		// //back
 		// 	drawLisCurve();
@@ -79,7 +78,7 @@ void setOptionArm(){
 }
 
 void setOptionBack(){
-	int option = floor(random(1, 7));
+	int option = floor(random(1, 6));
 	switch(option){
 		case 1:
 		//back
@@ -95,14 +94,14 @@ void setOptionBack(){
 			break;
 		case 4:
 		//back
-			//drawLisCurve();
+			drawStrangeAttractor();
 			break;
 		case 5:
 		//back
 			drawRotLines();
 			break;
 		case 6:
-			drawStrangeAttractor();
+			// drawStrangeAttractor();
 			break;
 	}
 
@@ -286,14 +285,14 @@ void drawCross(){
 
 	int dist;
 	strokeWeight( 3 );
-	int rsI = floor(random(1, 50));
-	for (int i=0; i < rsI; i++ ) {
-		dist = floor(random(1, 20));
-		x = floor(random(1, 100)) + width/3 + 20;
-		y = floor(random(1, 100)) + height/2 ;
+	int rsI = floor(random(1, 10));
+	for (int i=1; i < rsI; i++ ) {
+		dist = floor(random(2, 20));
+		x = floor(random(20, 80)) + width/3-20 ;
+		y = floor(random(20, 80)) + height/3 ;
 		
-		xx = x + dist;
-		yy = y + dist;
+		xx = x + dist*i;
+		yy = y + dist*i;
 		
 		line(x, y , xx, yy);
 		line(x, yy , xx, y);
@@ -301,8 +300,49 @@ void drawCross(){
 }
 
 void drawWired(){
+	int x, xx;
+	int y, yy;
 
+	int dist;
+	strokeWeight( 3 );
+	int rsI = floor(random(1, 10));
+	for (int i=1; i < rsI; i++ ) {
+		dist = floor(random(2, 20));
+		int k = floor(random(20, 80)) ;
+		int t = i ;
+		float x = map(cos(k*t)*sin(t), -100,1,0,130);
+		float y = map(cos(k*t)*cos(t), -100,1,0,130);
+		
+		xx = x + dist*i;
+		yy = y + dist*i;
+		
+		line(x, y , xx, yy);
+		line(x, yy , xx, y);
+	}
 }
+
+void drawRombs(){
+	int x, xx;
+	int y, yy;
+
+	int dist;
+	strokeWeight( 3 );
+	int rsI = floor(random(1, 10));
+	for (int i=1; i < rsI; i++ ) {
+		dist = floor(random(2, 20));
+		int k = floor(random(20, 80)) ;
+		int t = i ;
+		float x = map(cos(k*t)*sin(t), -100,1,0,130);
+		float y = map(cos(k*t)*cos(t), -100,1,0,130);
+		
+		xx = x + dist*i;
+		yy = y + dist*i;
+		
+		line(x, y , xx, yy);
+		line(x, yy , xx, y);
+	}
+}
+
 
 // ALGORITHMES FOR BACK
 
