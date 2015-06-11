@@ -29,7 +29,7 @@ $( document ).ready(function() {
 		//to do img bg
 		cs.savePNG( cnvs, 'dotdot', coord, 'false', function(data){
 			// var baseUrl = "http://localhost:8888/dot-dot/";
-			var baseUrl = "http://ksenia.be/dot/";
+			var baseUrl = "http://dotdot.be/";
 			var newHref = baseUrl + data;
 			var url = "//www.pinterest.com/pin/create/link/?url="+ baseUrl +"index.php&media="+newHref;
 			$("#_pinBtn").prop("href", url);

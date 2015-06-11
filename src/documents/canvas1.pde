@@ -81,7 +81,7 @@ void setOptionArm(){
 }
 
 void setOptionBack(){
-	int option = floor(random(1, 6));
+	int option = floor(random(6, 7));
 	switch(option){
 		case 1:
 		//back
@@ -97,11 +97,14 @@ void setOptionBack(){
 			break;
 		case 4:
 		//back
-			drawLisCurve();
+			//drawLisCurve();
 			break;
 		case 5:
 		//back
 			drawRotLines();
+			break;
+		case 6:
+			drawStrangeAttractor();
 			break;
 	}
 
@@ -291,17 +294,6 @@ void drawBigCircles(){
 	}
 }
 
-void drawZigzag(){
-	float x =0;
-	int nC = floor(random(50, 400));
-	int strWeight;
-	strWeight = floor(random(2, 5));
-	strokeWeight(strWeight);
-	while(x<width){
-		point(x, height/2 + nC*noise(x/100));
-		x=x+0.001;
-	}
-}
 
 void drawRoseCurve(){
 	//rose curve
@@ -353,6 +345,10 @@ void drawRotLines(){
 	}
 }
 
+// Lissajous curve describes complex harmonic motion
+// This family of curves was investigated by Nathaniel Bowditch in 1815,
+// and later in more detail by Jules Antoine Lissajous in 1857. 
+
 void drawLisCurve(){
 	float xpos,ypos;
 	float px,py;
@@ -379,8 +375,7 @@ void drawLisCurve(){
 		ypos = width/4 * ax * (sin(radians(counter * b)) + offSet) + height/8;
 
 		if( counter > 0 ){
-			line(px  , py , xpos, ypos);
-			// ellipse(px , py , 2, 2);
+			line(px, py , xpos, ypos);
 		}
 
 		px = xpos;
@@ -391,6 +386,42 @@ void drawLisCurve(){
 	}
 
 
+}
+
+// DeJong strange attractor
+// Strange Attractors are mathematical systems that tend to evolve over time. Attractors are represented by
+// coordinates in space, each coordinate dependent upon the previous coordinate, 
+// the change between the two coordinates based upon one mathematical equation per dimension.
+
+void drawStrangeAttractor(){
+	// DeJong configuration
+	float A = 1.4, B = 1.5, C = 2.4, D = -2.1;
+
+	float x, y, dejongX, dejongY, d, sx,sy;
+
+	float i = 0;
+	while(i < 100){
+		x = random(-3, 3);
+		y = random(-3, 3);
+		for (int b = 0; b < 1000; b++) {
+		// Computes next X & Y coordinate of attractor
+			dejongX = sin(A * y) - cos(B * x);
+			dejongY = sin(C * x) - cos(D * y);
+		// calculate distance from center/origin
+			d = 1 + sqrt( dejongX * dejongX + dejongY* dejongY);
+		// scale dist exponentially
+			d = pow(d, 2);
+		// map xx & yy to screen coordinates
+			sx = dejongX * width * 0.24 + width/2;
+			sy = dejongY * height * 0.24 + height/2;
+		// modulate size based on distance (Depth of Field effect)
+			ellipse(sx, sy, d, d);
+		// propagate results to next iteration
+			x = xx;
+			y = yy;
+		}
+		i = i + 0.1;
+	}
 }
 
 
