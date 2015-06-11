@@ -38,7 +38,7 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(7, 8));
+	int option = floor(random(1, 8));
 	switch(option){
 		case 1:
 			drawLines();
@@ -134,7 +134,7 @@ void drawLines(){
 	int rsI = floor(random(3, 5));
 	int optionEnd = floor(random(1, 7));
 	int length = floor(random(100, 150));
-	int endPoint = floor(random(100, 200));
+	int endPoint = floor(random(150, 200));
 
 	char a = char(optionArrow);
 	char b = char(rI);
@@ -220,7 +220,7 @@ void drawLines(){
 void drawTriangles(){
 	int optionTriangle = floor(random(1, 4));
 
-	int top = floor(random(50, 100));
+	int top = floor(random(100, 150));
 	int bottom = top+floor(random(50, 100));
 	int trWidth = (bottom-top)/2;
 
@@ -322,24 +322,32 @@ void drawWired(){
 }
 
 void drawRombs(){
-	int x, xx;
-	int y, yy;
+	int x1, x2, x3;
+	int y1, y2, y3;
 
 	int dist;
 	strokeWeight( 3 );
 	int rsI = floor(random(1, 10));
 	for (int i=1; i < rsI; i++ ) {
-		dist = floor(random(2, 20));
-		int k = floor(random(20, 80)) ;
-		int t = i ;
-		float x = map(cos(k*t)*sin(t), -100,1,0,130);
-		float y = map(cos(k*t)*cos(t), -100,1,0,130);
+		dist = floor(random(20, 40));
+		x1 = floor(random(10, 40)) + width/3+20;
+		y1 = floor(random(10, 40)) + height/3 +dist*i;
+
+		x2 = x1+20;
+		y2 = y1+20;
+
+		x3 = x1+30;
+		y3 = y1+40;
+
+		x4 = x1+10;
 		
-		xx = x + dist*i;
-		yy = y + dist*i;
-		
-		line(x, y , xx, yy);
-		line(x, yy , xx, y);
+		line(x1, y1, x2, y2);
+		line(x2, y2, x1, y3);
+		line(x3, y1, x4,  y2);
+		line(x3, y3 , x4,  y2);
+
+		point(x1,y2);
+		point(x3,y2);
 	}
 }
 
