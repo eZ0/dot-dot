@@ -38,7 +38,7 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(1, 8));
+	int option = floor(random(1, 3));
 	switch(option){
 		case 1:
 			drawLines();
@@ -221,7 +221,7 @@ void drawTriangles(){
 	int optionTriangle = floor(random(1, 4));
 
 	int top = floor(random(100, 150));
-	int bottom = top+floor(random(50, 100));
+	int bottom = top+floor(random(50, 90));
 	int trWidth = (bottom-top)/2;
 
 	int rsI = floor(random(1, 4));

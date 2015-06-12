@@ -214,6 +214,8 @@ input[type="email"] {
   opacity: 0.8;
   filter: alpha(opacity=80);
   transition: background-color .5s; }
+  .button:hover .popover {
+    color: #000000; }
 
 .btn-close {
   height: 40px;
@@ -243,6 +245,60 @@ input[type="email"] {
 
 .btn-close:hover .line {
   background: #404040; }
+
+.button {
+  position: relative; }
+  .button .popover {
+    bottom: 60px;
+    text-align: center;
+    font-size: 12px;
+    left: -40px;
+    padding: 7px 10px;
+    position: absolute;
+    width: 200px;
+    z-index: 4;
+    border: 1px solid #000000;
+    animation-name: floating;
+    -webkit-animation-name: floating;
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite; }
+    .button .popover:before {
+      border-top: 7px solid rgba(0, 0, 0, 0.85);
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      bottom: -7px;
+      content: '';
+      display: block;
+      left: 50%;
+      margin-left: -7px;
+      position: absolute; }
+  .button .popover:hover {
+    color: #000000; }
+
+@keyframes floating {
+  0% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); }
+
+  50% {
+    -webkit-transform: translateY(10%);
+    transform: translateY(10%); }
+
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%); } }
+
+@-webkit-keyframes floating {
+  0% {
+    -webkit-transform: translateY(0%); }
+
+  50% {
+    -webkit-transform: translateY(10%); }
+
+  100% {
+    -webkit-transform: translateY(0%); } }
 
 .nav {
   width: 100%;

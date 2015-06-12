@@ -23,6 +23,7 @@ $( document ).ready(function() {
 	$('#_btnhate').click(function(){
 		canvas.style.webkitFilter = "blur(1px)";
 		$('#_explanation p').fadeOut();
+		$('.popover').fadeOut();
 	});
 
 	$('#_pinBtn').click(function(event) {

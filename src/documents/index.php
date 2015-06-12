@@ -89,10 +89,10 @@
 
 		<canvas id="_tattoo" data-processing-sources="canvas1.pde"></canvas>
 		<div class="buttons" id="_buttons">
-			<div class="button" id="_btnwant">Love it</div>
+			<div class="button" id="_btnwant">Love it<span class="popover">Save image </span></div>
 			<div class="body-option" id="_arm" onclick="showArmTattoo('_tattoo')" >ARM</div>
 			<div class="body-option" id="_back" onclick="showBackTattoo('_tattoo')">BACK</div>
-			<div class="button" onclick="setOption('_tattoo')" data-coord="" id="_btnhate">Hate it</div>
+			<div class="button" onclick="setOption('_tattoo')" data-coord="" id="_btnhate">Hate it<span class="popover">Generate new one</span></div>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="assets/javascript/jquery.min.js"><\/script>')</script>
