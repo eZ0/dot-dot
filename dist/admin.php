@@ -21,6 +21,7 @@
 					<th>Country</th>
 					<th>Showed</th>
 					<th>URL - upload/download</th>
+					<th>Preview</th>
 					<th>Actions</th>
 				</thead>
 				<tbody>
@@ -36,11 +37,14 @@
 									<td id={$row['id']}-country>{$row["country"]}</td>
 									<td id={$row['id']}-isPublished>");
 									if($row["isPublished"] == 0){
-										printf("<input type='checkbox'>");
+										printf("<input class='{$row['id']}_chkupd' type='checkbox'>");
 									}else{
-										printf("<input type='checkbox' checked>");
+										printf("<input class='{$row['id']}_chkupd' type='checkbox' checked>");
 									}printf("</td>
 									<td id={$row['id']}-url>{$row["url"]}</td>
+									<td id={$row['id']}-preview>
+										<img src={$row["url"]} width='50px'>
+									</td>
 									<td><input type='button' class='btnedit'  value='Edit' data-id={$row['id']}>
 									<input type='button' class='btnupdate'  value='Update' data-id={$row['id']}></td>
 								</tr>");
