@@ -1,4 +1,8 @@
 <?php 
+	session_start();
+	if(!$_SESSION['login']) {
+		die('Nice try, smartass');
+	}
 	include 'assets/data/config.php'; 
 ?>
 <!doctype html>

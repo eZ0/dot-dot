@@ -35,10 +35,11 @@ void setup(){
 	setOptionArm();
 }
  
+
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(1, 3));
+	int option = floor(random(1, 8));
 	switch(option){
 		case 1:
 			drawLines();
@@ -82,7 +83,7 @@ void setOptionBack(){
 	switch(option){
 		case 1:
 		//back
-			drawBigCircles();
+			//drawBigCircles();
 			break;
 		case 2:
 		//back

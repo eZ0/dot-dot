@@ -1,7 +1,7 @@
 <?php 
 	include 'config.php';
 
-      $id = filter_var($_POST["updatefileid"], FILTER_SANITIZE_STRING);
+      $id = filter_var($_REQUEST["updatefileid"], FILTER_SANITIZE_STRING);
 
       // if(is_uploaded_file($_FILES['file']['tmp_name'])){
             // Storing source path of the file in a variable
@@ -18,6 +18,7 @@
       // }else{
       //       $url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
       // }
+      echo $id;
       
       $stmt = $mysqli->prepare("UPDATE user_pics SET url = ? WHERE id =  ?");
       $stmt->bind_param('si', $updateurl, $id);

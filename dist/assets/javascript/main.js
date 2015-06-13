@@ -19,9 +19,11 @@ function initAdminButtons() {
 		var isPublished = $('.'+id+'_chkupd').val();
 		
 		//change all fields to input with value
-		$('#'+id+'-name').html('<input type=text id=' + id + ' value='+ name + ' name="name">'); 
-		$('#'+id+'-country').html('<input type=text id=' + id + ' value='+ country + ' name="country">'); 
-		$('#'+id+'-url').html('<input type=text id=' + id + ' value='+ url + ' name="url">'); 
+		$('#'+id+'-name').html('<input type=text id=iName' + id + ' value='+ name + ' name="name">'); 
+		$('#'+id+'-country').html('<input type=text id=iCoutry-' + id + ' value='+ country + ' name="country">'); 
+		$('#'+id+'-url').html('<input type=text id=iUrl' + id + ' value='+ url + ' name="url">'); 
+
+		$('#'+'iCoutry-'+id).val(country);
 
 		if (isPublished == 1) {
 			$('#'+id+'-isPublished').html('<input class='+id+'_chkupd type=checkbox checked value=1 >');
@@ -53,8 +55,8 @@ function initAdminButtons() {
 }
 function prepareData(id) {
 		
-		updatename = encodeURIComponent($('#'+id+'-name input[name="name"]').val());
-		updatecountry = encodeURIComponent($('#'+id+'-country input[name="country"]').val());
+		updatename = $('#'+id+'-name input[name="name"]').val();
+		updatecountry = $('#'+id+'-country input[name="country"]').val();
 		updateurl = $('#'+id+'-url input[name="url"]').val();
 
 		
@@ -104,7 +106,7 @@ function uploadEditedImage(id){
 	fd.append("CustomField", "This is some extra data");
 	$.ajax({
 		type: "POST",
-		url: "assets/data/uploadimagedata.php?updatefileid="+id+"&file="+updatefile,
+		url: "assets/data/uploadimagedata.php?updatefileid="+id,
 		data: fd,
 		processData: false,  // tell jQuery not to process the data
 		contentType: false   // tell jQuery not to set contentType

@@ -1,11 +1,12 @@
 <?php
-
+	session_start();
 	include 'config.php';
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
 	$isExist = 'fasle';
+	$_SESSION['login'] = false;
 
 	// generate a random salt to use for this account
 	// $salt = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
@@ -44,6 +45,7 @@
 		$stmtlg->bind_result($col1);
 		
 		while ($stmtlg->fetch()) {
+			$_SESSION['login'] = $username;
 			$isExist = 'login';
 		}
 	}
