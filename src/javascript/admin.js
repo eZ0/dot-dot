@@ -2,6 +2,7 @@ var checkid;
 var updatename;
 var updatecountry;
 var updatepublished;
+var updatefile;
 
 //TODO: checkbox/ Upload-download picture
 
@@ -45,6 +46,8 @@ function initAdminButtons() {
 
 	$('.btnuploadedited').click( function(e) {
 		checkid = $(this).data('id');
+		updatefile = $('#'+checkid+'-form input[name="file"]').val();
+		console.log(checkid + ' ' + updatefile);
 		uploadEditedImage(checkid);
 	});
 }
@@ -97,5 +100,25 @@ function delRow(id){
 }
 
 function uploadEditedImage(id){
-
+	var fd = new FormData(document.getElementById(id+"-form"));
+	fd.append("CustomField", "This is some extra data");
+	$.ajax({
+		type: "POST",
+		url: "assets/data/uploadimagedata.php?updatefileid="+id+"&file="+updatefile,
+		data: fd,
+		processData: false,  // tell jQuery not to process the data
+		contentType: false   // tell jQuery not to set contentType
+	}).done(function(data) {
+		console.log("succesful file upload call " + data);
+	});
 }
+
+
+
+
+
+
+
+
+
+

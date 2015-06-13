@@ -1,0 +1,26 @@
+<?php 
+	include 'config.php';
+
+      $id = filter_var($_POST["updatefileid"], FILTER_SANITIZE_STRING);
+
+      // if(is_uploaded_file($_FILES['file']['tmp_name'])){
+            // Storing source path of the file in a variable
+            $sourcePath = $_FILES['file']['tmp_name'];
+            //changing name of the uploaded file
+            $filename  = basename($_FILES['file']['name']);
+            $extension = pathinfo($filename, PATHINFO_EXTENSION);
+            $fName = md5($filename).'.'.$extension;
+            // Target path where file is to be stored
+            $targetPath = realpath(__DIR__ . '/../images/gallery/').'/'.$fName; 
+            // Moving Uploaded file
+            move_uploaded_file($sourcePath, $targetPath);
+            $updateurl = $targetPath;
+      // }else{
+      //       $url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
+      // }
+      
+      $stmt = $mysqli->prepare("UPDATE user_pics SET url = ? WHERE id =  ?");
+      $stmt->bind_param('si', $updateurl, $id);
+      $stmt->execute();
+
+      $stmt->close();

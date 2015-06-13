@@ -29,6 +29,9 @@
 .img_block {
   display: block; }
 
+.no-border {
+  border: none; }
+
 html {
   box-sizing: border-box; }
 

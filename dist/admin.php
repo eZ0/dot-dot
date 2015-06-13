@@ -46,7 +46,10 @@
 											<a href={$row["url"]} download={$row["url"]}>{$row["url"]}</a> 
 										</p>
 										<p>
-											<input type='button' class='btnuploadedited'  value='Upload' data-id={$row['id']}>
+											<form id='{$row['id']}-form' name='uploade-form'  method=POST enctype=multipart/form-data>
+												<input class='no-border' id={$row['id']}-image type=file name=file>
+												<input type='button' class='btnuploadedited'  value='Upload' data-id={$row['id']}>
+											</form>
 										</p>
 									</td>
 									<td id={$row['id']}-preview>
