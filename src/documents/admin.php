@@ -41,13 +41,21 @@
 									}else{
 										printf("<input class='{$row['id']}_chkupd' type='checkbox' checked value='1' disabled>");
 									}printf("</td>
-									<td id={$row['id']}-url>{$row["url"]}</td>
+									<td>
+										<p id={$row['id']}-url>
+											<a href={$row["url"]} download={$row["url"]}>{$row["url"]}</a> 
+										</p>
+										<p>
+											<input type='button' class='btnuploadedited'  value='Upload' data-id={$row['id']}>
+										</p>
+									</td>
 									<td id={$row['id']}-preview>
 										<img src={$row["url"]} width='50px'>
 									</td>
-									<td><input type='button' class='btnedit'  value='Edit' data-id={$row['id']}>
-									<input type='button' class='btnupdate'  value='Update' data-id={$row['id']}>
-									<input type='button' class='btndelete'  value='Delete' data-id={$row['id']}>
+									<td>
+										<input type='button' class='btnedit'  value='Edit' data-id={$row['id']}>
+										<input type='button' class='btnupdate'  value='Update' data-id={$row['id']}>
+										<input type='button' class='btndelete'  value='Delete' data-id={$row['id']}>
 									</td>
 								</tr>");
 						}

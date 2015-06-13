@@ -42,6 +42,11 @@ function initAdminButtons() {
 		checkid = $(this).data('id');
 		delRow(checkid);
 	});
+
+	$('.btnuploadedited').click( function(e) {
+		checkid = $(this).data('id');
+		uploadEditedImage(checkid);
+	});
 }
 function prepareData(id) {
 		
@@ -89,6 +94,10 @@ function delRow(id){
 		//hide deleted field
 		$('#'+id+'-row').fadeOut('400', function() {});
 	});
+}
+
+function uploadEditedImage(id){
+
 }
 /*
 class for checking if a generated coordinates
