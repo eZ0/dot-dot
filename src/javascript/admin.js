@@ -15,13 +15,18 @@ function initAdminButtons() {
 		var name = $('#'+id+'-name').text();
 		var country = $('#'+id+'-country').text();
 		var url = $('#'+id+'-url').text();
-		// var url = $('#'+id+'-url').text();
+		var isPublished = $('.'+id+'_chkupd').val();
 		
 		//change all fields to input with value
 		$('#'+id+'-name').html('<input type=text id=' + id + ' value='+ name + ' name="name">'); 
 		$('#'+id+'-country').html('<input type=text id=' + id + ' value='+ country + ' name="country">'); 
 		$('#'+id+'-url').html('<input type=text id=' + id + ' value='+ url + ' name="url">'); 
 
+		if (isPublished == 1) {
+			$('#'+id+'-isPublished').html('<input class='+id+'_chkupd type=checkbox checked value=1 >');
+		}else{
+			$('#'+id+'-isPublished').html('<input class='+id+'_chkupd type=checkbox value=0 >');
+		}
 	});
 
 	$('.btnupdate').click( function(e) {
@@ -29,6 +34,13 @@ function initAdminButtons() {
 
 		checkid = $(this).data('id');
 		prepareData(checkid);
+	});
+
+	$('.btndelete').click( function(e) {
+		e.preventDefault();
+
+		checkid = $(this).data('id');
+		delRow(checkid);
 	});
 }
 function prepareData(id) {
@@ -47,17 +59,34 @@ function prepareData(id) {
 }
 
 function updateRow(id){
-	console.log(updateurl);
 	$.ajax({
 		type: "POST",
 		async: false,
 		url: "assets/data/updatedata.php",
 		data: {'updatename': updatename, 'updatecountry':updatecountry, 'updatepublished':updatepublished, 'updateurl':updateurl, 'updateid':id }
 	}).done(function(data) {
-		console.log("succes " + data);
 		//change all fields back to normal
 		$('#'+id+'-name').html(updatename); 
 		$('#'+id+'-country').html(updatecountry);
 		$('#'+id+'-url').html(updateurl);
+
+		if (updatepublished == 1) {
+			$('#'+id+'-isPublished').html('<input class='+id+'_chkupd type=checkbox checked value=1 disabled>');
+		}else{
+			$('#'+id+'-isPublished').html('<input class='+id+'_chkupd type=checkbox value=0 disabled>');
+		}
+	});
+}
+
+function delRow(id){
+	$.ajax({
+		type: "POST",
+		async: false,
+		url: "assets/data/deletedata.php",
+		data: { 'updateid':id }
+	}).done(function(data) {
+		console.log("succes " + data);
+		//hide deleted field
+		$('#'+id+'-row').fadeOut('400', function() {});
 	});
 }

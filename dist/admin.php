@@ -26,27 +26,29 @@
 				</thead>
 				<tbody>
 					<?php 
-					if ($result = $mysqli->query("SELECT * FROM user_pics ")) {
+					if ($result = $mysqli->query("SELECT * FROM user_pics ") ) {
 						$i = 0;
 						while ($row = $result->fetch_assoc()) {
 							$i++;
 							$sid='s' . $row['id'];
-							printf("<tr> 
+							printf("<tr id={$row['id']}-row> 
 									<td>{$i}</td>
 									<td id={$row['id']}-name>{$row["name"]}</td>
 									<td id={$row['id']}-country>{$row["country"]}</td>
 									<td id={$row['id']}-isPublished>");
 									if($row["isPublished"] == 0){
-										printf("<input class='{$row['id']}_chkupd' type='checkbox'>");
+										printf("<input class='{$row['id']}_chkupd' type='checkbox' value='0' disabled >");
 									}else{
-										printf("<input class='{$row['id']}_chkupd' type='checkbox' checked>");
+										printf("<input class='{$row['id']}_chkupd' type='checkbox' checked value='1' disabled>");
 									}printf("</td>
 									<td id={$row['id']}-url>{$row["url"]}</td>
 									<td id={$row['id']}-preview>
 										<img src={$row["url"]} width='50px'>
 									</td>
 									<td><input type='button' class='btnedit'  value='Edit' data-id={$row['id']}>
-									<input type='button' class='btnupdate'  value='Update' data-id={$row['id']}></td>
+									<input type='button' class='btnupdate'  value='Update' data-id={$row['id']}>
+									<input type='button' class='btndelete'  value='Delete' data-id={$row['id']}>
+									</td>
 								</tr>");
 						}
 					}

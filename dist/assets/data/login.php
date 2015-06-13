@@ -19,8 +19,6 @@
 
 	// $stmt->close();
 
-
-
 	if (!($stmt = $mysqli->prepare("SELECT salt FROM users WHERE username =  ?"))) {
 		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
