@@ -79,11 +79,11 @@ void setOptionArm(){
 }
 
 void setOptionBack(){
-	int option = floor(random(1, 6));
+	int option = floor(random(1, 5));
 	switch(option){
 		case 1:
 		//back
-			//drawBigCircles();
+			drawBigCircles();
 			break;
 		case 2:
 		//back
@@ -95,11 +95,11 @@ void setOptionBack(){
 			break;
 		case 4:
 		//back
-			drawStrangeAttractor();
+			drawRotLines();
 			break;
 		case 5:
 		//back
-			drawRotLines();
+			drawStrangeAttractor();
 			break;
 		case 6:
 			// drawStrangeAttractor();
