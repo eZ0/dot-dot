@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+
 
 	if ($('#_tattoo').length){
 		canvas.style.webkitFilter = "blur(1px)";

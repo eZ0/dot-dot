@@ -13,7 +13,7 @@ int getCoord() { return coordinate; }
 
 
 
-// passing js var to processing
+// passing js data to processing
 interface JavaScript {
 	int showCoord(char coordinate);
 }
@@ -367,22 +367,27 @@ void drawBigCircles(){
 	}
 }
 
-
+//rose curve
 void drawRoseCurve(){
-	//rose curve
 	float k = floor(random(0.0, 10.0))/random(-1.0, 8.0); //constant
+
 	int strWeight;
 	strWeight = floor(random(2, 5));
 	strokeWeight(strWeight);
-	noFill();
-	float i = 0;
-	while(i<100){
 
+	noFill();
+
+	float i = 0;
+	// for drawing every dot
+	while(i<100){
 		float t = i;
+		//mapping for ajusting coordinates
 		float x = map(cos(k*t)*sin(t), -1,1,0,400);
 		float y = map(cos(k*t)*cos(t), -1,1,0,400);
-		i = i + 0.01;
+
 		point(x,y);
+		
+		i = i + 0.01;
 	}
 }
 

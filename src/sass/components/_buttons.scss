@@ -29,7 +29,6 @@
 	position: relative;
 	float: right;
 	cursor: pointer;
-
 	.line {
 		width: 3px; 
 		height: 30px; 
@@ -39,23 +38,22 @@
 		position: absolute; 
 		top: 20;
 		&.left{
-			-webkit-transform: rotateZ(-45deg);
+			transform: rotateZ(-45deg);
 			left: 20px;
 		}
 
 		&.right{
-			-webkit-transform: rotateZ(45deg);
+			transform: rotateZ(45deg);
 			left: 20px;
 		}
 		transition: all 0.3s cubic-bezier(.87,.39,.74,1.31);
 	}
 	&.open{
-		div.line.left{
-			-webkit-transform: rotateZ(-90deg);
+		.line.left{
+			transform: rotateZ(-90deg);
 		}
-
-		div.line.right{
-			-webkit-transform: rotateZ(90deg);
+		.line.right{
+			transform: rotateZ(90deg);
 		}
 	}
 }
@@ -69,7 +67,7 @@
 // explanation at the begin
 .button {
 	position: relative;
-
+	
 	.popover {
 		bottom: 60px;
 		text-align: center;

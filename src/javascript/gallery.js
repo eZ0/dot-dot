@@ -5,28 +5,25 @@ var country;
 var url;
 
 
-$( document ).ready(function() {
-
-	initButtons();
-	$('.main').bind('touchstart', function() {});
+initButtons();
+$('.main').bind('touchstart', function() {});
 
 
-	// modal window clicks on upload
-	$('#url').hide();
+// modal window clicks on upload
+$('#url').hide();
+$('#file').hide();
+
+$('#_url').click(function() {
+	$('#url').toggle();
 	$('#file').hide();
+});
+$('#_file').click(function() {
+	$('#file').toggle();
+	$('#url').hide();
+});
 
-	$('#_url').click(function() {
-		$('#url').toggle();
-		$('#file').hide();
-	});
-	$('#_file').click(function() {
-		$('#file').toggle();
-		$('#url').hide();
-	});
-
-	$('.btn-close').click( function() {
-		$(this).toggleClass('open');
-	});
+$('.btn-close').click( function() {
+	$(this).toggleClass('open');
 });
 
 

@@ -4,11 +4,9 @@ var updatecountry;
 var updatepublished;
 var updatefile;
 
-//TODO: checkbox/ Upload-download picture
-
 $( document ).ready(function() {
 	initAdminButtons();
-});
+
 
 function initAdminButtons() {
 	$('.btnedit').click( function() {
@@ -153,28 +151,25 @@ var country;
 var url;
 
 
-$( document ).ready(function() {
-
-	initButtons();
-	$('.main').bind('touchstart', function() {});
+initButtons();
+$('.main').bind('touchstart', function() {});
 
 
-	// modal window clicks on upload
-	$('#url').hide();
+// modal window clicks on upload
+$('#url').hide();
+$('#file').hide();
+
+$('#_url').click(function() {
+	$('#url').toggle();
 	$('#file').hide();
+});
+$('#_file').click(function() {
+	$('#file').toggle();
+	$('#url').hide();
+});
 
-	$('#_url').click(function() {
-		$('#url').toggle();
-		$('#file').hide();
-	});
-	$('#_file').click(function() {
-		$('#file').toggle();
-		$('#url').hide();
-	});
-
-	$('.btn-close').click( function() {
-		$(this).toggleClass('open');
-	});
+$('.btn-close').click( function() {
+	$(this).toggleClass('open');
 });
 
 
@@ -241,10 +236,9 @@ var loginDataEntered = false;
 var username;
 var password;
 
-$( document ).ready(function() {
-	initButtonsLogin();
-	
-});
+
+initButtonsLogin();
+
 
 function initButtonsLogin() {
 
@@ -283,7 +277,7 @@ function checkIfRegistered() {
 
 
 
-$( document ).ready(function() {
+
 
 	if ($('#_tattoo').length){
 		canvas.style.webkitFilter = "blur(1px)";

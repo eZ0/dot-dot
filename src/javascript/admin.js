@@ -4,11 +4,9 @@ var updatecountry;
 var updatepublished;
 var updatefile;
 
-//TODO: checkbox/ Upload-download picture
-
 $( document ).ready(function() {
 	initAdminButtons();
-});
+
 
 function initAdminButtons() {
 	$('.btnedit').click( function() {

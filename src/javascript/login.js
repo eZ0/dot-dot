@@ -3,10 +3,9 @@ var loginDataEntered = false;
 var username;
 var password;
 
-$( document ).ready(function() {
-	initButtonsLogin();
-	
-});
+
+initButtonsLogin();
+
 
 function initButtonsLogin() {
 

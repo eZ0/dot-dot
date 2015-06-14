@@ -185,7 +185,8 @@ input[type="email"] {
 
 .wrap-login {
   width: 240px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding-top: 100px; }
   .wrap-login input {
     margin-top: 20px; }
   .wrap-login .button {
@@ -237,14 +238,18 @@ input[type="email"] {
     transition: all 0.3s cubic-bezier(.87, .39, .74, 1.31); }
     .btn-close .line.left {
       -webkit-transform: rotateZ(-45deg);
+      transform: rotateZ(-45deg);
       left: 20px; }
     .btn-close .line.right {
       -webkit-transform: rotateZ(45deg);
+      transform: rotateZ(45deg);
       left: 20px; }
-  .btn-close.open div.line.left {
-    -webkit-transform: rotateZ(-90deg); }
-  .btn-close.open div.line.right {
-    -webkit-transform: rotateZ(90deg); }
+  .btn-close.open .line.left {
+    -webkit-transform: rotateZ(-90deg);
+    transform: rotateZ(-90deg); }
+  .btn-close.open .line.right {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg); }
 
 .btn-close:hover .line {
   background: #404040; }

@@ -17,7 +17,9 @@
 		<link rel="stylesheet" href="assets/stylesheets/main.min.css">
 	</head>
 	<body>
+		<!-- <p><a href="gallery.php">Gallery</a><a href="login.php">Logout</a></p> -->
 		<section class="admin">
+			<p class='admin-nav'><a href="gallery.php" class='link'>Gallery</a><a href="login.php" class='link'>Logout</a></p>
 			<table class="table table-hover table-bordered">
 				<thead>
 					<th>#</th>
