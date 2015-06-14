@@ -22,7 +22,7 @@
 				<p class="leading" >Did you know that computer art is a thing? Dot:Dot generates random, unique tattoos with the help of <a href="http://processingjs.org" class="link">Processing.js</a></p>
 				<div class="video-wrapper">
 					<video id="video" class="video" preload="auto" width="100%" height="auto">
-						<source src="assets/images/test.mp4"  type='video/mp4'/>
+						<source src="assets/images/test.mpg"  type='video/mpg'/>
 					</video>
 					<div class="control">
 						<div class="btnPlay btn" id="_btnPlay" title="Play/Pause video">
