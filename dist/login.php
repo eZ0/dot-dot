@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if($_SESSION['login']) {
+		unset($_SESSION['login']);
+	}
+?>
+
 <!doctype html>
 <html lang="en">
 	<head>

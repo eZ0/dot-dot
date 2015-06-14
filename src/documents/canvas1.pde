@@ -39,7 +39,7 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(1, 8));
+	int option = floor(random(5, 6));
 	switch(option){
 		case 1:
 			drawLines();
@@ -286,7 +286,8 @@ void drawCross(){
 
 	int dist;
 	strokeWeight( 3 );
-	int rsI = floor(random(1, 10));
+	int rsI = floor(random(2, 10));
+
 	for (int i=1; i < rsI; i++ ) {
 		dist = floor(random(2, 20));
 		x = floor(random(20, 80)) + width/3-20 ;
@@ -306,7 +307,7 @@ void drawWired(){
 
 	int dist;
 	strokeWeight( 3 );
-	int rsI = floor(random(1, 10));
+	int rsI = floor(random(2, 10));
 	for (int i=1; i < rsI; i++ ) {
 		dist = floor(random(2, 20));
 		int k = floor(random(20, 80)) ;
@@ -328,11 +329,11 @@ void drawRombs(){
 
 	int dist;
 	strokeWeight( 3 );
-	int rsI = floor(random(1, 10));
+	int rsI = floor(random(2, 10));
 	for (int i=1; i < rsI; i++ ) {
 		dist = floor(random(20, 40));
 		x1 = floor(random(10, 40)) + width/3+20;
-		y1 = floor(random(10, 40)) + height/3 +dist*i;
+		y1 = floor(random(10, 40)) + height/4 +dist*i;
 
 		x2 = x1+20;
 		y2 = y1+20;

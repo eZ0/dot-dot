@@ -6,7 +6,7 @@ var updatefile;
 
 $( document ).ready(function() {
 	initAdminButtons();
-
+	
 
 function initAdminButtons() {
 	$('.btnedit').click( function() {

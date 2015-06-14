@@ -684,6 +684,13 @@ table td[class*="col-"], table th[class*="col-"] {
   float: none;
   display: table-cell; }
 
+.admin-nav {
+  display: inline-block;
+  padding: 20px 0px;
+  float: right; }
+  .admin-nav a {
+    margin-left: 20px; }
+
 @media (min-width: 480px) {
   .modal-dialog {
     width: 768px;

@@ -16,7 +16,7 @@
 		$targetPath = realpath(__DIR__ . '/../images/uploads/').'/'.$fName; 
 		// Moving Uploaded file
 		move_uploaded_file($sourcePath, $targetPath);
-		$url = 'assets/images/gallery/'.$fName;
+		$url = 'assets/images/uploads/'.$fName;
 	}else{
 		$url = filter_var($_GET["url"], FILTER_SANITIZE_URL);
 	}
