@@ -39,7 +39,7 @@ void setup(){
 void draw(){}
 
 void setOptionArm(){
-	int option = floor(random(5, 6));
+	int option = floor(random(1, 9));
 	switch(option){
 		case 1:
 			drawLines();
@@ -62,10 +62,10 @@ void setOptionArm(){
 		case 7:
 			drawRombs();
 			break;
-		// case 8:
-		// //back
-		// 	drawLisCurve();
-		// 	break;
+		case 8:
+			drawLines();
+			drawCircles();
+			break;
 		// case 9:
 		// //back
 		// 	drawRotLines();
@@ -299,6 +299,14 @@ void drawCross(){
 		line(x, y , xx, yy);
 		line(x, yy , xx, y);
 	}
+
+	char a = char(xx);
+	char b = char(yy);
+	char c = char(rsI);
+	char d = char(y);
+	char e = char(x);
+	coordinate = 'CR-' + a + b + c + d + e ;
+
 }
 
 void drawWired(){
@@ -321,6 +329,13 @@ void drawWired(){
 		line(x, y , xx, yy);
 		line(x, yy , xx, y);
 	}
+
+	char a = char(xx);
+	char b = char(yy);
+	char c = char(rsI);
+	char d = char(y);
+	char e = char(x);
+	coordinate = 'W-' + a + b + c + d + e ;
 }
 
 void drawRombs(){
@@ -351,6 +366,12 @@ void drawRombs(){
 		point(x1,y2);
 		point(x3,y2);
 	}
+	char a = char(x1);
+	char b = char(y1);
+	char c = char(rsI);
+	char d = char(y2);
+	char e = char(x2);
+	coordinate = 'RO-' + a + b + c + d + e ;
 }
 
 
@@ -359,13 +380,18 @@ void drawRombs(){
 void drawBigCircles(){
 	int nCircle = floor(random(3, 10));
 	int strWeight;
+	int dia;
 	noFill();
 	for (int i=0; i < nCircle; i++ ) {
-		int dia = floor(random(20, 400));
+		dia = floor(random(20, 400));
 		strWeight = floor(random(2, 18));
 		strokeWeight(strWeight);
 		ellipse(width/2, height/2+nCircle*10, dia/2, dia/2);
 	}
+	char a = char(dia);
+	char b = char(strWeight);
+	char c = char(nCircle);
+	coordinate = 'BC-' + a + b + c  ;
 }
 
 //rose curve
@@ -377,7 +403,7 @@ void drawRoseCurve(){
 	strokeWeight(strWeight);
 
 	noFill();
-
+	int rsI = floor(random(2, 10));
 	float i = 0;
 	// for drawing every dot
 	while(i<100){
@@ -390,6 +416,11 @@ void drawRoseCurve(){
 		
 		i = i + 0.01;
 	}
+	char a = char(k);
+	char b = char(strWeight);
+	char c = char(rsI);
+	
+	coordinate = 'RC-' + a + b + c ;
 }
 
 void drawRotLines(){
@@ -422,6 +453,11 @@ void drawRotLines(){
 		theta += TWO_PI/frames;
 		i = i + 0.01;
 	}
+	char a = char(num);
+	char b = char(strWeight);
+	char c = char(c);
+
+	coordinate = 'RO-' + a + b + c ;
 }
 
 // Lissajous curve describes complex harmonic motion
@@ -463,8 +499,11 @@ void drawLisCurve(){
 		counter++;
 		i = i + 0.1;
 	}
+	char a = char(a);
+	char b = char(strWeight);
+	char c = char(b);
 
-
+	coordinate = 'LC-' + a + b + c ;
 }
 
 // DeJong strange attractor

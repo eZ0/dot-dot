@@ -24,6 +24,7 @@
 				if(!bound) setTimeout(bindJavascript, 250);
 			}
 			bindJavascript();
+			
 			function setOption(id) {
 				var canvas = document.getElementById(id);
 				var context = canvas.getContext('2d');

@@ -311,7 +311,8 @@ function checkIfRegistered() {
 			// var baseUrl = "http://localhost:8888/dot-dot/";
 			var baseUrl = "http://dotdot.be/";
 			var newHref = baseUrl + data;
-			var url = "//www.pinterest.com/pin/create/link/?url="+ baseUrl +"index.php&media="+newHref;
+			var description = '&description=DOT:DOT is a random unique tattoo generator. Generate your own tattoo at dotdot.be'
+			var url = "//www.pinterest.com/pin/create/link/?url="+ baseUrl +"index.php&media="+newHref+description;
 			$("#_pinBtn").prop("href", url);
 		});
 	});
